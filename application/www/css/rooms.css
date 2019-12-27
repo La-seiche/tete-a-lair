@@ -1,0 +1,48 @@
+.title-rooms,
+.title-sub-rooms {
+  text-align: center;
+}
+
+.rooms-introduction {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.rooms-main p {
+  margin: 0;
+}
+
+.rooms-presentation {
+  width: 65%;
+}
+
+.reservation-offer {
+  width: 25%;
+  text-align: center;
+  border: 4px solid rgb(235, 201, 188);
+  background-color: rgb(198, 223, 220);
+  color: black;
+}
+
+.room-presentation {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.title-room-presentation {
+  width: 100%;
+}
+
+.room-picture {
+  width: 25%;
+}
+
+.room-services {
+  width: 45%;
+}
+
+.room-prices {
+  width: 20%;
+}

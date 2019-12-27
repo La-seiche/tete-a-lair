@@ -12,7 +12,9 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
   <!-- Feuilles de styles de l'application -->
   <link rel="stylesheet" href="<?= $wwwUrl ?>/css/style.css">
-
+  <link rel="stylesheet" type="text/css" href="<?= $wwwUrl ?>/slick/slick.css"/>
+  <!-- Add the new slick-theme.css if you want the default styling -->
+  <link rel="stylesheet" type="text/css" href="<?= $wwwUrl ?>/slick/slick-theme.css"/>
   <!-- Librairie jQuery -->
   <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
 
@@ -33,9 +35,10 @@
             <div class="navButton">
               <div class="sub-nav sub-nav-chambres hide">
                 <ul class="sub-nav-list">
-                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/chambres/menu1">Sous-menu 1</a></li>
-                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/chambres/menu2">Sous-menu 2</a></li>
-                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/chambres/menu3">Sous-menu 3</a></li>
+                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/chambres/petite">Petite Champagne</a></li>
+                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/chambres/grande">Grande Champagne</a></li>
+                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/chambres/borderie">La Borderie</a></li>
+                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/chambres/finsbois">Les Fins Bois</a></li>
                 </ul>
               </div>
             </div>
@@ -60,9 +63,11 @@
             <div class="navButton">
               <div class="sub-nav sub-nav-profil hide">
                 <ul class="sub-nav-list">
-                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/profil/menu1">Sous-menu 1</a></li>
-                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/profil/menu2">Sous-menu 2</a></li>
-                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/profil/menu3">Sous-menu 3</a></li>
+                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/profil/register">S'enregistrer</a></li>
+                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/profil/login">Se connecter</a></li>
+                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/profil/logout">Se déconnecter</a></li>
+                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/profil/profil">Profil</a></li>
+                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/profil/admin">Admin</a></li>
                 </ul>
               </div>
             </div>
@@ -114,6 +119,7 @@
 
   <!-- Code principal JavaScript de l'application -->
   <script src="<?= $wwwUrl ?>/js/main.js"></script>
-
+  <script type="text/javascript" src="<?= $wwwUrl ?>slick/slick.min.js"></script>
+  <script src="<?= $wwwUrl ?>/js/slider.js"></script>
 </body>
 </html>
