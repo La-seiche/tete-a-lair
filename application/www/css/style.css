@@ -1,0 +1,144 @@
+/* *****************************************
+************Eléments Généraux************
+***************************************** */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+  background-image: url(../images/background/maison.jpg);
+  background-size: cover;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  max-width: 1200px;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.title {
+  text-transform: uppercase;
+}
+
+.hide {
+  display: none;
+}
+
+/* *****************************************
+************HEADER************
+***************************************** */
+
+.header {
+  position: sticky;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 30px;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-bar {
+  width: 60%;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.nav-list li {
+  position: relative;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.sub-nav{
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 125px;
+  position: absolute;
+  top: 100%;
+  text-align: left;
+}
+
+.sub-nav-list {
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+}
+
+.sub-nav-item{
+  padding-left: 10px;
+  transition: all 300ms;
+}
+
+/* *****************************************
+************FOOTER************
+***************************************** */
+
+.footer {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+.footer p {
+  margin: 0
+}
+
+.footer-informations {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.contact {
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.contact-title {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+}
+
+.nav-footer {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 10px;
+}
+
+.nav-list-footer {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  font-size: 13px;
+  margin-bottom: 0;
+}
+
+.nav-list-footer li+li {
+  margin-left: 10px;
+}
+
+.nav-list-footer a {
+  text-decoration: none;
+  color: #fff;
+}

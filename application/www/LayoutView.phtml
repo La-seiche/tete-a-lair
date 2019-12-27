@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Tête à l'air - Maison d'hôtes - Montils</title>
+  <link rel="stylesheet" href="<?= $wwwUrl ?>/css/normalize-3.0.3.min.css">
+  <link rel="stylesheet" href="<?= $wwwUrl ?>/css/all.min.css">
+  <link rel="stylesheet" href="<?= $wwwUrl ?>/css/font-awesome-4.3.0.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <!-- Feuilles de styles de l'application -->
+  <link rel="stylesheet" href="<?= $wwwUrl ?>/css/style.css">
+
+  <!-- Librairie jQuery -->
+  <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+
+  <!-- JavaScript de l'application -->
+  <script src="<?= $wwwUrl ?>/js/utilities.js"></script>
+</head>
+<body>
+
+  <!-- En-tête commune -->
+  <header class="header">
+    <div class="container menu">
+      <a href="<?= $requestUrl ?>"><img src="<?= $wwwUrl ?>/images/logo/logo.png" class="logo" alt="logo maison d'hôtes - Tête à l'air"></a>
+      <nav class="nav-bar">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="<?= $requestUrl ?>">Acceuil</a></li>
+          <li class="nav-item" data-name="chambres">
+            <a href="<?= $requestUrl ?>/chambres">Chambres et tarifs</a>
+            <div class="navButton">
+              <div class="sub-nav sub-nav-chambres hide">
+                <ul class="sub-nav-list">
+                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/chambres/menu1">Sous-menu 1</a></li>
+                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/chambres/menu2">Sous-menu 2</a></li>
+                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/chambres/menu3">Sous-menu 3</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item" data-name="prestations">
+            <a href="<?= $requestUrl ?>/prestations">Prestations</a>
+            <div class="navButton">
+              <div class="sub-nav sub-nav-prestations hide">
+                <ul class="sub-nav-list">
+                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/prestations/menu1">Sous-menu 1</a></li>
+                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/prestations/menu2">Sous-menu 2</a></li>
+                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/prestations/menu3">Sous-menu 3</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item"><a href="<?= $requestUrl ?>/activités">Activités autour</a></li>
+          <li class="nav-item"><a href="<?= $requestUrl ?>/livre">Livre d'or</a></li>
+          <li class="nav-item"><a href="<?= $requestUrl ?>/contacts">Contacts</a></li>
+          <li class="nav-item" data-name="profil">
+            <a href="<?= $requestUrl ?>/profil"><i class="fas fa-user"></i></a>
+            <div class="navButton">
+              <div class="sub-nav sub-nav-profil hide">
+                <ul class="sub-nav-list">
+                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/profil/menu1">Sous-menu 1</a></li>
+                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/profil/menu2">Sous-menu 2</a></li>
+                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/profil/menu3">Sous-menu 3</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    </div>
+  </header>
+  <main class="container">
+    <!-- Affichage du template lié à la vue -->
+    <?php include $this->viewData['template']; ?>
+  </main>
+  <!-- Pied de page commun -->
+  <footer class="footer">
+    <div class="container footer-informations">
+      <a href="<?= $requestUrl ?>"><img src="<?= $wwwUrl ?>/images/logo/logo.png" class="logo" alt="logo maison d'hôtes - Tête à l'air"></a>
+      <div class="contact">
+        <h2 class="title contact-title">Nous contacter : </h3>
+          <div class="contact-adress">
+            <h3 class="title"><i class="fas fa-map-marker-alt"></i> Notre adresse :</h3>
+            <p>Camille et Lucille Baret</p>
+            <p>1 petit chemin des écoles</p>
+            <p>17800 Montils</p>
+          </div>
+          <div class="contact-phone">
+            <h3 class="title"><i class="fas fa-mobile-alt"></i> Notre téléphone :</h3>
+            <p>05.46.98.17.12</p>
+            <p>06.24.92.52.51</p>
+          </div>
+          <div class="contact-mail">
+            <h3 class="title"><i class="fas fa-at"></i> Notre email :</h3>
+            <p>camille.baret@hotmail.com</p>
+          </div>
+        </div>
+    </div>
+</footer>
+<nav class="nav-footer">
+  <ul class="nav-list-footer">
+    <li><a href="<?= $requestUrl ?>">Acceuil</a></li>
+    <li><a href="<?= $requestUrl ?>/chambres">Chambres et tarifs</a></li>
+    <li><a href="<?= $requestUrl ?>/prestations">Prestations</a></li>
+    <li><a href="<?= $requestUrl ?>/activités">Activités autour</a></li>
+    <li><a href="<?= $requestUrl ?>/livre">Livre d'or</a></li>
+    <li><a href="<?= $requestUrl ?>/contacts">Contacts</a></li>
+    <li><a href="<?= $requestUrl ?>/profil"><i class="fas fa-user"></i></a></li>
+  </ul>
+</nav>
+
+  <!-- Code principal JavaScript de l'application -->
+  <script src="<?= $wwwUrl ?>/js/main.js"></script>
+
+</body>
+</html>
