@@ -30,15 +30,15 @@
       <nav class="nav-bar">
         <ul class="nav-list">
           <li class="nav-item"><a href="<?= $requestUrl ?>">Acceuil</a></li>
-          <li class="nav-item" data-name="chambres">
-            <a href="<?= $requestUrl ?>/chambres">Chambres et tarifs</a>
+          <li class="nav-item" data-name="rooms">
+            <a href="<?= $requestUrl ?>/rooms">Chambres et tarifs</a>
             <div class="navButton">
-              <div class="sub-nav sub-nav-chambres hide">
+              <div class="sub-nav sub-nav-rooms hide">
                 <ul class="sub-nav-list">
-                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/chambres/petite">Petite Champagne</a></li>
-                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/chambres/grande">Grande Champagne</a></li>
-                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/chambres/borderie">La Borderie</a></li>
-                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/chambres/finsbois">Les Fins Bois</a></li>
+                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/rooms/petite">Petite Champagne</a></li>
+                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/rooms/grande">Grande Champagne</a></li>
+                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/rooms/borderie">La Borderie</a></li>
+                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/rooms/finsbois">Les Fins Bois</a></li>
                 </ul>
               </div>
             </div>
@@ -59,15 +59,21 @@
           <li class="nav-item"><a href="<?= $requestUrl ?>/livre">Livre d'or</a></li>
           <li class="nav-item"><a href="<?= $requestUrl ?>/contacts">Contacts</a></li>
           <li class="nav-item" data-name="profil">
-            <a href="<?= $requestUrl ?>/profil"><i class="fas fa-user"></i></a>
+            <i class="fas fa-user"></i>
             <div class="navButton">
               <div class="sub-nav sub-nav-profil hide">
                 <ul class="sub-nav-list">
-                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/profil/register">S'enregistrer</a></li>
-                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/profil/login">Se connecter</a></li>
-                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/profil/logout">Se déconnecter</a></li>
-                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/profil/profil">Profil</a></li>
-                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/profil/admin">Admin</a></li>
+                  <?php if (array_key_exists("user", $_SESSION)) { ?>
+                    <?php if ($_SESSION["user"]["role"] === "user") { ?>
+                      <li class="sub-nav-item"><a href="<?= $requestUrl ?>/user/profil">Mon Profil</a></li>
+                    <?php } else if ($_SESSION["user"]["role"] === "admin") { ?>
+                      <li class="sub-nav-item"><a href="<?= $requestUrl ?>/user/admin">Admin</a></li>
+                    <?php } ?>
+                    <li class="sub-nav-item"><a href="<?= $requestUrl ?>/user/logout">Déconnexion</a></li>
+                  <?php } else { ?>
+                    <li class="sub-nav-item"><a href="<?= $requestUrl ?>/user/login">Connexion</a></li>
+                    <li class="sub-nav-item"><a href="<?= $requestUrl ?>/user/register">S'enregistrer</a></li>
+                  <?php } ?>
                 </ul>
               </div>
             </div>
@@ -84,7 +90,7 @@
   <!-- Pied de page commun -->
   <footer class="footer">
     <div class="container footer-informations">
-      <a href="<?= $requestUrl ?>"><img src="<?= $wwwUrl ?>/images/logo/logo.png" class="logo" alt="logo maison d'hôtes - Tête à l'air"></a>
+      <a href="<?= $requestUrl ?>"><img src="<?= $wwwUrl ?>/images/logo/logo.png" class="nav-logo" alt="logo maison d'hôtes - Tête à l'air"></a>
       <div class="contact">
         <h2 class="title contact-title">Nous contacter : </h3>
           <div class="contact-adress">
@@ -108,12 +114,11 @@
 <nav class="nav-footer">
   <ul class="nav-list-footer">
     <li><a href="<?= $requestUrl ?>">Acceuil</a></li>
-    <li><a href="<?= $requestUrl ?>/chambres">Chambres et tarifs</a></li>
+    <li><a href="<?= $requestUrl ?>/rooms">Chambres et tarifs</a></li>
     <li><a href="<?= $requestUrl ?>/prestations">Prestations</a></li>
     <li><a href="<?= $requestUrl ?>/activités">Activités autour</a></li>
     <li><a href="<?= $requestUrl ?>/livre">Livre d'or</a></li>
     <li><a href="<?= $requestUrl ?>/contacts">Contacts</a></li>
-    <li><a href="<?= $requestUrl ?>/profil"><i class="fas fa-user"></i></a></li>
   </ul>
 </nav>
 

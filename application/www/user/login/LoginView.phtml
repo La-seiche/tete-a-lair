@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/profil.css">
+
+<section>
+  <h1 class="title title-main">Se Connecter</h1>
+  <?php if ($error != null) { ?>
+    <p class="error"><?= $error ?></p>
+  <?php } ?>
+  <form class="profil-form" action="<?= $requestUrl ?>/user/login" method="post">
+    <input class="profil-input" type="text" name="email" placeholder="Email">
+    <input class="profil-input" type="password" name="password" placeholder="Mot de passe">
+    <input class="cta-form" type="submit" value="Se connecter" />
+  </form>
+</section>

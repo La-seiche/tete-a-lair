@@ -1,0 +1,47 @@
+/* Formulaire de profil */
+
+.profil-form {
+	text-align: center;
+	width: 50%;
+	margin: auto;
+	border: 4px solid var(--pink-logo);
+	border-radius: 12px;
+	padding: 10px 2% 20px 2%;
+}
+
+.profil-input {
+	display: block;
+	width: 87%;
+	margin: auto;
+	margin-top: 10px;
+	height: 32px;
+  border-radius: 12px;
+  border: 2px solid var(--pink-logo);
+  background-color: var(--blue-logo);
+  color: black;
+  padding-left: 3%;
+  outline: none;
+}
+
+.cta-form {
+  border: 4px solid var(--blue-logo);
+  padding: 10px;
+  transition: all 0.3s ease-in-out;
+  background: linear-gradient(var(--blue-logo), var(--blue-logo)) no-repeat;
+  background-size: 0 100%;
+  background-position: left center;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+.cta-form:hover{
+  background-size: 100% 100%;
+  color: black;
+  border: 4px solid var(--pink-logo);
+}
+
+.error {
+  text-align: center;
+  color: var(--pink-logo);
+  font-size: 20px;
+}

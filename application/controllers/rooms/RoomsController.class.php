@@ -1,10 +1,10 @@
 <?php
 
-class ChambresController
+class RoomsController
 {
     public function httpGetMethod(Http $http, array $queryFields)
     {
-
+      
 
     }
 

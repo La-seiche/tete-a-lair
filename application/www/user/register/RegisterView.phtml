@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/profil.css">
+
+<section>
+  <h1 class="title title-main">S'enregistrer</h1>
+  <?php if ($error != null) { ?>
+    <p class="error"><?= $error ?></p>
+  <?php } ?>
+  <form class="profil-form" action="<?= $requestUrl ?>/user/register" method="post">
+    <input class="profil-input" type="text" name="firstName" placeholder="Prénom" />
+    <input class="profil-input" type="text" name="lastName" placeholder="Nom" />
+    <input class="profil-input" type="text" name="adress" placeholder="Adresse" />
+    <input class="profil-input" type="text" name="zip" placeholder="Code postal" />
+    <input class="profil-input" type="text" name="city" placeholder="Ville" />
+    <input class="profil-input" type="text" name="country" placeholder="Pays" />
+    <input class="profil-input" type="email" name="email" placeholder="Email" />
+    <input class="profil-input" type="tel" name="phoneNumber" placeholder="Numéro de téléphone" />
+    <input class="profil-input" type="password" name="password" placeholder="Mot de passe" />
+    <input class="cta-form" type="submit" value="Enregistrer" />
+  </form>
+</section>
