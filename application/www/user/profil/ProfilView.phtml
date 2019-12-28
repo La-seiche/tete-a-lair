@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/profil.css">
+
+<section>
+  <h1 class="title title-main"><?= $_SESSION['user']['firstName'] ?> <?= $_SESSION['user']['lastName'] ?></h1>
+  <form class="profil-form" action="<?= $requestUrl ?>/user/profil" method="post">
+    <input class="profil-input" type="text" name="firstName" value="<?= $_SESSION['user']['firstName'] ?>" />
+    <input class="profil-input" type="text" name="lastName" value="<?= $_SESSION['user']['lastName'] ?>" />
+    <input class="profil-input" type="text" name="address" value="<?= $_SESSION['user']['address'] ?>" />
+    <input class="profil-input" type="text" name="zip" value="<?= $_SESSION['user']['zip'] ?>" />
+    <input class="profil-input" type="text" name="city" value="<?= $_SESSION['user']['city'] ?>" />
+    <input class="profil-input" type="text" name="country" value="<?= $_SESSION['user']['country'] ?>" />
+    <input class="profil-input" type="email" name="email" value="<?= $_SESSION['user']['email'] ?>" />
+    <input class="profil-input" type="tel" name="phoneNumber" value="<?= $_SESSION['user']['phoneNumber'] ?>" />
+    <input class="cta-form" type="submit" value="Modifier" />
+  </form>
+</section>

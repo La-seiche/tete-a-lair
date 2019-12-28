@@ -2,7 +2,7 @@
 
 class UserModel {
 
-  public function registerNewClient($_post) {
+  public function registerNewCustomer($_post) {
     $database = new Database();
     $http = new HTTP();
 
@@ -19,7 +19,7 @@ class UserModel {
         $_post["lastName"],
         $_post["email"],
         $hashPassword,
-        $_post["adress"],
+        $_post["address"],
         $_post["city"],
         $_post["zip"],
         $_post["country"],
@@ -74,6 +74,32 @@ private function verifyPassword($password, $hashedPassword)
   {
     return crypt($password, $hashedPassword) == $hashedPassword;
   }
+
+public function updateCustomer($_post, $_session) {
+  $database = new Database();
+  // $http = new HTTP();
+
+  $database->executeSql("UPDATE customers SET FirstName = ?, LastName = ?, Address = ?, Zip = ?, City = ?, Country = ?, Email = ?, PhoneNumber = ? WHERE CustomerId = ?", [
+    $_post["firstName"],
+    $_post["lastName"],
+    $_post["address"],
+    $_post["zip"],
+    $_post["city"],
+    $_post["country"],
+    $_post["email"],
+    $_post["phoneNumber"],
+    $_session["user"]["id"]
+  ]);
+  $_SESSION['user']['firstName'] = $_post["firstName"];
+  $_SESSION['user']['lastName'] = $_post["lastName"];
+  $_SESSION['user']['address'] = $_post["address"];
+  $_SESSION['user']['zip'] = $_post["zip"];
+  $_SESSION['user']['city'] = $_post["city"];
+  $_SESSION['user']['country'] = $_post["country"];
+  $_SESSION['user']['email'] = $_post["email"];
+  $_SESSION['user']['phoneNumber'] = $_post["phoneNumber"];
+}
+
 }
 
 ?>

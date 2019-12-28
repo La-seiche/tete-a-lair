@@ -1,12 +1,10 @@
 <?php
 
-class RegisterController
+class ProfilController
 {
     public function httpGetMethod(Http $http, array $queryFields)
     {
 
-      $error = null;
-      return ["error"=>$error];
 
     }
 
@@ -14,10 +12,9 @@ class RegisterController
     {
 
       // var_dump($_POST);
+      // var_dump($_SESSION);
       $userModel = new UserModel();
-      $error = null;
-      $error = $userModel->registerNewCustomer($_POST);
-      return ["error"=>$error];
+      $userModel->updateCustomer($_POST, $_SESSION);
 
     }
 }
