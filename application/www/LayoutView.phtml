@@ -35,10 +35,10 @@
             <div class="navButton">
               <div class="sub-nav sub-nav-rooms hide">
                 <ul class="sub-nav-list">
-                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/rooms/petite">Petite Champagne</a></li>
-                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/rooms/grande">Grande Champagne</a></li>
-                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/rooms/borderie">La Borderie</a></li>
-                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/rooms/finsbois">Les Fins Bois</a></li>
+                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/rooms/room?RoomId=1">Petite Champagne</a></li>
+                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/rooms/room?RoomId=2">Grande Champagne</a></li>
+                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/rooms/room?RoomId=3">La Borderie</a></li>
+                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/rooms/room?RoomId=4">Les Fins Bois</a></li>
                 </ul>
               </div>
             </div>
@@ -123,6 +123,8 @@
 </nav>
 
   <!-- Code principal JavaScript de l'application -->
+  <script src="<?= $wwwUrl ?>/js/slider.js"></script>
+  <script type="text/javascript" src="<?= $wwwUrl ?>/slick/slick.min.js"></script>
   <script src="<?= $wwwUrl ?>/js/main.js"></script>
 </body>
 </html>

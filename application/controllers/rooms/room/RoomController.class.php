@@ -1,10 +1,14 @@
 <?php
 
-class PetiteController
+class RoomController
 {
     public function httpGetMethod(Http $http, array $queryFields)
     {
 
+      $roomModel = new RoomModel();
+      $room = $roomModel->getOneRoomPresentation($_GET);
+      // var_dump($room);
+      return ["room"=>$room];
 
     }
 

@@ -1,0 +1,37 @@
+<section>
+  <h1 class="title title-main"><?= $room["RoomName"] ?></h1>
+  <h2 class="title title-main">Chambre pour <?= $room["NumberOfPersonn"] ?></h2>
+  <div class="slider">
+    <?php for ($i = 1; $i <= 10; $i++) {
+      if (strlen($room["Photo".$i]) != 0 ) {?>
+        <img src="<?= $wwwUrl ?>/images/rooms<?= $room['Photo'.$i] ?>" alt="Photo de la chambre <?= $room['RoomName'] ?><?= $i ?>">
+    <?php } } ?>
+  </div>
+  <h3 class="title">Description de la Chambre</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <h3 class="title">Services offerts</h2>
+  <ul>
+    <?php if ($room["PlusBed"]) { ?>
+      <li>Possibilité de mettre un lit supplémentaire (supplément 15 euros)</li>
+    <?php } ?>
+    <li>Entrée privative</li>
+    <li>Chambre avec un lit <?= $room["Bed"] ?></li>
+    <?php if ($room["SeperateWC"]) { ?>
+      <li>Salle de douche et WC privatifs mais WC séparés</li>
+    <?php } else { ?>
+      <li>Salle de douche et WC privatifs</li>
+    <?php } ?>
+    <?php if ($room["RelaxSpace"]) { ?>
+      <li>Coin Détente</li>
+    <?php } ?>
+    <?php if ($room["WithBabyBed"]) { ?>
+      <li>Lit gigogne</li>
+    <?php } ?>
+    <?php if ($room["WithCouch"]) { ?>
+      <li>Canapé</li>
+    <?php } ?>
+    <?php if ($room["Office"]) { ?>
+      <li>Coin Bureau</li>
+    <?php } ?>
+  </ul>
+</section>

@@ -61,6 +61,8 @@ section {
   background: linear-gradient(var(--blue-logo), var(--blue-logo)) no-repeat;
   background-size: 0 100%;
   background-position: left center;
+  margin-top: auto;
+  margin-bottom: 20px;
 }
 
 .cta:hover{
@@ -76,6 +78,7 @@ section {
 .header {
   position: sticky;
   top: 0;
+  z-index: 50;
   background-color: rgba(0, 0, 0, 0.5);
   margin-bottom: 40px;
 }

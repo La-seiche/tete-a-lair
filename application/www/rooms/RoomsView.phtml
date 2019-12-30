@@ -27,85 +27,44 @@
     </aside>
   </div>
 </section>
-<section class="room-presentation">
-  <h3 class="title title-room-presentation">La petite champagne (3 personnes)</h3>
-  <img class="room-picture" src="<?= $wwwUrl ?>/images/rooms/petite-champagne/1.jpg" alt="Photos de la chambre d'hôtes Petite Champagne">
-  <article class="room-services">
-    <p>Chambre d'hôte familiale, idéale pour un couple avec 1 ou 2 enfants.</p>
-    <p>Possibilité de mettre un lit supplémentaire (supplément 15 euros)</p>
-    <ul class="room-presentation-list">
-      <li>Entrée privative</li>
-      <li>Chambre lit queen size</li>
-      <li>Salle de douche et WC privatifs</li>
-      <li>Coin détente avec lit gigogne</li>
-      <li>Espace bureau</li>
-    </ul>
-  </article>
-  <aside class="room-prices">
-    <h3>A partir de 70€</h3>
-    <p>Supplément 10 € pour 1 personne supplémentaire</p>
-    <p>Petit déjeuner INCLUS</p>
-    <a class="cta" href="<?= $requestUrl ?>/rooms/petite"><i class="fas fa-plus-circle"></i> Voir plus</a>
-  </aside>
-</section>
-<section class="room-presentation">
-  <h3 class="title title-room-presentation">La grande champagne (4 personnes)</h3>
-  <img class="room-picture" src="<?= $wwwUrl ?>/images/rooms/grande-champagne/1.jpg" alt="Photos de la chambre d'hôtes Grande Champagne">
-  <article class="room-services">
-    <p>Chambre d'hôte familiale, idéale pour 2 couples ou 1 couple avec enfants.</p>
-    <p>Possibilité de mettre un lit supplémentaire (supplément 15 euros)</p>
-    <ul class="room-presentation-list">
-      <li>Entrée privative</li>
-      <li>Chambres avec lit queen size</li>
-      <li>Salle de douche et WC privatifs</li>
-      <li>Coin détente</li>
-      <li>Espace bureau</li>
-    </ul>
-  </article>
-  <aside class="room-prices">
-    <h3>A partir de 85€</h3>
-    <p>Supplément 10 € pour 1 personne supplémentaire</p>
-    <p>Petit déjeuner INCLUS</p>
-    <a class="cta" href="<?= $requestUrl ?>/rooms/grande"><i class="fas fa-plus-circle"></i> Voir plus</a>
-  </aside>
-</section>
-<section class="room-presentation">
-  <h3 class="title title-room-presentation">La borderie (2 personnes jusqu'à 4 personnes)</h3>
-  <img class="room-picture" src="<?= $wwwUrl ?>/images/rooms/borderie/1.jpg" alt="Photos de la chambre d'hôtes borderie">
-  <article class="room-services">
-    <p>Chambre d'hôte, idéal pour un couple.... salle de bain ouverte.</p>
-    <ul class="room-presentation-list">
-      <li>Entrée privative</li>
-      <li>Chambre avec lit king size (180 x 200 cm)</li>
-      <li>WC privatifs et séparés</li>
-      <li>Espace détente avec canapé</li>
-    </ul>
-  </article>
-  <aside class="room-prices">
-    <h3>A partir de 60€</h3>
-    <p>Supplément 10 € pour 1 personne supplémentaire</p>
-    <p>Petit déjeuner INCLUS</p>
-    <a class="cta" href="<?= $requestUrl ?>/rooms/borderie"><i class="fas fa-plus-circle"></i> Voir plus</a>
-  </aside>
-</section>
-<section class="room-presentation">
-  <h3 class="title title-room-presentation">Les fins bois (2 personnes)</h3>
-  <img class="room-picture" src="<?= $wwwUrl ?>/images/rooms/fin-bois/1.jpg" alt="Photos de la chambre d'hôtes fins bois">
-  <article class="room-services">
-    <p>Chambre d'hôte, idéal pour un couple.... </p>
-    <ul class="room-presentation-list">
-      <li>Entrée privative</li>
-      <li>Chambre avec lit queen size</li>
-      <li>Salle de douche et WC privatifs</li>
-      <li>Espace bureau</li>
-    </ul>
-  </article>
-  <aside class="">
-    <h3>A partir de 55€</h3>
-    <p>Petit déjeuner INCLUS</p>
-    <a class="cta" href="<?= $requestUrl ?>/rooms/finsbois"><i class="fas fa-plus-circle"></i> Voir plus</a>
-  </aside>
-</section>
-
-<script type="text/javascript" src="<?= $wwwUrl ?>slick/slick.min.js"></script>
-<script src="<?= $wwwUrl ?>/js/slider.js"></script>
+<?php foreach ($rooms as $room) { ?>
+  <section class="room-presentation">
+    <h3 class="title title-room-presentation"><?= $room["RoomName"] ?> (<?= $room["NumberOfPersonn"] ?>)</h3>
+    <p><?= $room["Description"] ?></p>
+    <?php if ($room["PlusBed"]) { ?>
+      <p>Possibilité de mettre un lit supplémentaire (supplément 15 euros)</p>
+    <?php } ?>
+    <img class="room-picture" src="<?= $wwwUrl ?>/images/rooms<?= $room["PhotoMiniature"] ?>" alt="Photos de la chambre d'hôtes <?= $room["RoomName"] ?>">
+    <article class="room-services">
+      <ul class="room-presentation-list">
+        <li>Entrée privative</li>
+        <li>Chambre avec un lit <?= $room["Bed"] ?></li>
+        <?php if ($room["SeperateWC"]) { ?>
+          <li>Salle de douche et WC privatifs mais WC séparés</li>
+        <?php } else { ?>
+          <li>Salle de douche et WC privatifs</li>
+        <?php } ?>
+        <?php if ($room["RelaxSpace"]) { ?>
+          <li>Coin Détente</li>
+        <?php } ?>
+        <?php if ($room["WithBabyBed"]) { ?>
+          <li>Lit gigogne</li>
+        <?php } ?>
+        <?php if ($room["WithCouch"]) { ?>
+          <li>Canapé</li>
+        <?php } ?>
+        <?php if ($room["Office"]) { ?>
+          <li>Coin Bureau</li>
+        <?php } ?>
+      </ul>
+    </article>
+    <aside class="room-prices">
+      <h3>A partir de <?= $room["LowSeasonPriceDay"] ?>€</h3>
+      <?php if ($room["PlusPersonn"]) { ?>
+        <p>Supplément 10 € pour 1 personne supplémentaire</p>
+      <?php } ?>
+      <p>Petit déjeuner INCLUS</p>
+      <a class="cta" href="<?= $requestUrl ?>/rooms/room?RoomId=<?= $room["RoomId"] ?>"><i class="fas fa-plus-circle"></i> Voir plus</a>
+    </aside>
+  </section>
+<?php } ?>
