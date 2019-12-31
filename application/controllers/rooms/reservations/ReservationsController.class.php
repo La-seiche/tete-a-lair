@@ -1,12 +1,12 @@
 <?php
 
-class RoomController
+class ReservationsController
 {
     public function httpGetMethod(Http $http, array $queryFields)
     {
 
       $roomModel = new RoomModel();
-      $room = $roomModel->getOneRoomFullPresentation($_GET);
+      $room = $roomModel->getOneRoomPresentation($_GET);
       // var_dump($room);
       return ["room"=>$room];
 

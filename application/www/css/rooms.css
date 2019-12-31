@@ -20,8 +20,8 @@
 .reservation-offer {
   width: 25%;
   text-align: center;
-  border: 4px solid rgb(235, 201, 188);
-  background-color: rgb(198, 223, 220);
+  border: 4px solid var(--pink-logo);
+  background-color: var(--blue-logo);
   color: black;
 }
 
@@ -29,20 +29,34 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
 }
 
 .title-room-presentation {
   width: 100%;
 }
 
-.room-presentation p {
+.room-introduction {
+  width: 65%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.room-introduction p {
   width: 100%;
 }
 
-.room-services {
-  width: 45%;
+.cta-rooms {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.room-prices {
-  width: 20%;
+.hasDatepicker {
+  color: black;
+}
+
+#ui-datepicker-div {
+  border: 5px solid var(--pink-logo);
+  background-color: var(--blue-logo);
 }

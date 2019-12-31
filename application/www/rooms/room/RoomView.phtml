@@ -3,7 +3,7 @@
   <h2 class="title title-main">Chambre pour <?= $room["NumberOfPersonn"] ?></h2>
   <div class="slider">
     <?php for ($i = 1; $i <= 10; $i++) {
-      if (strlen($room["Photo".$i]) != 0 ) {?>
+      if (strlen($room["Photo".$i]) != 0 ) { ?>
         <img src="<?= $wwwUrl ?>/images/rooms<?= $room['Photo'.$i] ?>" alt="Photo de la chambre <?= $room['RoomName'] ?><?= $i ?>">
     <?php } } ?>
   </div>
@@ -34,4 +34,5 @@
       <li>Coin Bureau</li>
     <?php } ?>
   </ul>
+  <a class="cta" href="<?= $requestUrl ?>/rooms/reservations?RoomId=<?= $_GET["RoomId"] ?>"><i class="fas fa-calendar-alt"></i></i> Réservez Maintenant</a>
 </section>
