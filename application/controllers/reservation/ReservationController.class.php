@@ -13,7 +13,13 @@ class ReservationController
     {
 
       var_dump($_POST);
-
+      $date = new DateTime();
+      $dateToday = $date->format('d-m-Y');
+      var_dump ($dateToday);
+      $dateArrival = $_POST["datePickerArrival"];
+      $dateDeparture = $_POST["datePickerDeparture"];
+      var_dump($dateArrival);
+      var_dump($dateDeparture);
     }
 }
 

@@ -49,10 +49,11 @@
   <form class="" action="<?= $requestUrl ?>/reservation" method="post">
     <h2>Réservez une chambre</h2>
     <label for="arrivalDate">Date d'arrivée</label>
-    <input type="text" id="datePickerArrival" name="datePickerDeparture">
+    <input type="text" id="datePickerArrival" name="datePickerArrival">
     <label for="departureDate">Date de départ</label>
     <input type="text" id="datePickerDeparture" name="datePickerDeparture">
-    <input type="submit" value="Réservez" />
+    <input type="hidden" name="roomId" value="<?= $_GET["RoomId"] ?>">
+    <input type="submit" id="bookingCta" value="Réservez" />
   </form>
 </section>
 
