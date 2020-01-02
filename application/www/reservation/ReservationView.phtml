@@ -34,9 +34,9 @@
   </article>
   <aside class="room-prices">
     <?php if ($error === null) { ?>
-      <h3 class="title">Réservation du <?= $reservationDetails[0] ?> au <?= $reservationDetails[1] ?></h3>
-      <h4 class="title"><?= $reservationDetails[2]["days"] +  $reservationDetails[2]["weeks"] * 7 ?> jours</h4>
-      <p>Total TTC : <strong><?= $reservationDetails[5] ?> €</p>
+      <h3 class="title">Réservation du <?= $reservationDetails[5] ?> au <?= $reservationDetails[6] ?></h3>
+      <h4 class="title"><?= $reservationDetails[0]["days"] +  $reservationDetails[0]["weeks"] * 7 ?> jours</h4>
+      <p>Total TTC : <strong><?= $reservationDetails[4] ?> €</p>
       <a class="cta" href="<?= $requestUrl ?>/reservation/charge">Payez !</a>
     <?php } else { ?>
       <p><strong><?= $error ?></strong></p>
@@ -62,21 +62,21 @@
           <td></td>
           <td colspan="2">Montant TTC</td>
           <td></td>
-          <td><?= $reservationDetails[6] ?> €</td>
+          <td><?= $reservationDetails[4] ?> €</td>
         </tr>
       </tfoot>
       <tbody>
         <tr>
           <td><?= $room["RoomName"] ?></td>
-          <td><?= $reservationDetails[2]["days"] +  $reservationDetails[2]["weeks"] * 7 ?></td>
-          <td><?= round($reservationDetails[6] / ($reservationDetails[2]["days"] +  $reservationDetails[2]["weeks"] * 7 ), 2)?> €</td>
-          <td><?= $reservationDetails[3] ?> €</td>
+          <td><?= $reservationDetails[0]["days"] +  $reservationDetails[0]["weeks"] * 7 ?></td>
+          <td><?= round($reservationDetails[4] / ($reservationDetails[0]["days"] +  $reservationDetails[0]["weeks"] * 7 ), 2)?> €</td>
+          <td><?= $reservationDetails[1] ?> €</td>
         </tr>
         <tr>
           <td></td>
-          <td colspan="2">Montant de la TVA (<?= $reservationDetails[4] ?>%)</td>
+          <td colspan="2">Montant de la TVA (<?= $reservationDetails[2] ?>%)</td>
           <td></td>
-          <td><?= $reservationDetails[5] ?> €</td>
+          <td><?= $reservationDetails[3] ?> €</td>
         </tr>
       </tbody>
     </table>

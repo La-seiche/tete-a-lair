@@ -40,6 +40,29 @@ class ReservationModel {
     return $total;
   }
 
+  public function bookARoom($dateBeginning, $dateEnd) {
+    $seasonModel = new SeasonModel();
+    $roomModel = new RoomModel();
+
+    $dateFirstDay = $this->getDateFromEpoch($dateBeginning);
+    $dateLastDay = $this->getDateFromEpoch($dateEnd);
+    $duration = $this->getReservationDuration($dateFirstDay, $dateLastDay);
+    // var_dump($duration);
+    $season = $seasonModel->getSeason($dateBeginning, $dateEnd);
+    // var_dump($season);
+    $seasonPrice = $roomModel->getSeasonPrice($season, $_POST);
+    // var_dump($seasonPrice);
+    $reservationPrice = $this->getReservationPrice($duration, $season, $seasonPrice);
+    // var_dump($reservationPrice);
+
+    $TVA = 20;
+    $montantTVA = $reservationPrice * $TVA / 100;
+    $totalTTC = $reservationPrice + $montantTVA;
+
+    $reservationDetails = [$duration,$reservationPrice, $TVA, $montantTVA, $totalTTC];
+    return $reservationDetails;
+  }
+
 }
 
  ?>

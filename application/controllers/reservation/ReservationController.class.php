@@ -12,8 +12,9 @@ class ReservationController
   public function httpPostMethod(Http $http, array $formFields)
   {
     $reservationModel = new ReservationModel();
-    $seasonModel = new SeasonModel();
     $roomModel = new RoomModel();
+    // $seasonModel = new SeasonModel();
+    // $roomModel = new RoomModel();
 
     $error = null;
 
@@ -36,32 +37,19 @@ class ReservationController
     // var_dump($reservation);
 
     if (empty($reservation)) {
-      // var_dump("Chambre dispo");
-      $dateFirstDay = $reservationModel->getDateFromEpoch($dateBeginning);
-      $dateLastDay = $reservationModel->getDateFromEpoch($dateEnd);
-      $duration = $reservationModel->getReservationDuration($dateFirstDay, $dateLastDay);
-      // var_dump($duration);
-      $season = $seasonModel->getSeason($dateBeginning, $dateEnd);
-      // var_dump($season);
-      $seasonPrice = $roomModel->getSeasonPrice($season, $_POST);
-      // var_dump($seasonPrice);
-      $reservationPrice = $reservationModel->getReservationPrice($duration, $season, $seasonPrice);
-      // var_dump($reservationPrice);
+      // var_dump("Chambre dispo");;
 
-      $TVA = 20;
-      $montantTVA = $reservationPrice * $TVA / 100;
-      $totalTTC = $reservationPrice + $montantTVA;
-
-      $reservationDetails = [$dateArrival, $dateDeparture, $duration,$reservationPrice, $TVA, $montantTVA, $totalTTC];
+      $reservationDetails = $reservationModel->bookARoom($dateBeginning, $dateEnd);
+      array_push($reservationDetails, $dateArrival);
+      array_push($reservationDetails, $dateDeparture);
       // var_dump($reservationDetails);
-
     }
     else {
       $error = "Désolé cette chambre n'est pas disponible à cette période !";
       $reservationDetails = null;
       // var_dump($error);
     }
-    return ["room"=>$room, "reservationDetails"=>$reservationDetails, "error"=>$error];
+    return ["room"=>$room, "error"=>$error, "reservationDetails"=>$reservationDetails];
   }
 }
 
