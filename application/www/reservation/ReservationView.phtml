@@ -1,0 +1,88 @@
+<link rel="stylesheet" type="text/css" href="<?= $wwwUrl ?>/css/rooms.css">
+
+<section class="room-presentation">
+  <h2 class="title title-room-presentation"><?= $room["RoomName"] ?> (<?= $room["NumberOfPersonn"] ?>)</h3>
+  <article class="room-introduction">
+    <p><?= $room["Description"] ?></p>
+    <?php if ($room["PlusBed"]) { ?>
+      <p>Possibilité de mettre un lit supplémentaire (supplément 15 euros)</p>
+    <?php } ?>
+    <img class="room-picture" src="<?= $wwwUrl ?>/images/rooms<?= $room["PhotoMiniature"] ?>" alt="Photos de la chambre d'hôtes <?= $room["RoomName"] ?>">
+    <article class="room-services">
+      <ul class="room-presentation-list">
+        <li>Entrée privative</li>
+        <li>Chambre avec un lit <?= $room["Bed"] ?></li>
+        <?php if ($room["SeperateWC"]) { ?>
+          <li>Salle de douche et WC privatifs mais WC séparés</li>
+        <?php } else { ?>
+          <li>Salle de douche et WC privatifs</li>
+        <?php } ?>
+        <?php if ($room["RelaxSpace"]) { ?>
+          <li>Coin Détente</li>
+        <?php } ?>
+        <?php if ($room["WithBabyBed"]) { ?>
+          <li>Lit gigogne</li>
+        <?php } ?>
+        <?php if ($room["WithCouch"]) { ?>
+          <li>Canapé</li>
+        <?php } ?>
+        <?php if ($room["Office"]) { ?>
+          <li>Coin Bureau</li>
+        <?php } ?>
+      </ul>
+    </article>
+  </article>
+  <aside class="room-prices">
+    <?php if ($error === null) { ?>
+      <h3 class="title">Réservation du <?= $reservationDetails[0] ?> au <?= $reservationDetails[1] ?></h3>
+      <h4 class="title"><?= $reservationDetails[2]["days"] +  $reservationDetails[2]["weeks"] * 7 ?> jours</h4>
+      <p>Total TTC : <strong><?= $reservationDetails[5] ?> €</p>
+      <a class="cta" href="<?= $requestUrl ?>/reservation/charge">Payez !</a>
+    <?php } else { ?>
+      <p><strong><?= $error ?></strong></p>
+      <!-- <a class="cta" href="<?= $requestUrl ?>/rooms/reservations?RoomId=<?= $_POST["roomId"] ?>">Modifier dates !</a> -->
+    <?php } ?>
+  </aside>
+</section>
+<?php if ($error === null) { ?>
+  <section>
+    <h2 class="title title-main">Détails de votre réservation</h2>
+    <table>
+      <legend>Détails</legend>
+      <thead>
+        <tr>
+          <th>Nom de la chambre</th>
+          <th>Nombre de nuits</th>
+          <th>Prix par nuit</th>
+          <th>Montant HT</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <td></td>
+          <td colspan="2">Montant TTC</td>
+          <td></td>
+          <td><?= $reservationDetails[6] ?> €</td>
+        </tr>
+      </tfoot>
+      <tbody>
+        <tr>
+          <td><?= $room["RoomName"] ?></td>
+          <td><?= $reservationDetails[2]["days"] +  $reservationDetails[2]["weeks"] * 7 ?></td>
+          <td><?= round($reservationDetails[6] / ($reservationDetails[2]["days"] +  $reservationDetails[2]["weeks"] * 7 ), 2)?> €</td>
+          <td><?= $reservationDetails[3] ?> €</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colspan="2">Montant de la TVA (<?= $reservationDetails[4] ?>%)</td>
+          <td></td>
+          <td><?= $reservationDetails[5] ?> €</td>
+        </tr>
+      </tbody>
+    </table>
+    <a class="cta" href="<?= $requestUrl ?>/reservation/charge">Payez !</a>
+  </section>
+  <section>
+    <h2 class="title title-main">Les autres chambres diponibles à ces dates</h2>
+  </section>
+<?php } ?>

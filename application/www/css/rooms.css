@@ -60,3 +60,7 @@
   border: 5px solid var(--pink-logo);
   background-color: var(--blue-logo);
 }
+
+table {
+  color: #fff;
+}

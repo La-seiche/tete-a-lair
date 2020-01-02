@@ -19,10 +19,29 @@ class RoomModel {
 
   public function getOneRoomPresentation($_get) {
     $database = new Database();
-    $sql = "SELECT RoomName, LowSeasonPriceDay, LowSeasonPriceWeek, MiddleSeasonPriceDay, MiddleSeasonPriceWeek, HighSeasonPriceDay, HighSeasonPriceWeek, NumberOfPersonn, Description, PlusBed, PlusPersonn, Bed, SeperateWC, RelaxSpace, WithBabyBed, WithCouch, Office, PhotoMiniature FROM rooms WHERE RoomId = ?";
+    $sql = "SELECT RoomName, LowSeasonPriceDay, NumberOfPersonn, Description, PlusBed, PlusPersonn, Bed, SeperateWC, RelaxSpace, WithBabyBed, WithCouch, Office, PhotoMiniature FROM rooms WHERE RoomId = ?";
     $array = [$_get["RoomId"]];
     $room = $database->queryOne($sql, $array);
     return $room;
+  }
+
+  public function getOneRoomInformations($_post) {
+    $database = new Database();
+    $sql = "SELECT RoomName, NumberOfPersonn, Description, PlusBed, PlusPersonn, Bed, SeperateWC, RelaxSpace, WithBabyBed, WithCouch, Office, PhotoMiniature FROM rooms WHERE RoomId = ?";
+    $array = [$_post["roomId"]];
+    $room = $database->queryOne($sql, $array);
+    return $room;
+  }
+
+  public function getSeasonPrice($season, $_post) {
+    $database = new Database();
+    $seasonPrice["day"] = $season.'SeasonPriceDay';
+    $seasonPrice["week"] = $season.'SeasonPriceWeek';
+    // var_dump($seasonPrice);
+    $sql = 'SELECT '.$seasonPrice["day"].', '.$seasonPrice["week"].' FROM rooms WHERE RoomId = ?';
+    $array = [$_post["roomId"]];
+    $result = $database->queryOne($sql, $array);
+    return $result;
   }
 
 }

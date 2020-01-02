@@ -14,7 +14,10 @@ class ReservationsController
 
     public function httpPostMethod(Http $http, array $formFields)
     {
-
+      $roomModel = new RoomModel();
+      $room = $roomModel->getOneRoomInformations($_POST);
+      // var_dump($room);
+      return ["room"=>$room];
 
     }
 }
