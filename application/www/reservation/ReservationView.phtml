@@ -35,7 +35,7 @@
   <aside class="room-prices">
     <?php if ($error === null) { ?>
       <h3 class="title">Réservation du <?= $reservationDetails[5] ?> au <?= $reservationDetails[6] ?></h3>
-      <h4 class="title"><?= $reservationDetails[0]["days"] +  $reservationDetails[0]["weeks"] * 7 ?> jours</h4>
+      <h4 class="title"><?= $reservationDetails[0]["days"] +  $reservationDetails[0]["weeks"] * 7 ?>  jours</h4>
       <p>Total TTC : <strong><?= $reservationDetails[4] ?> €</p>
       <a class="cta" href="<?= $requestUrl ?>/reservation/charge">Payez !</a>
     <?php } else { ?>
