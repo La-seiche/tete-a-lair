@@ -33,13 +33,13 @@ class RoomModel {
     return $room;
   }
 
-  public function getSeasonPrice($season, $_post) {
+  public function getSeasonPrice($season, $roomId) {
     $database = new Database();
     $seasonPrice["day"] = $season.'SeasonPriceDay';
     $seasonPrice["week"] = $season.'SeasonPriceWeek';
     // var_dump($seasonPrice);
     $sql = 'SELECT '.$seasonPrice["day"].', '.$seasonPrice["week"].' FROM rooms WHERE RoomId = ?';
-    $array = [$_post["roomId"]];
+    $array = [$roomId];
     $result = $database->queryOne($sql, $array);
     return $result;
   }

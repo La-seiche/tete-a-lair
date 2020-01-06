@@ -39,7 +39,7 @@ class ReservationController
     if (empty($reservation)) {
       // var_dump("Chambre dispo");;
 
-      $reservationDetails = $reservationModel->bookARoom($dateBeginning, $dateEnd);
+      $reservationDetails = $reservationModel->bookARoom($dateBeginning, $dateEnd, $_POST["roomId"]);
       array_push($reservationDetails, $dateArrival);
       array_push($reservationDetails, $dateDeparture);
       // var_dump($reservationDetails);
@@ -48,6 +48,14 @@ class ReservationController
       $error = "Désolé cette chambre n'est pas disponible à cette période !";
       $reservationDetails = null;
       // var_dump($error);
+    }
+    $rooms = $reservationModel->getRoomsAvailable($dateBeginning, $dateEnd);
+    var_dump($rooms);
+    $roomsAvailable = $reservationModel->filterRooms($_POST);
+    foreach ($roomsAvailable as $roomAvailable) {
+      var_dump($roomAvailable);
+      $roomPrice = $reservationModel->bookARoom($dateBeginning, $dateEnd, $roomAvailable);
+      var_dump($roomPrice);
     }
     return ["room"=>$room, "error"=>$error, "reservationDetails"=>$reservationDetails];
   }
