@@ -25,10 +25,10 @@ class ReservationModel {
     return $duration;
   }
 
-  public function checkRoomAvailability($dateBeginning, $dateEnd, $_post) {
+  public function checkRoomAvailability($dateBeginning, $dateEnd, $roomId) {
     $database = new Database();
-    $sql = "SELECT * FROM `reservations` WHERE NOT (ArrivalDate > ? AND ArrivalDate >= ?) OR (DepartureDate <= ? AND DepartureDate < ?) AND RoomId =?";
-    $array = [$dateBeginning, $dateEnd, $dateBeginning, $dateEnd, $_post["roomId"]];
+    $sql = "SELECT RoomId FROM `reservations` WHERE NOT ((ArrivalDate > ? AND ArrivalDate >= ?) OR (DepartureDate <= ? AND DepartureDate < ?)) AND RoomId =?";
+    $array = [$dateBeginning, $dateEnd, $dateBeginning, $dateEnd, $roomId];
     $reservation = $database->query($sql, $array);
     return $reservation;
   }
@@ -59,23 +59,16 @@ class ReservationModel {
     $montantTVA = $reservationPrice * $TVA / 100;
     $totalTTC = $reservationPrice + $montantTVA;
 
-    $reservationDetails = [$duration,$reservationPrice, $TVA, $montantTVA, $totalTTC];
+    $reservationDetails = [$duration,$reservationPrice, $TVA, $montantTVA, $totalTTC, $roomId];
     return $reservationDetails;
   }
 
-  public function getRoomsAvailable($dateBeginning, $dateEnd) {
-    $database = new Database();
-    $sql = "SELECT RoomId FROM `reservations` WHERE NOT((ArrivalDate > ? AND ArrivalDate >= ?) OR (DepartureDate <= ? AND DepartureDate < ?))";
-    $array = [$dateBeginning, $dateEnd, $dateBeginning, $dateEnd];
-    $rooms = $database->query($sql, $array);
-    return $rooms;
-  }
 
   public function filterRooms($_post) {
     $roomsTab = [1, 2, 3, 4];
     $roomSearched = $_post["roomId"] - 1;
     array_splice($roomsTab, $roomSearched, 1);
-    var_dump($roomsTab);
+    // var_dump($roomsTab);
     return $roomsTab;
   }
 

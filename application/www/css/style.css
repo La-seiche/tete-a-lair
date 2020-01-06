@@ -15,8 +15,8 @@ body {
 }
 
 :root {
-  --pink-logo: rgb(235, 201, 188);
-  --blue-logo: rgb(198, 223, 220);
+  --blue-logo: rgb(255, 222, 89);
+  --pink-logo: rgb(168, 168, 168);
 }
 
 img {
@@ -44,7 +44,8 @@ img {
 }
 
 section {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #e8eaec;
+  background-color: rgba(0, 0, 0, 0.3);
   color: #fff;
   margin-bottom: 40px;
   padding: 15px;
@@ -53,7 +54,7 @@ section {
 /* Bouton d'action en savoir plus */
 
 .cta {
-  border: 1px solid var(--blue-logo);
+  border: 1px solid var(--pink-logo);
   padding: 10px;
   text-decoration: none;
   color: #fff;
@@ -67,7 +68,7 @@ section {
 
 .cta:hover{
   background-size: 100% 100%;
-  color: black;
+  color: var(--pink-logo);
   border: 4px solid var(--pink-logo);
 }
 
@@ -79,7 +80,7 @@ section {
   position: sticky;
   top: 0;
   z-index: 50;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.3);
   margin-bottom: 40px;
 }
 
@@ -87,6 +88,10 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.logo {
+  width: 100px;
 }
 
 .nav-bar {
@@ -110,7 +115,7 @@ section {
 }
 
 .sub-nav{
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.3);
   position: absolute;
   top: 100%;
   text-align: left;
@@ -141,6 +146,10 @@ section {
 .footer {
   background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
+}
+
+.nav-logo {
+  width: 100px;
 }
 
 .footer p {

@@ -20,7 +20,7 @@ class ReservationController
 
     // var_dump($_POST);
 
-    $room = $roomModel->getOneRoomInformations($_POST);
+    $room = $roomModel->getOneRoomInformations($_POST["roomId"]);
     // var_dump($room);
 
     $dateArrival = $_POST["datePickerArrival"];
@@ -33,15 +33,13 @@ class ReservationController
     // var_dump($dateEnd);
 
     // var_dump($_POST);
-    $reservation = $reservationModel->checkRoomAvailability($dateBeginning, $dateEnd, $_POST);
+    $reservation = $reservationModel->checkRoomAvailability($dateBeginning, $dateEnd, $_POST["roomId"]);
     // var_dump($reservation);
 
     if (empty($reservation)) {
       // var_dump("Chambre dispo");;
 
       $reservationDetails = $reservationModel->bookARoom($dateBeginning, $dateEnd, $_POST["roomId"]);
-      array_push($reservationDetails, $dateArrival);
-      array_push($reservationDetails, $dateDeparture);
       // var_dump($reservationDetails);
     }
     else {
@@ -49,15 +47,31 @@ class ReservationController
       $reservationDetails = null;
       // var_dump($error);
     }
-    $rooms = $reservationModel->getRoomsAvailable($dateBeginning, $dateEnd);
-    var_dump($rooms);
+
     $roomsAvailable = $reservationModel->filterRooms($_POST);
+    // var_dump($roomsAvailable);
+
+    $roomAvailablePrice = [];
+    $roomAvailableDetails = [];
+
     foreach ($roomsAvailable as $roomAvailable) {
-      var_dump($roomAvailable);
-      $roomPrice = $reservationModel->bookARoom($dateBeginning, $dateEnd, $roomAvailable);
-      var_dump($roomPrice);
+      $reservation = $reservationModel->checkRoomAvailability($dateBeginning, $dateEnd, $roomAvailable);
+      if (empty($reservation)) {
+        $roomsPrices = $reservationModel->bookARoom($dateBeginning, $dateEnd, $roomAvailable);
+        $roomsPrices[5] = $roomAvailable;
+        // var_dump($roomsPrices);
+        array_push($roomAvailablePrice, $roomsPrices);
+
+        $rooms = $roomModel->getOneRoomInformations($roomAvailable);
+        // var_dump($room);
+        array_push($roomAvailableDetails, $rooms);
+      }
     }
-    return ["room"=>$room, "error"=>$error, "reservationDetails"=>$reservationDetails];
+
+    // var_dump($roomAvailableDetails);
+    // var_dump($roomAvailablePrice);
+
+    return ["room"=>$room, "error"=>$error, "reservationDetails"=>$reservationDetails, "dateArrival"=>$dateArrival, "dateDeparture"=>$dateDeparture, "roomAvailableDetails"=>$roomAvailableDetails, "roomAvailablePrice"=>$roomAvailablePrice];
   }
 }
 

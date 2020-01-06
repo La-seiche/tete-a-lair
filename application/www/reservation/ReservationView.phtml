@@ -34,7 +34,7 @@
   </article>
   <aside class="room-prices">
     <?php if ($error === null) { ?>
-      <h3 class="title">Réservation du <?= $reservationDetails[5] ?> au <?= $reservationDetails[6] ?></h3>
+      <h3 class="title">Réservation du <?= $dateArrival ?> au <?= $dateDeparture ?></h3>
       <h4 class="title"><?= $reservationDetails[0]["days"] +  $reservationDetails[0]["weeks"] * 7 ?>  jours</h4>
       <p>Total TTC : <strong><?= $reservationDetails[4] ?> €</p>
       <a class="cta" href="<?= $requestUrl ?>/reservation/charge">Payez !</a>
@@ -85,3 +85,43 @@
 <section>
   <h2 class="title title-main">Les autres chambres diponibles à ces dates</h2>
 </section>
+<?php for ($i = 0; $i < count($roomAvailablePrice); $i++) { ?>
+  <section class="room-presentation">
+    <h2 class="title title-room-presentation"><?= $roomAvailableDetails[$i]["RoomName"] ?> (<?= $roomAvailableDetails[$i]["NumberOfPersonn"] ?>)</h3>
+    <article class="room-introduction">
+      <p><?= $roomAvailableDetails[$i]["Description"] ?></p>
+      <?php if ($roomAvailableDetails[$i]["PlusBed"]) { ?>
+        <p>Possibilité de mettre un lit supplémentaire (supplément 15 euros)</p>
+      <?php } ?>
+      <img class="room-picture" src="<?= $wwwUrl ?>/images/rooms<?= $roomAvailableDetails[$i]["PhotoMiniature"] ?>" alt="Photos de la chambre d'hôtes <?= $roomAvailableDetails[$i]["RoomName"] ?>">
+      <article class="room-services">
+        <ul class="room-presentation-list">
+          <li>Entrée privative</li>
+          <li>Chambre avec un lit <?= $roomAvailableDetails[$i]["Bed"] ?></li>
+          <?php if ($roomAvailableDetails[$i]["SeperateWC"]) { ?>
+            <li>Salle de douche et WC privatifs mais WC séparés</li>
+          <?php } else { ?>
+            <li>Salle de douche et WC privatifs</li>
+          <?php } ?>
+          <?php if ($roomAvailableDetails[$i]["RelaxSpace"]) { ?>
+            <li>Coin Détente</li>
+          <?php } ?>
+          <?php if ($roomAvailableDetails[$i]["WithBabyBed"]) { ?>
+            <li>Lit gigogne</li>
+          <?php } ?>
+          <?php if ($roomAvailableDetails[$i]["WithCouch"]) { ?>
+            <li>Canapé</li>
+          <?php } ?>
+          <?php if ($roomAvailableDetails[$i]["Office"]) { ?>
+            <li>Coin Bureau</li>
+          <?php } ?>
+        </ul>
+      </article>
+    </article>
+    <aside class="room-prices">
+      <h3 class="title">Réservation du <?= $dateArrival ?> au <?= $dateDeparture ?></h3>
+      <h4 class="title"><?= $roomAvailablePrice[$i][0]["days"] +  $roomAvailablePrice[$i][0]["weeks"] * 7 ?>  jours</h4>
+      <p>Total TTC : <strong><?= $roomAvailablePrice[$i][4] ?> €</p>
+    </aside>
+  </section>
+<?php } ?>

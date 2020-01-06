@@ -25,10 +25,10 @@ class RoomModel {
     return $room;
   }
 
-  public function getOneRoomInformations($_post) {
+  public function getOneRoomInformations($roomId) {
     $database = new Database();
-    $sql = "SELECT RoomName, NumberOfPersonn, Description, PlusBed, PlusPersonn, Bed, SeperateWC, RelaxSpace, WithBabyBed, WithCouch, Office, PhotoMiniature FROM rooms WHERE RoomId = ?";
-    $array = [$_post["roomId"]];
+    $sql = "SELECT RoomId, RoomName, NumberOfPersonn, Description, PlusBed, PlusPersonn, Bed, SeperateWC, RelaxSpace, WithBabyBed, WithCouch, Office, PhotoMiniature FROM rooms WHERE RoomId = ?";
+    $array = [$roomId];
     $room = $database->queryOne($sql, $array);
     return $room;
   }
