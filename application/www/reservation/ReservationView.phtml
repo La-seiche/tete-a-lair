@@ -1,6 +1,9 @@
 <link rel="stylesheet" type="text/css" href="<?= $wwwUrl ?>/css/rooms.css">
 
 <section class="room-presentation">
+  <?php if ($error != null) { ?>
+    <p><strong><?= $error ?></strong></p>
+  <?php } else { ?>
   <h2 class="title title-room-presentation"><?= $room["RoomName"] ?> (<?= $room["NumberOfPersonn"] ?>)</h3>
   <article class="room-introduction">
     <p><?= $room["Description"] ?></p>
@@ -37,11 +40,19 @@
       <h3 class="title">Réservation du <?= $dateArrival ?> au <?= $dateDeparture ?></h3>
       <h4 class="title"><?= $reservationDetails[0]["days"] +  $reservationDetails[0]["weeks"] * 7 ?>  jours</h4>
       <p>Total TTC : <strong><?= $reservationDetails[4] ?> €</p>
-      <a class="cta" href="<?= $requestUrl ?>/reservation/charge">Payez !</a>
-    <?php } else { ?>
-      <p><strong><?= $error ?></strong></p>
+      <form class="" action="<?= $requestUrl ?>/payment/charge" method="post">
+        <input type="hidden" name="roomId" value="<?= $room["RoomId"] ?>">
+        <input type="hidden" name="dateArrival" value="<?= $dateBeginning ?>">
+        <input type="hidden" name="dateDeparture" value="<?= $dateEnd ?>">
+        <input type="hidden" name="numberOfNights" value="<?= $reservationDetails[0]["days"] +  $reservationDetails[0]["weeks"] * 7 ?>">
+        <input type="hidden" name="priceADay" value="<?= round($reservationDetails[4] / ($reservationDetails[0]["days"] +  $reservationDetails[0]["weeks"] * 7 ), 2)?>">
+        <input type="hidden" name="taxAmount" value="<?= $reservationDetails[3] ?>">
+        <input type="hidden" name="totalTTC" value="<?= $reservationDetails[4] ?>">
+        <input type="submit" value="Payez !">
+      </form>
     <?php } ?>
   </aside>
+<?php } ?>
 </section>
 <?php if ($error === null) { ?>
   <section>
@@ -79,7 +90,16 @@
         </tr>
       </tbody>
     </table>
-    <a class="cta" href="<?= $requestUrl ?>/reservation/charge">Payez !</a>
+    <form class="" action="<?= $requestUrl ?>/payment/charge" method="post">
+      <input type="hidden" name="roomId" value="<?= $room["RoomId"] ?>">
+      <input type="hidden" name="dateArrival" value="<?= $dateBeginning ?>">
+      <input type="hidden" name="dateDeparture" value="<?= $dateEnd ?>">
+      <input type="hidden" name="numberOfNights" value="<?= $reservationDetails[0]["days"] +  $reservationDetails[0]["weeks"] * 7 ?>">
+      <input type="hidden" name="priceADay" value="<?= round($reservationDetails[4] / ($reservationDetails[0]["days"] +  $reservationDetails[0]["weeks"] * 7 ), 2)?>">
+      <input type="hidden" name="taxAmount" value="<?= $reservationDetails[3] ?>">
+      <input type="hidden" name="totalTTC" value="<?= $reservationDetails[4] ?>">
+      <input type="submit" value="Payez !">
+    </form>
   </section>
 <?php } ?>
 <section>
@@ -122,6 +142,12 @@
       <h3 class="title">Réservation du <?= $dateArrival ?> au <?= $dateDeparture ?></h3>
       <h4 class="title"><?= $roomAvailablePrice[$i][0]["days"] +  $roomAvailablePrice[$i][0]["weeks"] * 7 ?>  jours</h4>
       <p>Total TTC : <strong><?= $roomAvailablePrice[$i][4] ?> €</p>
+        <form class="" action="<?= $requestUrl ?>/reservation" method="post">
+          <input type="hidden" name="datePickerArrival" value="<?= $dateArrival ?>">
+          <input type="hidden" name="datePickerDeparture" value="<?= $dateDeparture ?>">
+          <input type="hidden" name="roomId" value="<?= $roomAvailableDetails[$i]["RoomId"] ?>">
+          <input type="submit" id="bookingCta" value="Réservez" />
+        </form>
     </aside>
   </section>
 <?php } ?>

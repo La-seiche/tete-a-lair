@@ -72,6 +72,13 @@ class ReservationModel {
     return $roomsTab;
   }
 
+  public function registerNewReservation($_post) {
+    $database = new Database();
+    $sql = "INSERT INTO reservations (ReservationTimestamp, RoomId, ArrivalDate, DepartureDate, NumberOfNights, PriceByNight, TaxAmount, TotalAmount) VALUES (NOW(), ?, ?, ?, ?, ?, ?, ?)";
+    $array = [$_post["roomId"], $_post["dateArrival"], $_post["dateDeparture"], $_post["numberOfNights"], $_post["priceADay"], $_post["taxAmount"], $_post["totalTTC"]];
+    $database->executeSql($sql, $array);
+  }
+
 }
 
  ?>

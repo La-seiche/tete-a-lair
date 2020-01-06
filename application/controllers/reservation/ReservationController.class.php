@@ -71,7 +71,7 @@ class ReservationController
     // var_dump($roomAvailableDetails);
     // var_dump($roomAvailablePrice);
 
-    return ["room"=>$room, "error"=>$error, "reservationDetails"=>$reservationDetails, "dateArrival"=>$dateArrival, "dateDeparture"=>$dateDeparture, "roomAvailableDetails"=>$roomAvailableDetails, "roomAvailablePrice"=>$roomAvailablePrice];
+    return ["room"=>$room, "error"=>$error, "reservationDetails"=>$reservationDetails, "dateArrival"=>$dateArrival, "dateDeparture"=>$dateDeparture, "roomAvailableDetails"=>$roomAvailableDetails, "roomAvailablePrice"=>$roomAvailablePrice, "dateBeginning"=>$dateBeginning, "dateEnd"=>$dateEnd];
   }
 }
 
