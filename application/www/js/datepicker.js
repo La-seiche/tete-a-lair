@@ -23,7 +23,12 @@ $( function() {
 // Vérifier que les dates sont >= à la date d'aujourd'hui et vérifier que date d'arrivée < date de départ
 
 const checkDates = () => {
-  const arrivalDate = getDateFromEpoch($("#datePickerArrival").val());
+  const dateBeginning = $("#datePickerArrival").val();
+  console.log("date arrivée: ", dateBeginning);
+  let date = dateBeginning.split("/");
+  date = date[1] + "/" + date[0] + "/" + date[2];
+  console.log("date test", date);
+  const arrivalDate = getDateFromEpoch(date);
   const today = getCurrentDate();
   const departureDate = getDepartureDate();
   console.log("Arrivée", arrivalDate);
@@ -63,7 +68,7 @@ const checkDatesValidity = () => {
 
 const getCurrentDate = () => {
   const today = new Date();
-  const myDate = today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
+  const myDate = (today.getMonth() + 1) + "/" + today.getDate() + "/" + today.getFullYear();
   console.log("today", myDate);
   return getDateFromEpoch(myDate)
 }
