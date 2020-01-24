@@ -1,0 +1,60 @@
+.prestations-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.prestations-presentations {
+  width: 32%;
+  text-align: center;
+}
+
+.prestations-presentations img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.prestations-food {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.prestations-food h3,
+.prestations-food h4 {
+  width: 100%;
+}
+
+.prestations-food img {
+  width: 33%;
+}
+
+.food-presentation,
+.breakfast-presentation {
+  width: 60%;
+}
+
+.commun-presentation {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.commun-presentation h2 {
+  width: 100%;
+}
+
+.commun-img {
+  width: 33%;
+}
+
+.commun-presentation p {
+  width: 60%;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}

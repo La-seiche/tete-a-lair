@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="<?= $wwwUrl ?>/css/contact.css">
+
+<section>
+  <h1 class="title-main">Contactez-nous</h1>
+  <h2 class="title-main">N'hésitez pas à nous contacter, ce sera toujours plus avantageux en direct ...</h2>
+  <div class="contacts-informations">
+    <form class="contact-us" action="<?= $requestUrl ?>/contacts" method="post">
+      <fieldset>
+        <input class="contact-us-informations" type="text" name="name" placeholder="Nom">
+        <input class="contact-us-informations" type="text" name="email" placeholder="Email">
+        <input class="contact-us-informations" type="text" name="phoneNUmber" placeholder="Téléphone">
+        <textarea class="contact-us-informations" name="message" rows="8" cols="50" placeholder="Message"></textarea>
+        <input class="contact-us-send" type="submit" value="Envoyez !">
+      </fieldset>
+    </form>
+    <aside class="contacts-tete">
+      <div class="contact-adress">
+        <h3 class="title"><i class="fas fa-map-marker-alt"></i> Notre adresse :</h3>
+        <p>Camille et Lucille Baret</p>
+        <p>1 petit chemin des écoles</p>
+        <p>17800 Montils</p>
+      </div>
+      <div class="contact">
+        <h3 class="title"><i class="far fa-clock"></i> Tous les jours, de 8h à 22h</h3>
+      </div>
+      <div class="contact-phone">
+        <h3 class="title"><i class="fas fa-mobile-alt"></i> Notre téléphone :</h3>
+        <p>05.46.98.17.12</p>
+        <p>06.24.92.52.51</p>
+      </div>
+      <div class="contact-mail">
+        <h3 class="title"><i class="fas fa-at"></i> Notre email :</h3>
+        <p>camille.baret@hotmail.com</p>
+      </div>
+    </aside>
+  </div>
+    <iframe class="contact-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2789.096127910859!2d-0.5055866844363492!3d45.648891279103545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4800f908da0f4d45%3A0xe51fff220946c698!2s1%20Petit%20Chemin%20des%20%C3%89coles%2C%2017800%20Montils!5e0!3m2!1sfr!2sfr!4v1579861613411!5m2!1sfr!2sfr" width="800" height="600" " allowfullscreen=""></iframe>
+</section>

@@ -1,3 +1,7 @@
+.slider-pictures img {
+  /* width: 450px; */
+}
+
 .title-rooms,
 .title-sub-rooms {
   text-align: center;
@@ -61,6 +65,16 @@
   background-color: var(--blue-logo);
 }
 
-table {
+.table-recap {
   color: #fff;
+  width: 85%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.table-recap th,
+.table-recap td {
+  border: 2px solid #fff;
+  /* width: 25%; */
+  text-align: center;
 }

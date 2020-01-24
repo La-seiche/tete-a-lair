@@ -164,7 +164,7 @@ section {
 }
 
 .contact {
-  width: 70%;
+  width: 85%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -175,6 +175,23 @@ section {
   width: 100%;
   text-align: center;
   margin: 0;
+}
+
+.social-network-list {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  list-style: none;
+}
+
+.social-network-list-items {
+  text-decoration: none;
+}
+
+.social-network-logo {
+  font-size: 50px;
+  color: #fff;
+  margin-left: 20px;
 }
 
 .nav-footer {

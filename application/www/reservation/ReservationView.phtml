@@ -57,8 +57,7 @@
 <?php if ($error === null) { ?>
   <section>
     <h2 class="title title-main">Détails de votre réservation</h2>
-    <table>
-      <legend>Détails</legend>
+    <table class="table-recap">
       <thead>
         <tr>
           <th>Nom de la chambre</th>
@@ -71,7 +70,6 @@
         <tr>
           <td></td>
           <td colspan="2">Montant TTC</td>
-          <td></td>
           <td><?= $reservationDetails[4] ?> €</td>
         </tr>
       </tfoot>
@@ -85,7 +83,6 @@
         <tr>
           <td></td>
           <td colspan="2">Montant de la TVA (<?= $reservationDetails[2] ?>%)</td>
-          <td></td>
           <td><?= $reservationDetails[3] ?> €</td>
         </tr>
       </tbody>
