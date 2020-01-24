@@ -8,17 +8,25 @@ section {
   justify-content: space-around;
 }
 
+.presentation-article {
+  width: 31%;
+}
+
 .title-presentation {
   width: 100%;
 }
 
-.presentation-article {
+.presentation-img {
+  padding: 20px;
+}
+
+/* .presentation-article {
   width: 31%;
   border: 1px solid rgb(198, 223, 220);
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 
 .title-presentation-article {
   width: 50px;
