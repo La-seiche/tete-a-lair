@@ -1,6 +1,6 @@
 <link rel="stylesheet" type="text/css" href="<?= $wwwUrl ?>/css/rooms.css">
 
-<section>
+<section class="section-main-design">
   <h1 class="title title-rooms">Nos Chambres d'hôtes</h1>
   <div class="slider">
     <div class="slider-pictures"><img class="slider-picture" src="<?= $wwwUrl ?>/images/rooms/petite-champagne/1.jpg" alt="Photos de la chambre d'hôtes Petite Champagne"></div>
@@ -9,7 +9,7 @@
     <div class="slider-pictures"><img class="slider-picture" src="<?= $wwwUrl ?>/images/rooms/fin-bois/1.jpg" alt="Photos de la chambre d'hôtes fins bois"></div>
   </div>
 </section>
-<section class="rooms-main">
+<section class="section-main-design rooms-main">
   <h2 class="title title-sub-rooms">Découvrez nos chambres typiquement charentaise</h2>
   <p>Elles disposent chacune d'une entrée privative, ainsi que leur propre salle de bain et WC.</p>
   <div class="rooms-introduction">
@@ -29,7 +29,7 @@
   </div>
 </section>
 <?php foreach ($rooms as $room) { ?>
-  <section class="room-presentation">
+  <section class="section-main-design room-presentation">
     <h3 class="title title-room-presentation"><?= $room["RoomName"] ?> (<?= $room["NumberOfPersonn"] ?>)</h3>
     <article class="room-introduction">
       <p><?= $room["Description"] ?></p>

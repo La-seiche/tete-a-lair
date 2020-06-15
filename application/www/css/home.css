@@ -1,4 +1,76 @@
-section {
+.prestations-overview {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.title-overview {
+  width: 100%;
+  text-align: center;
+}
+
+.prestations-overview-div {
+  width: 24%;
+  min-height: 600px;
+  position: relative;
+}
+
+.prestations-overview-room {
+  background-image: url(../images/home/overview/1.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+
+.prestations-overview-inner-bloc {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  display: none;
+}
+
+.prestations-overview-room:hover .prestations-overview-inner-bloc {
+  display: block;
+}
+
+.prestations-overview-pool {
+  background-image: url(../images/home/overview/2.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+
+.prestations-overview-pool:hover .prestations-overview-inner-bloc {
+  display: block;
+}
+
+.prestations-overview-games {
+  background-image: url(../images/home/overview/3.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+
+.prestations-overview-games:hover .prestations-overview-inner-bloc {
+  display: block;
+}
+
+.prestations-overview-table {
+  background-image: url(../images/home/overview/4.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+
+.prestations-overview-table:hover .prestations-overview-inner-bloc {
+  display: block;
+}
+
+.cta-overview {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  text-align: center;
+  border: 0;
+}
+
+.section-home {
   text-align: center;
 }
 
@@ -10,6 +82,8 @@ section {
 
 .presentation-article {
   width: 31%;
+  display: flex;
+  flex-direction: column;
 }
 
 .title-presentation {
@@ -41,4 +115,8 @@ section {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+.cta {
+  margin-top: auto;
 }

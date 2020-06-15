@@ -1,6 +1,6 @@
 <link rel="stylesheet" type="text/css" href="<?= $wwwUrl ?>/css/rooms.css">
 
-<section class="room-presentation">
+<section class="section-main-design room-presentation">
   <?php if ($error != null) { ?>
     <p><strong><?= $error ?></strong></p>
   <?php } else { ?>
@@ -55,7 +55,7 @@
 <?php } ?>
 </section>
 <?php if ($error === null) { ?>
-  <section>
+  <section class="section-main-design">
     <h2 class="title title-main">Détails de votre réservation</h2>
     <table class="table-recap">
       <thead>
@@ -99,11 +99,11 @@
     </form>
   </section>
 <?php } ?>
-<section>
-  <h2 class="title title-main">Les autres chambres diponibles à ces dates</h2>
+<section class="section-main-design">
+  <h2 class="title title-main">Les autres chambres disponibles à ces dates</h2>
 </section>
 <?php for ($i = 0; $i < count($roomAvailablePrice); $i++) { ?>
-  <section class="room-presentation">
+  <section class="section-main-design room-presentation">
     <h2 class="title title-room-presentation"><?= $roomAvailableDetails[$i]["RoomName"] ?> (<?= $roomAvailableDetails[$i]["NumberOfPersonn"] ?>)</h3>
     <article class="room-introduction">
       <p><?= $roomAvailableDetails[$i]["Description"] ?></p>

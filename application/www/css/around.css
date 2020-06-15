@@ -1,0 +1,14 @@
+.discover-cognac {
+  overflow: hidden;
+}
+
+.discover-cognac-image {
+  width: 28%;
+  float: left;
+  margin: 0 2% 5% 0;
+}
+
+.discover-cognac:nth-of-type(2n+2) img{
+  float: right;
+  margin: 0 0 0 2%;
+}

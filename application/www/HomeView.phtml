@@ -1,36 +1,43 @@
 <link rel="stylesheet" type="text/css" href="<?= $wwwUrl ?>/css/home.css">
 
-<section>
-  <h1 class="title title-main">Lucille et Camille vous souhaitent bienvenue</h1>
+<section class="section-main-design section-home">
+  <h1 class="title title-main">Bienvenue aux chambres d'hôtes et gite tête à l'air</h1>
   <article>
     <p>A 15 km de Cognac, nous vous acceuillons au coeur de la Charente. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   </article>
 </section>
-<section>
-  <div class="presentation">
-    <h2 class="title title-presentation">Profitez de tous les services que nous offrons :</h2>
-    <article class="presentation-article">
-      <img class="presentation-img"src="<?= $wwwUrl ?>/images/home/maison.jpg" alt="Maison charentaise">
-      <!-- <h3 class="title title-presentation-article"><i class="fas fa-bed presentation-logo"></i></h3> -->
-      <p>Ici, nous profitons du charme des maisons charentaises, de leur calme et leur fraicheur.</p>
-      <p>Nous dormons dans une literie d'exception pour un sommeil réparateur.</p>
-      <a class="cta" href="<?= $requestUrl ?>/rooms"><i class="fas fa-plus-circle"></i> Plus d'informations</a>
-    </article>
-    <article class="presentation-article">
-      <img class="presentation-img"src="<?= $wwwUrl ?>/images/home/repas.jpg" alt="table d'hôtes">
-      <!-- <h3 class="title title-presentation-article"><i class="fas fa-utensils presentation-logo"></i></h3> -->
-      <p>Nous privilégons la proximité, nous consommons "local".</p>
-      <a class="cta" href="<?= $requestUrl ?>/prestations/table"><i class="fas fa-plus-circle"></i> Plus d'informations</a>
-    </article>
-    <article class="presentation-article">
-      <img class="presentation-img"src="<?= $wwwUrl ?>/images/home/ensemble.jpg" alt="La piscine">
-      <!-- <h3 class="title title-presentation-article"><i class="fas fa-users presentation-logo"></i></h3> -->
-      <p>Et surtout nous partageons des instants de convivialité dans notre salle ludique et près de la piscine.</p>
-      <a class="cta" href="<?= $requestUrl ?>/prestations/commun"><i class="fas fa-plus-circle"></i> Plus d'informations</a>
-    </article>
+<section class="section-main-design prestations-overview">
+  <h2 class="title title-overview">Profitez de tous les services offert dans nos chambres d'hôtes et notre gîte :</h2>
+  <div class="prestations-overview-div prestations-overview-room">
+    <div class="prestations-overview-inner-bloc">
+      <a class="cta cta-overview" href="<?= $requestUrl ?>/rooms"><i class="fas fa-plus-circle"></i> Découvrez nos chambres d'hôtes</a>
+    </div>
+  </div>
+  <div class="prestations-overview-div prestations-overview-games">
+    <div class="prestations-overview-inner-bloc">
+      <a class="cta cta-overview" href="<?= $requestUrl ?>/prestations/commun"><i class="fas fa-plus-circle"></i> Découvrez nos espaces communs</a>
+    </div>
+  </div>
+  <div class="prestations-overview-div prestations-overview-pool">
+    <div class="prestations-overview-inner-bloc">
+      <a class="cta cta-overview" href="<?= $requestUrl ?>/prestations"><i class="fas fa-plus-circle"></i> Découvrez les prestations oiffertes dans nos chambres d'hôtes</a>
+    </div>
+  </div>
+  <div class="prestations-overview-div prestations-overview-table">
+    <div class="prestations-overview-inner-bloc">
+      <a class="cta cta-overview" href="<?= $requestUrl ?>/prestations/table"><i class="fas fa-plus-circle"></i> Découvrez notre table d'hôtes</a>
+    </div>
   </div>
 </section>
-<section>
-  <h2 class="title">Qui sommes-nous ?</h2>
-  <p>Anciens cadres parisiens, nous avons décidé de tout quitter pour offrir à notre famille un meilleur cadre de vie. Aimant recevoir et amoureux de la campagne charentaise et de la qualité de ses produits régionaux, c'est naturellement que l'idée d'ouvrir des chambres d'hôtes nous est venue.</p>
+<section class="section-main-design section-home">
+  <article class="discover-around">
+    <h2 class="title title-presentation">Découvrez Cognac et sa région</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <a class="cta" href="<?= $requestUrl ?>/around"><i class="fas fa-plus-circle"></i> Découvrez Cognac et ses alentours</a>
+  </article>
+</section>
+<section class="section-main-design section-home">
+  <h2 class="title">-10% sur les réservations en direct, appelez nous au 05.46.98.17.12 ou envoyez un mail</h2>
+  <p>Les tarifs évoluent en fonction des saisons et du nombre de personnes. Contactez nous pour avoir un devis.</p>
+  <p>Possibilité de payer en espèce, carte, chèque, chèque vacances</p>
 </section>

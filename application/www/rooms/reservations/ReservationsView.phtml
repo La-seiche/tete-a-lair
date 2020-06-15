@@ -2,7 +2,7 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-<section class="room-presentation">
+<section class="section-main-design room-presentation">
   <h2 class="title title-room-presentation"><?= $room["RoomName"] ?> (<?= $room["NumberOfPersonn"] ?>)</h3>
   <article class="room-introduction">
     <p><?= $room["Description"] ?></p>
@@ -45,7 +45,7 @@
     </div>
   </aside>
 </section>
-<section>
+<section class="section-main-design">
   <form class="" action="<?= $requestUrl ?>/reservation" method="post">
     <h2>Réservez une chambre</h2>
     <label for="arrivalDate">Date d'arrivée</label>
