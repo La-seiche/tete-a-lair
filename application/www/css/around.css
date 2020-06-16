@@ -12,3 +12,51 @@
   float: right;
   margin: 0 0 0 2%;
 }
+
+.cta-discover-cognac {
+  display: block;
+  width: 35%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.more-about-cognac a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.more-about-cognac a:hover {
+  text-decoration: underline;
+}
+
+.partenaires-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.partenaires-items {
+  width: 20%;
+}
+
+.partenaires-items:nth-of-type(2n+2) {
+  margin-left: 10%;
+}
+
+.program-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.program-overview {
+  width: 32%;
+  text-align: center;
+}
+
+.program-overview img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}

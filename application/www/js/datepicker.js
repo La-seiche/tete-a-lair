@@ -45,7 +45,7 @@ const checkDates = () => {
 
   if (arrivalDate < today) {
     $("#datePickerArrival").val("Date choisie invalide !");
-    $("#datePickerArrival").css("background-color", "var(--pink-logo)");
+    $("#datePickerArrival").css("background-color", "var(--inside-logo-color)");
     $("#datePickerArrival").css("font-weight", "bold");
   }
 

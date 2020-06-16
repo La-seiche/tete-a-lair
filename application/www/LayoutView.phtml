@@ -17,8 +17,9 @@
   <link rel="stylesheet" type="text/css" href="<?= $wwwUrl ?>/slick/slick-theme.css"/>
   <!-- Librairie jQuery -->
   <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+  <!-- Plugin Facebook comments -->
   <div id="fb-root"></div>
-  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v7.0" nonce="Mm1jazNc"></script>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v7.0" nonce="yuZhzZWM"></script>
 
   <!-- JavaScript de l'application -->
   <script src="<?= $wwwUrl ?>/js/utilities.js"></script>
@@ -57,8 +58,16 @@
               </div>
             </div>
           </li>
-          <li class="nav-item">
-            <a href="<?= $requestUrl ?>/around">Cognac et ses alentours</a></li>
+          <li class="nav-item" data-name="around">
+            <a href="<?= $requestUrl ?>/around">Cognac et ses alentours</a>
+            <div class="navButton">
+              <div class="sub-nav sub-nav-around hide">
+                <ul class="sub-nav-list">
+                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/around/program">Nos programmes pour découvrir la Charentes</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
           <li class="nav-item"><a href="<?= $requestUrl ?>/comments">Livre d'or</a></li>
           <li class="nav-item"><a href="<?= $requestUrl ?>/contacts">Contacts</a></li>
           <!-- <li class="nav-item" data-name="profil">
