@@ -101,7 +101,6 @@ const getDepartureDate = () => {
 
 //vérifie que les 2 dates sont correctes ou masque bouton de validation
 
-
 $("#datePickerArrival").on('change', checkDates);
 $("#datePickerDeparture").on('change', checkDates);
 checkDatesValidity();

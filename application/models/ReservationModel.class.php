@@ -33,12 +33,18 @@ class ReservationModel {
     return $reservation;
   }
 
-  public function getReservationPrice($duration, $season, $seasonPrice) {
-    $daysPrice = $duration["days"] * $seasonPrice[$season."SeasonPriceDay"];
-    $weeksPrice = $duration["weeks"] * $seasonPrice[$season."SeasonPriceWeek"];
-    $total = $daysPrice + $weeksPrice;
-    return $total;
+  // public function getReservationPrice($duration, $season, $seasonPrice) {
+  //   $daysPrice = $duration["days"] * $seasonPrice[$season."SeasonPriceDay"];
+  //   $weeksPrice = $duration["weeks"] * $seasonPrice[$season."SeasonPriceWeek"];
+  //   $total = $daysPrice + $weeksPrice;
+  //   return $total;
+  // }
+
+  public function getBookingDetails($dateBeginning, $dateEnd, $roomId) {
+    $dateFirstDay = $this->getDateFromEpoch($dateBeginning);
+    $dateLastDay = $this->getDateFromEpoch($dateEnd);
   }
+
 
   public function bookARoom($dateBeginning, $dateEnd, $roomId) {
     $seasonModel = new SeasonModel();
@@ -47,20 +53,20 @@ class ReservationModel {
     $dateFirstDay = $this->getDateFromEpoch($dateBeginning);
     $dateLastDay = $this->getDateFromEpoch($dateEnd);
     $duration = $this->getReservationDuration($dateFirstDay, $dateLastDay);
-    // var_dump($duration);
-    $season = $seasonModel->getSeason($dateBeginning, $dateEnd);
+    var_dump($duration);
+    // $season = $seasonModel->getSeason($dateBeginning, $dateEnd);
     // var_dump($season);
-    $seasonPrice = $roomModel->getSeasonPrice($season, $roomId);
+    // $seasonPrice = $roomModel->getSeasonPrice($season, $roomId);
     // var_dump($seasonPrice);
-    $reservationPrice = $this->getReservationPrice($duration, $season, $seasonPrice);
+    // $reservationPrice = $this->getReservationPrice($duration, $season, $seasonPrice);
     // var_dump($reservationPrice);
 
-    $TVA = 20;
-    $montantTVA = $reservationPrice * $TVA / 100;
-    $totalTTC = $reservationPrice + $montantTVA;
-
-    $reservationDetails = [$duration,$reservationPrice, $TVA, $montantTVA, $totalTTC, $roomId];
-    return $reservationDetails;
+    // $TVA = 20;
+    // $montantTVA = $reservationPrice * $TVA / 100;
+    // $totalTTC = $reservationPrice + $montantTVA;
+    //
+    // $reservationDetails = [$duration,$reservationPrice, $TVA, $montantTVA, $totalTTC, $roomId];
+    // return $reservationDetails;
   }
 
 

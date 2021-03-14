@@ -5,5 +5,5 @@
  */
 
 $config['dsn']      = 'mysql:host=localhost; dbname=tete_a_lair';
-$config['password'] = '';
+$config['password'] = 'root';
 $config['user']     = 'root';

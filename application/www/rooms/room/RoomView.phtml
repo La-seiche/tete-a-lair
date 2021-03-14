@@ -1,10 +1,14 @@
+<link rel="stylesheet" type="text/css" href="<?= $wwwUrl ?>/css/rooms.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
 <section class="section-main-design">
   <h1 class="title title-main"><?= $room["RoomName"] ?></h1>
   <h2 class="title title-main">Chambre pour <?= $room["NumberOfPersonn"] ?></h2>
   <div class="slider">
     <?php for ($i = 1; $i <= 10; $i++) {
       if (strlen($room["Photo".$i]) != 0 ) { ?>
-        <img src="<?= $wwwUrl ?>/images/rooms<?= $room['Photo'.$i] ?>" alt="Photo de la chambre <?= $room['RoomName'] ?><?= $i ?>">
+        <img src="<?= $wwwUrl ?>/images/rooms/<?= $room['Photo'.$i] ?>" alt="Photo de la chambre <?= $room['RoomName'] ?><?= $i ?>">
     <?php } } ?>
   </div>
   <h3 class="title">Description de la Chambre</h2>
@@ -34,5 +38,30 @@
       <li>Coin Bureau</li>
     <?php } ?>
   </ul>
-  <a class="cta" href="<?= $requestUrl ?>/rooms/reservations?RoomId=<?= $_GET["RoomId"] ?>"><i class="fas fa-calendar-alt"></i></i> Réservez Maintenant</a>
+  <a id="reservationCTA" class="cta" href="<?= $requestUrl ?>/rooms/reservations?RoomId=<?= $_GET["RoomId"] ?>"><i class="fas fa-calendar-alt"></i></i> Réservez Maintenant</a>
 </section>
+<!-- <section id="reservationBloc" class="section-main-design hide">
+  <form class="" action="<?= $requestUrl ?>/reservation" method="post">
+    <h2>Réservez une chambre</h2>
+    <label for="arrivalDate">Date d'arrivée</label>
+    <input type="text" id="datePickerArrival" name="datePickerArrival" autocomplete="off">
+    <label for="departureDate">Date de départ</label>
+    <input type="text" id="datePickerDeparture" name="datePickerDeparture" autocomplete="off">
+    <input type="hidden" name="roomId" value="<?= $_GET["RoomId"] ?>">
+    <input type="submit" id="bookingCta" value="Réservez" />
+  </form>
+</section> -->
+<section id="reservationBloc" class="section-main-design hide">
+  <form class="" action="<?= $requestUrl ?>/booking" method="post">
+    <h2>Réservez une chambre</h2>
+    <label for="arrivalDate">Date d'arrivée</label>
+    <input type="date" id="dateArrival" name="dateArrival">
+    <label for="departureDate">Date de départ</label>
+    <input type="date" id="dateDeparture" name="dateDeparture">
+    <input type="hidden" name="roomId" value="<?= $_GET["RoomId"] ?>">
+    <input type="submit" id="bookingCta" class="cta hide" value="Réservez" />
+  </form>
+</section>
+
+<!-- <script type="text/javascript" src="<?= $wwwUrl ?>/js/datepicker.js"></script> -->
+<script type="text/javascript" src="<?= $wwwUrl ?>/js/date.js"></script>

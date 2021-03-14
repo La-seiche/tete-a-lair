@@ -36,7 +36,7 @@
       <?php if ($room["PlusBed"]) { ?>
         <p>Possibilité de mettre un lit supplémentaire (supplément 15 euros)</p>
       <?php } ?>
-      <img class="room-picture" src="<?= $wwwUrl ?>/images/rooms<?= $room["PhotoMiniature"] ?>" alt="Photos de la chambre d'hôtes <?= $room["RoomName"] ?>">
+      <img class="room-picture" src="<?= $wwwUrl ?>/images/rooms/<?= $room["PhotoMiniature"] ?>" alt="Photos de la chambre d'hôtes <?= $room["RoomName"] ?>">
       <article class="room-services">
         <ul class="room-presentation-list">
           <li>Entrée privative</li>
@@ -68,8 +68,7 @@
       <?php } ?>
       <p>Petit déjeuner INCLUS</p>
       <div class="cta-rooms">
-        <a class="cta" href="<?= $requestUrl ?>/rooms/room?RoomId=<?= $room["RoomId"] ?>"><i class="fas fa-plus-circle"></i> Voir plus</a>
-        <a class="cta" href="<?= $requestUrl ?>/rooms/reservations?RoomId=<?= $room["RoomId"] ?>"><i class="fas fa-calendar-alt"></i></i> Réservez Maintenant</a>
+        <a class="cta" href="<?= $requestUrl ?>/rooms/room?RoomId=<?= $room["RoomId"] ?>"><i class="fas fa-plus-circle"></i> Voir la chambre</a>
       </div>
     </aside>
   </section>
