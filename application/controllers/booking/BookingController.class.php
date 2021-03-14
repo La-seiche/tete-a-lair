@@ -30,6 +30,7 @@ class BookingController
 // TODO: obtenir les périodes et prix pour la chambre sur la période date d'arrivée, date de départ
 // TODO: vérifier chaque date de la réservation et obtenir un prix par jour => calculer total
 // TODO: affichage des informations
+// TODO: Liste chambre dispo et prix
 
       $reservationDetails = $reservationModel->getBookingDetails($dateArrival, $dateDeparture, $_POST["roomId"]);
       var_dump($reservationDetails);
