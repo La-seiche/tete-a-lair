@@ -1,0 +1,31 @@
+<link rel="stylesheet" type="text/css" href="<?= $wwwUrl ?>/css/rooms.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<section class="section-main-design">
+  <h1 class="title title-main">Votre réservation pour la chambre <?= $room["RoomName"] ?></h1>
+  <div class="slider">
+    <?php for ($i = 1; $i <= 10; $i++) {
+      if (strlen($pictures["Photo".$i]) != 0 ) { ?>
+        <img src="<?= $wwwUrl ?>/images/rooms/<?= $pictures['Photo'.$i] ?>" alt="Photo de la chambre <?= $room['RoomName'] ?><?= $i ?>">
+    <?php } } ?>
+  </div>
+</section>
+<section class="section-main-design">
+  <h2 class="title title-room-presentation">Réservation du <?= $dateArrival ?> au <?= $dateDeparture ?></h2>
+  <article>
+    <p>Nombre de nuits : <?= $bookingDetails["duration"] ?></p>
+    <p>Prix total : <?= $bookingDetails["totalHT"] ?> €</p>
+    <h3 class="title">Services offerts dans la réservation :</h3>
+    <ul>
+      <li>Draps</li>
+      <li>Serviettes</li>
+      <li>Petit déjeuner</li>
+      <li>WIFI</li>
+    </ul>
+    <span>Pour les repas du soir vous pouvez réserver à notre table d'hôtes.</span>
+  </article>
+</section>
