@@ -9,9 +9,9 @@
 body {
   font-family: 'Open Sans', sans-serif;
   line-height: 1.6;
-  background-image: url(../images/background/maison.jpg);
+  /* background-image: url(../images/background/maison.jpg);
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: fixed; */
 }
 
 :root {
@@ -214,4 +214,10 @@ img {
 .nav-list-footer a {
   text-decoration: none;
   color: #fff;
+}
+
+/* Slider */
+
+.slick-initialized .slick-slide{
+  margin: 0 15px;
 }

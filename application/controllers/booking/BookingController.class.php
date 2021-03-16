@@ -24,17 +24,33 @@ class BookingController
       // var_dump($dateArrival);
       // var_dump($dateDeparture);
 
-// TODO: créer bdd bookings (ArrivalDate, DepartureDate, RoomId)
-// TODO: lancer checkRoomAvailability pour obtenir tableau d'Id de rooms disponible
-// TODO: créer bdd prix des réservations / RoomId et des périodes
-// TODO: obtenir les périodes et prix pour la chambre sur la période date d'arrivée, date de départ
+      $reservation = $reservationModel->checkRoomAvailability($dateArrival, $dateDeparture, $_POST["roomId"]);
+      // var_dump($reservation);
+
+      if (empty($reservation)) {
+        // var_dump("Chambre dispo");
+        $calendars = $reservationModel->getRoomCalendars($dateArrival, $dateDeparture, $_POST["roomId"]);
+        var_dump($calendars);
+        $bookingDetails = $reservationModel->getBookingDetails($dateArrival, $dateDeparture, $_POST["roomId"], $calendars);
+      }
+      else {
+        $error = "Désolé cette chambre n'est pas disponible à cette période !";
+        // var_dump($error);
+      }
+
+      $roomsAvailable = $reservationModel->filterRooms($_POST);
+      // var_dump($roomsAvailable);
+
+      foreach ($roomsAvailable as $roomAvailable) {
+        $reservation = $reservationModel->checkRoomAvailability($dateArrival, $dateDeparture, $roomAvailable);
+        if (empty($reservation)) {
+          // var_dump("chambre dispo : " . $roomAvailable);
+        }
+        }
+      }
+
 // TODO: vérifier chaque date de la réservation et obtenir un prix par jour => calculer total
 // TODO: affichage des informations
-// TODO: Liste chambre dispo et prix
-
-      $reservationDetails = $reservationModel->getBookingDetails($dateArrival, $dateDeparture, $_POST["roomId"]);
-      var_dump($reservationDetails);
-    }
+// TODO: calculer prix pour chambres dispo et affichage chambre dispo
 }
-
  ?>

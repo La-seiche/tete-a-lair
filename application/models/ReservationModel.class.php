@@ -2,13 +2,6 @@
 
 class ReservationModel {
 
-  public function goToEnglishFormat($dateFR) {
-    $dateTab = explode("/", $dateFR);
-    $date = $dateTab[2]."-".$dateTab[1]."-".$dateTab[0];
-    // var_dump($date);
-    return $date;
-  }
-
   public function getDateFromEpoch($date) {
     $dateTab = explode("-", $date);
     $result = mktime(0, 0, 0, $dateTab[1], $dateTab[2], $dateTab[0]);
@@ -16,35 +9,54 @@ class ReservationModel {
     return $result;
   }
 
-  public function getReservationDuration($arrivalDate, $departureDate) {
-    $daysByWeeks = 7;
+  public function getBookingDuration($arrivalDate, $departureDate) {
+    // $daysByWeeks = 7;
     $difference = $departureDate - $arrivalDate;
-    $duration["days"] = ($difference / 86400) % $daysByWeeks;
-    $duration["weeks"] = floor(($difference / 86400) / $daysByWeeks);
+    // $duration["days"] = ($difference / 86400) % $daysByWeeks;
+    // $duration["weeks"] = floor(($difference / 86400) / $daysByWeeks);
+    $duration = floor($difference / 86400);
     // var_dump($duration);
     return $duration;
   }
 
   public function checkRoomAvailability($dateBeginning, $dateEnd, $roomId) {
     $database = new Database();
-    $sql = "SELECT RoomId FROM `reservations` WHERE NOT ((ArrivalDate > ? AND ArrivalDate >= ?) OR (DepartureDate <= ? AND DepartureDate < ?)) AND RoomId =?";
+    $sql = "SELECT RoomId FROM `bookings` WHERE NOT ((ArrivalDate > ? AND ArrivalDate >= ?) OR (DepartureDate <= ? AND DepartureDate < ?)) AND RoomId =?";
     $array = [$dateBeginning, $dateEnd, $dateBeginning, $dateEnd, $roomId];
     $reservation = $database->query($sql, $array);
     return $reservation;
   }
 
-  // public function getReservationPrice($duration, $season, $seasonPrice) {
-  //   $daysPrice = $duration["days"] * $seasonPrice[$season."SeasonPriceDay"];
-  //   $weeksPrice = $duration["weeks"] * $seasonPrice[$season."SeasonPriceWeek"];
-  //   $total = $daysPrice + $weeksPrice;
-  //   return $total;
-  // }
-
-  public function getBookingDetails($dateBeginning, $dateEnd, $roomId) {
-    $dateFirstDay = $this->getDateFromEpoch($dateBeginning);
-    $dateLastDay = $this->getDateFromEpoch($dateEnd);
+  public function getRoomCalendars($dateBeginning, $dateEnd, $roomId) {
+    $dateBeginning = $dateBeginning . " 13:00:00";
+    $dateEnd = $dateEnd . " 12:00:00";
+    $database = new Database();
+    $sql ="SELECT StartDate, EndDate, DailyPrice FROM calendars WHERE RoomId = ? AND ((StartDate <= ? AND EndDate <=?) OR (StartDate < ? AND EndDate >= ?))";
+    $array = [$roomId, $dateBeginning, $dateEnd, $dateEnd, $dateBeginning];
+    $calendars = $database->query($sql, $array);
+    return $calendars;
   }
 
+  public function getBookingDetails($dateBeginning, $dateEnd, $roomId, $calendars) {
+    $dateFirstDay = $this->getDateFromEpoch($dateBeginning);
+    $dateLastDay = $this->getDateFromEpoch($dateEnd);
+    $duration = $this->getBookingDuration($dateFirstDay, $dateLastDay);
+    // var_dump($duration);
+    $date = new DateTime($dateBeginning);
+    $date->modify("+13 hours");
+    $totalHT = 0;
+
+    for ($i = 0; $i < $duration; $i++) {
+      foreach ($calendars as $calendar) {
+        if (($date >= $calendar["StartDate"]) && ($date < $calendar["EndDate"])) {
+          $totalHT += $calendar["DailyPrice"];
+          $date->modify("+1 day");
+        }
+      }
+    }
+    // var_dump($date);
+    // var_dump($totalHT);
+  }
 
   public function bookARoom($dateBeginning, $dateEnd, $roomId) {
     $seasonModel = new SeasonModel();
@@ -78,12 +90,12 @@ class ReservationModel {
     return $roomsTab;
   }
 
-  public function registerNewReservation($_post) {
-    $database = new Database();
-    $sql = "INSERT INTO reservations (ReservationTimestamp, RoomId, ArrivalDate, DepartureDate, NumberOfNights, PriceByNight, TaxAmount, TotalAmount) VALUES (NOW(), ?, ?, ?, ?, ?, ?, ?)";
-    $array = [$_post["roomId"], $_post["dateArrival"], $_post["dateDeparture"], $_post["numberOfNights"], $_post["priceADay"], $_post["taxAmount"], $_post["totalTTC"]];
-    $database->executeSql($sql, $array);
-  }
+  // public function registerNewReservation($_post) {
+  //   $database = new Database();
+  //   $sql = "INSERT INTO reservations (ReservationTimestamp, RoomId, ArrivalDate, DepartureDate, NumberOfNights, PriceByNight, TaxAmount, TotalAmount) VALUES (NOW(), ?, ?, ?, ?, ?, ?, ?)";
+  //   $array = [$_post["roomId"], $_post["dateArrival"], $_post["dateDeparture"], $_post["numberOfNights"], $_post["priceADay"], $_post["taxAmount"], $_post["totalTTC"]];
+  //   $database->executeSql($sql, $array);
+  // }
 
 }
 

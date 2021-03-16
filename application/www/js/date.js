@@ -33,8 +33,14 @@ function onChangeGetValue(event) {
   getValidationCTA(selectedArrivalDate, selectedDepartureDate);
 }
 
+
 const dateArrival = document.getElementById("dateArrival");
 const dateDeparture = document.getElementById("dateDeparture");
+
+let day = new Date;
+let todayDate = day.getFullYear() + "-" + "0" + (day.getMonth() + 1) + "-" + day.getDate();
+console.log("aujourd'hui : " + todayDate);
+dateArrival.setAttribute("min", todayDate);
 
 dateArrival.addEventListener("change", onChangeGetValue);
 dateDeparture.addEventListener("change", onChangeGetValue);
