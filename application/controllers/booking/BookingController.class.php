@@ -16,8 +16,6 @@ class BookingController
 
       // var_dump($_POST);
 
-      $room = $roomModel->getOneRoomInformations($_POST["roomId"]);
-      // var_dump($room);
       $pictures = $roomModel->getOneRoomPictures($_POST["roomId"]);
       // var_dump($pictures);
 
@@ -52,18 +50,18 @@ class BookingController
           // var_dump("chambre dispo : " . $roomAvailable);
           $roomAvailableCalendars = $reservationModel->getRoomCalendars($dateArrival, $dateDeparture, $roomAvailable);
           // var_dump($roomAvailableCalendars);
-          $rommAvailableBookingDetails = $reservationModel->getBookingDetails($dateArrival, $dateDeparture, $roomAvailable, $roomAvailableCalendars);
-          // var_dump($rommAvailableBookingDetails);
-          array_push($roomsAvailableBookingDetails, $rommAvailableBookingDetails);
+          $roomAvailableBookingDetails = $reservationModel->getBookingDetails($dateArrival, $dateDeparture, $roomAvailable, $roomAvailableCalendars);
+          // var_dump($roomAvailableBookingDetails);
+          $roomAvailableDetails = $roomModel->getOneRoomInformations($roomAvailable);
+          array_push($roomsAvailableBookingDetails, $roomAvailableBookingDetails);
         }
         }
 
-        var_dump($roomsAvailableBookingDetails);
+        // var_dump($roomsAvailableBookingDetails);
 
-        return ["room" => $room, "pictures" => $pictures, "dateArrival" => $dateArrival, "dateDeparture" => $dateDeparture, "bookingDetails" => $bookingDetails, "roomsAvailableBookingDetails" => $roomsAvailableBookingDetails];
+        return ["pictures" => $pictures, "dateArrival" => $dateArrival, "dateDeparture" => $dateDeparture, "bookingDetails" => $bookingDetails, "roomsAvailableBookingDetails" => $roomsAvailableBookingDetails];
       }
 
-// TODO: affichage des informations
 // TODO: calculer prix pour chambres dispo et affichage chambre dispo
 }
  ?>

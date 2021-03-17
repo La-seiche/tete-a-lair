@@ -46,6 +46,14 @@ class RoomModel {
     return $pictures;
   }
 
+  public function getAllRoomIds()
+  {
+    $database = new Database();
+    $sql = "SELECT RoomId FROM rooms";
+    $roomIdList = $database->query($sql, []);
+    return $roomIdList;
+  }
+
 }
 
 ?>

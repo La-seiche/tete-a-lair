@@ -42,7 +42,8 @@ class ReservationModel {
     $date->modify("+13 hours");
     $totalHT = 0;
 
-    for ($i = 0; $i < $duration; $i++) {
+    for ($i = 0; $i < $duration; $i++)
+    {
       foreach ($calendars as $calendar) {
         $dateStart = strtotime($calendar["StartDate"]);
         // var_dump($dateStart);
@@ -63,13 +64,33 @@ class ReservationModel {
     // var_dump($date);
     // var_dump($totalHT);
 
-    $bookingDetails = ["duration" => $duration, "totalHT" => $totalHT];
+    $roomModel = new RoomModel();
+    $roomInformations = $roomModel->getOneRoomInformations($roomId);
+    // var_dump($roomInformations);
+
+    $bookingDetails = [
+    "duration" => $duration,
+    "totalHT" => $totalHT,
+    "roomName" => $roomInformations["RoomName"],
+    "roomId" => $roomInformations["RoomId"],
+    "numberOfPersonn" => $roomInformations["NumberOfPersonn"],
+    "photoMiniature" => $roomInformations["PhotoMiniature"],
+  ];
     return $bookingDetails;
   }
 
   public function filterRooms($_post)
   {
-    $roomsTab = [1, 2, 3, 4];
+    $roomModel = new RoomModel();
+    $roomIdList = $roomModel->getAllRoomIds();
+    // var_dump(count($roomIdList));
+
+    $roomsTab = [];
+    for ($i = 1; $i <= count($roomIdList); $i++)
+    {
+      array_push($roomsTab, $i);
+    }
+
     $roomSearched = $_post["roomId"] - 1;
     array_splice($roomsTab, $roomSearched, 1);
     // var_dump($roomsTab);

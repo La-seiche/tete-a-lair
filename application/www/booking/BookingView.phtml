@@ -6,11 +6,11 @@
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 <section class="section-main-design">
-  <h1 class="title title-main">Votre réservation pour la chambre <?= $room["RoomName"] ?></h1>
+  <h1 class="title title-main">Votre réservation pour la chambre <?= $bookingDetails["roomName"] ?></h1>
   <div class="slider">
     <?php for ($i = 1; $i <= 10; $i++) {
       if (strlen($pictures["Photo".$i]) != 0 ) { ?>
-        <img src="<?= $wwwUrl ?>/images/rooms/<?= $pictures['Photo'.$i] ?>" alt="Photo de la chambre <?= $room['RoomName'] ?><?= $i ?>">
+        <img src="<?= $wwwUrl ?>/images/rooms/<?= $pictures['Photo'.$i] ?>" alt="Photo de la chambre <?= $bookingDetails['roomName'] ?><?= $i ?>">
     <?php } } ?>
   </div>
 </section>
@@ -21,11 +21,24 @@
     <p>Prix total : <?= $bookingDetails["totalHT"] ?> €</p>
     <h3 class="title">Services offerts dans la réservation :</h3>
     <ul>
-      <li>Draps</li>
-      <li>Serviettes</li>
-      <li>Petit déjeuner</li>
+      <li>Draps fournis</li>
+      <li>Serviettes fournies</li>
+      <li>Petit déjeuner </li>
       <li>WIFI</li>
     </ul>
     <span>Pour les repas du soir vous pouvez réserver à notre table d'hôtes.</span>
   </article>
 </section>
+<section class="section-main-design">
+  <h2 class="title title-main">Les autres chambres disponibles à ces dates</h2>
+</section>
+<?php foreach ($roomsAvailableBookingDetails as $roomAvailableBookingDetails) { ?>
+  <section class="section-main-design">
+    <h3 class="title"><?= $roomAvailableBookingDetails["roomName"] ?> pour <?= $roomAvailableBookingDetails["numberOfPersonn"] ?> personnes</h3>
+    <img class="room-picture" src="<?= $wwwUrl ?>/images/rooms/<?= $roomAvailableBookingDetails["photoMiniature"] ?>" alt="<?= $roomAvailableBookingDetails["roomName"] ?>">
+    <article>
+      <p>Prix total pour une réservation du <?= $dateArrival ?> au <?= $dateDeparture ?> : <?= $roomAvailableBookingDetails["totalHT"] ?> €</p>
+      <a class="cta" href="<?= $requestUrl ?>/rooms/room?RoomId=<?= $roomAvailableBookingDetails["roomId"] ?>"><i class="fas fa-plus-circle"></i> Voir la chambre</a>
+    </article>
+  </section>
+<?php } ?>
