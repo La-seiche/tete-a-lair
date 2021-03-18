@@ -62,6 +62,5 @@ class BookingController
         return ["pictures" => $pictures, "dateArrival" => $dateArrival, "dateDeparture" => $dateDeparture, "bookingDetails" => $bookingDetails, "roomsAvailableBookingDetails" => $roomsAvailableBookingDetails];
       }
 
-// TODO: calculer prix pour chambres dispo et affichage chambre dispo
 }
  ?>
