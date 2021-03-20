@@ -1,0 +1,95 @@
+/* *****************************************
+************Eléments Généraux************
+***************************************** */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+  background-color: #fff;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  max-width: 1500px;
+  width: 95%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.hide {
+  display: none;
+}
+
+/* *****************************************
+************HEADER************
+***************************************** */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: #f8f8f4;
+  margin-bottom: 40px;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 100px;
+}
+
+.nav-bar {
+  width: 60%;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.nav-list li {
+  position: relative;
+}
+
+.nav-list a,
+.fa-user {
+  text-decoration: none;
+  color: #242424;
+}
+
+.sub-nav{
+  background-color: #f8f8f4;
+  position: absolute;
+  top: 100%;
+  text-align: left;
+  padding: 5px;
+}
+
+.sub-nav-list {
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+}
+
+.sub-nav-item {
+  padding-left: 10px;
+  transition: all 300ms;
+}
+
+.sub-nav-item:hover {
+  background-color: #fff;
+  color: black;
+}
