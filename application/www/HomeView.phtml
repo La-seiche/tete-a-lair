@@ -1,40 +1,63 @@
 <!-- <link rel="stylesheet" type="text/css" href="<?= $wwwUrl ?>/css/home.css"> -->
+<link rel="stylesheet" type="text/css" href="<?= $wwwUrl ?>/css/home2.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-<section class="section-main-design prestations-overview">
-  <h1 class="title title-main title-overview">Bienvenue aux chambres d'hôtes et gite tête à l'air</h1>
-  <div class="prestations-overview-div prestations-overview-room">
+<section class="header-home">
+  <h1 class="title title-header-home">Bienvenue à Tête à l'air</h1>
+  <h2 class="title subtitle-header-home">Chambres d'hôtes et gîte</h2>
+</section>
+<section class="slider-rooms">
+  <h2 class="title title-slider-rooms">Nos chambres d'hôtes et gîte</h2>
+  <div class="slider">
+    <article class="rooms-bloc-slider room-grande-champagne">
+      <h3 class="title title-slider-room">La grande champagne</h3>
+      <a href="<?= $requestUrl ?>/rooms/room?RoomId=1">Voir la chambre</a>
+    </article>
+    <article class="rooms-bloc-slider room-petite-champagne">
+      <h3 class="title title-slider-room">La petite champagne</h3>
+      <a href="<?= $requestUrl ?>/rooms/room?RoomId=2">Voir la chambre</a>
+    </article>
+    <article class="rooms-bloc-slider room-borderie">
+      <h3 class="title title-slider-room">La borderie</h3>
+      <a href="<?= $requestUrl ?>/rooms/room?RoomId=3">Voir la chambre</a>
+    </article>
+    <article class="rooms-bloc-slider room-fin-bois">
+      <h3 class="title title-slider-room">Les fins bois</h3>
+      <a href="<?= $requestUrl ?>/rooms/room?RoomId=4">Voir la chambre</a>
+    </article>
+  </div>
+</section>
+<section class="services-home">
+  <h2 class="title title-services-home">Nos services et prestations</h2>
+  <div class="prestations-overview-div prestations-overview-table">
     <div class="prestations-overview-inner-bloc">
-      <a class="cta cta-overview" href="<?= $requestUrl ?>/rooms"><i class="fas fa-plus-circle"></i> Découvrez nos chambres d'hôtes</a>
+      <a class="cta-services-home" href="<?= $requestUrl ?>/prestations/table">Découvrez notre table d'hôtes</a>
     </div>
   </div>
   <div class="prestations-overview-div prestations-overview-games">
     <div class="prestations-overview-inner-bloc">
-      <a class="cta cta-overview" href="<?= $requestUrl ?>/prestations/commun"><i class="fas fa-plus-circle"></i> Découvrez nos espaces communs</a>
+      <a class="cta-services-home" href="<?= $requestUrl ?>/prestations/commun">Découvrez nos espaces intérieurs</a>
     </div>
   </div>
   <div class="prestations-overview-div prestations-overview-pool">
     <div class="prestations-overview-inner-bloc">
-      <a class="cta cta-overview" href="<?= $requestUrl ?>/prestations"><i class="fas fa-plus-circle"></i> Découvrez les prestations oiffertes dans nos chambres d'hôtes</a>
-    </div>
-  </div>
-  <div class="prestations-overview-div prestations-overview-table">
-    <div class="prestations-overview-inner-bloc">
-      <a class="cta cta-overview" href="<?= $requestUrl ?>/prestations/table"><i class="fas fa-plus-circle"></i> Découvrez notre table d'hôtes</a>
+      <a class="cta-services-home" href="<?= $requestUrl ?>/prestations">Découvrez nos espaces extérieurs</a>
     </div>
   </div>
   <article>
-    <p>A 15 km de Cognac, nous vous acceuillons au coeur de la Charente. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</section>
+<section class="around-home">
+  <figure id="slider-around" class="slider-around">
+    <img src="<?= $wwwUrl ?>/images/background/maison.jpg" alt="Photo du carrousel">
+    <figcaption></figcaption>
+  </figure>
+  <article class="around">
+    <h2 class="title title-around-home">Découvrir la Charente et sa région</h2>
+    <p>A 15 km Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <a class="cta-around-home" href="<?= $requestUrl ?>/around">Visitez la Charentes</a>
   </article>
 </section>
-<section class="section-main-design section-home">
-  <article class="discover-around">
-    <h2 class="title title-presentation">Découvrez Cognac et sa région</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <a class="cta" href="<?= $requestUrl ?>/around"><i class="fas fa-plus-circle"></i> Découvrez Cognac et ses alentours</a>
-  </article>
-</section>
-<section class="section-main-design section-home">
-  <h2 class="title">-10% sur les réservations en direct, appelez nous au 05.46.98.17.12 ou envoyez un mail</h2>
-  <p>Les tarifs évoluent en fonction des saisons et du nombre de personnes. Contactez nous pour avoir un devis.</p>
-  <p>Possibilité de payer en espèce, carte, chèque, chèque vacances</p>
-</section>
+
+<script type="text/javascript" src="<?= $wwwUrl ?>/js/slider-home.js"></script>

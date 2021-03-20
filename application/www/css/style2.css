@@ -10,6 +10,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   line-height: 1.6;
   background-color: #fff;
+  font-family: 'Handlee', cursive;
 }
 
 img {
@@ -17,15 +18,23 @@ img {
   height: auto;
 }
 
-.container {
-  max-width: 1500px;
-  width: 95%;
-  margin-right: auto;
-  margin-left: auto;
-}
-
 .hide {
   display: none;
+}
+
+.container {
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+  margin: 0
+}
+
+/* Slider */
+
+.slick-initialized .slick-slide {
+  margin: 0 20px;
 }
 
 /* *****************************************
@@ -37,13 +46,17 @@ img {
   top: 0;
   z-index: 50;
   background-color: #f8f8f4;
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
+  font-family: 'Cormorant Garamond', serif;
 }
 
 .menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 95%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .logo {
@@ -92,4 +105,76 @@ img {
 .sub-nav-item:hover {
   background-color: #fff;
   color: black;
+}
+
+/* *****************************************
+************FOOTER************
+***************************************** */
+
+.footer {
+  background-color: #f8f8f4;
+  color: black;
+}
+
+.footer-informations {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav-logo {
+  width: 100px;
+
+}
+
+.contact {
+  width: 45%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.contact-title {
+  width: 100%;
+}
+
+.social-network-list {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  list-style: none;
+}
+
+.social-network-list-items {
+  text-decoration: none;
+}
+
+.social-network-logo {
+  font-size: 50px;
+  color: black;
+  margin-left: 20px;
+}
+
+.nav-footer {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 10px;
+}
+
+.nav-list-footer {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  font-size: 13px;
+  margin-bottom: 0;
+}
+
+.nav-list-footer li+li {
+  margin-left: 10px;
+}
+
+.nav-list-footer a {
+  text-decoration: none;
+  color: #fff;
 }
