@@ -1,122 +1,148 @@
-.prestations-overview {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+
+/* ELEMENTS GENERAUX HOME */
+
+section:nth-of-type(2n) {
+  background-color: #fff;
 }
 
-.title-overview {
-  width: 100%;
+.subtitle-header-home, .title-header-home, .title-slider-room {
+  color: #fff;
+}
+
+.subtitle-header-home, .title-slider-rooms, .title-services-home, .title-around-home {
+  font-size: 45px;
+}
+
+.rooms-bloc-slider a, .cta-services-home, .cta-around-home {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 150px;
   text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 5px;
+  margin-top: 10px;
 }
 
-.prestations-overview-div {
-  width: 24%;
-  min-height: 600px;
-  position: relative;
+.slider-rooms, .services-home, .around-home {
+  padding-top: 60px;
 }
 
-.prestations-overview-room {
-  background-image: url(../images/home/overview/1.jpg);
+.slider-rooms, .around-home {
+  padding-bottom: 60px;
+}
+
+.title-slider-rooms, .title-services-home {
+  margin-bottom: 40px;
+}
+
+/* Header home */
+
+.header-home {
+  height: 85vh;
+  background-image: url(../images/background/maison.jpg);
   background-size: cover;
-  background-position: center center;
+  background-position: center;
 }
 
-.prestations-overview-inner-bloc {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.8);
-  display: none;
+.title-header-home {
+  padding-top: 150px;
+  font-size: 70px;
 }
 
-.prestations-overview-room:hover .prestations-overview-inner-bloc {
-  display: block;
+/* Slider home */
+
+.slick-initialized .slick-slide {
+  height: 350px;
 }
 
-.prestations-overview-pool {
-  background-image: url(../images/home/overview/2.jpg);
+/* button .slick-prev .slick-arrow {
+  left: 0;
+  background-color: red;
+  top: 50%;
+} */
+
+.rooms-bloc-slider {
+  padding-top: 225px;
+}
+
+.room-grande-champagne {
+  background-image: url(../images/rooms/grande-champagne/1.jpg);
   background-size: cover;
-  background-position: center center;
+  background-position: center;
 }
 
-.prestations-overview-pool:hover .prestations-overview-inner-bloc {
-  display: block;
-}
-
-.prestations-overview-games {
-  background-image: url(../images/home/overview/3.jpg);
+.room-petite-champagne {
+  background-image: url(../images/rooms/petite-champagne/1.jpg);
   background-size: cover;
-  background-position: center center;
+  background-position: center;
 }
 
-.prestations-overview-games:hover .prestations-overview-inner-bloc {
-  display: block;
-}
-
-.prestations-overview-table {
-  background-image: url(../images/home/overview/4.jpg);
+.room-borderie {
+  background-image: url(../images/rooms/borderie/1.jpg);
   background-size: cover;
-  background-position: center center;
+  background-position: center;
 }
 
-.prestations-overview-table:hover .prestations-overview-inner-bloc {
-  display: block;
+.room-fin-bois {
+  background-image: url(../images/rooms/fin-bois/1.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
-.cta-overview {
-  position: absolute;
-  top: 10%;
-  left: 5%;
-  text-align: center;
-  border: 0;
+.title-slider-room {
+  background-color: rgba(0, 0, 0, 0.7);
+  font-size: 25px;
 }
 
-.section-home {
-  text-align: center;
-}
+/* Service home */
 
-.presentation {
+.services-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  align-items: stretch;
 }
 
-.presentation-article {
-  width: 31%;
+.service-wrap {
+  width: 28%;
+}
+
+.service-wrap img {
+  width: 425px;
+  height: 550px;
+  object-fit: cover;
+}
+
+.service-wrap a {
+  position: relative;
+  bottom: 100px;
+}
+
+.cta-services-home {
+  width: 275px;
+}
+
+/* Alentours */
+
+.around-home {
   display: flex;
-  flex-direction: column;
-}
-
-.title-presentation {
-  width: 100%;
-}
-
-.presentation-img {
-  padding: 20px;
-}
-
-/* .presentation-article {
-  width: 31%;
-  border: 1px solid rgb(198, 223, 220);
-  display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
   align-items: center;
-} */
-
-.title-presentation-article {
-  width: 50px;
-  height: 50px;
-  border: 1px solid #fff;
-  border-radius: 50%;
 }
 
-.title-presentation-article {
-  width: 60px;
-  height: 60px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.around {
+  width: 35%;
+  margin-right: 50px;
 }
 
-.cta {
-  margin-top: auto;
+.slider-around {
+  width: 45%;
+}
+
+.slider-around figcaption {
+  text-align: center;
 }

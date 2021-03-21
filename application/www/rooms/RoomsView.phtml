@@ -1,6 +1,29 @@
 <link rel="stylesheet" type="text/css" href="<?= $wwwUrl ?>/css/rooms.css">
 
-<section class="section-main-design">
+<section class="header-landing">
+  <h1 class="title title-header-landing">Chambres d'hôtes et gîte</h1>
+  <h2 class="title subtitle-header-landing">D'une capacité de 2 à 7 personnes</h2>
+</section>
+<section class="container-landing container-landing-first">
+  <h2 class="title title-container-landing">Nos Chambres</h2>
+  <h3 class="title subtitle-container-landing">Nos chambres d'hôtes au coeur d'une maison charentaise</h3>
+</section>
+<section class="container-landing rooms-list">
+  <?php foreach ($rooms as $room) { ?>
+    <article class="room-wrap">
+      <img class="room-picture" src="<?= $wwwUrl ?>/images/rooms/<?= $room["PhotoMiniature"] ?>" alt="Photos de la chambre d'hôtes <?= $room["RoomName"] ?>">
+      <h3 class="title title-room"><?= $room["RoomName"] ?></h3>
+      <h4 class="title subtitle-room">Jusqu'à <?= $room["NumberOfPersonn"] ?> personnes</h4>
+      <a class="cta-room" href="<?= $requestUrl ?>/rooms/room?RoomId=<?= $room["RoomId"] ?>">Voir la chambre</a>
+    </article>
+  <?php } ?>
+</section>
+<section class="container-landing container-landing-second">
+  <h2 class="title title-container-landing">Notre gîte</h2>
+  <h3 class="title subtitle-container-landing">Gite typique en pierre charentaise</h3>
+</section>
+
+<!-- <section class="section-main-design">
   <h1 class="title title-rooms">Nos Chambres d'hôtes</h1>
   <div class="slider">
     <div class="slider-pictures"><img class="slider-picture" src="<?= $wwwUrl ?>/images/rooms/petite-champagne/1.jpg" alt="Photos de la chambre d'hôtes Petite Champagne"></div>
@@ -72,4 +95,4 @@
       </div>
     </aside>
   </section>
-<?php } ?>
+<?php } ?> -->

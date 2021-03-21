@@ -2,6 +2,10 @@
 ************Eléments Généraux************
 ***************************************** */
 
+:root {
+  --fond-color: #f8f8f4;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -9,7 +13,7 @@
 body {
   font-family: 'Open Sans', sans-serif;
   line-height: 1.6;
-  background-color: #fff;
+  background-color: var(--fond-color);
   font-family: 'Handlee', cursive;
 }
 
@@ -23,7 +27,7 @@ img {
 }
 
 .container {
-  width: 100%;
+  /* width: 100%; */
 }
 
 .title {
@@ -45,9 +49,9 @@ img {
   position: sticky;
   top: 0;
   z-index: 50;
-  background-color: #f8f8f4;
   /* margin-bottom: 40px; */
   font-family: 'Cormorant Garamond', serif;
+  background-color: var(--fond-color);
 }
 
 .menu {
@@ -84,7 +88,7 @@ img {
 }
 
 .sub-nav{
-  background-color: #f8f8f4;
+  background-color: var(--fond-color);
   position: absolute;
   top: 100%;
   text-align: left;
@@ -112,7 +116,7 @@ img {
 ***************************************** */
 
 .footer {
-  background-color: #f8f8f4;
+  background-color: var(--fond-color);
   color: black;
 }
 
@@ -177,4 +181,51 @@ img {
 .nav-list-footer a {
   text-decoration: none;
   color: #fff;
+}
+
+/* *****************************************
+************LANDING PAGE************
+***************************************** */
+
+.header-landing {
+  height: 460px;
+  background-image: url(../images/rooms/borderie/1.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.title-header-landing, .subtitle-header-landing {
+  color: #fff;
+}
+
+.title-header-landing {
+  padding-top: 150px;
+  font-size: 65px;
+}
+
+.subtitle-header-landing {
+  font-size: 30px;
+}
+
+.container-landing {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container-landing-first {
+  position: relative;
+  bottom: 75px;
+}
+
+.container-landing-first, .container-landing-second {
+  background-color: #fff;
+}
+
+.container-landing {
+  padding: 30px 0;
+}
+
+.title-container-landing {
+  font-size: 40px;
 }

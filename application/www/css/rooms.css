@@ -1,78 +1,34 @@
-.title-rooms,
-.title-sub-rooms {
-  text-align: center;
-}
-
-.rooms-introduction {
+.rooms-list {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
-  align-items: center;
+  align-items: stretch;
+  margin-bottom: 40px;
 }
 
-.rooms-main p {
-  margin: 0;
+.room-wrap {
+  width: 35%;
+  background-color: #fff;
+  margin-bottom: 50px;
 }
 
-.rooms-presentation {
-  width: 65%;
+.title-room {
+  margin-top: 35px;
+  font-size: 34px;
 }
 
-.reservation-offer {
-  width: 25%;
+.subtitle-room {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.cta-room {
+  display: block;
   text-align: center;
-  border: 4px solid var(--inside-logo-color);
-  background-color: var(--fond-logo-color);
-  color: black;
-}
-
-.room-presentation {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.title-room-presentation {
-  width: 100%;
-}
-
-.room-introduction {
-  width: 65%;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.room-introduction p {
-  width: 100%;
-}
-
-.cta-rooms {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.hasDatepicker {
-  color: black;
-}
-
-#ui-datepicker-div {
-  border: 5px solid var(--inside-logo-color);
-  background-color: var(--fond-logo-color);
-}
-
-.table-recap {
+  text-decoration: none;
   color: #fff;
-  width: 85%;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.table-recap th,
-.table-recap td {
-  border: 2px solid #fff;
-  /* width: 25%; */
-  text-align: center;
+  background-color: #a4a89c;
+  padding: 10px;
 }
 
 input[type = "date"] {
