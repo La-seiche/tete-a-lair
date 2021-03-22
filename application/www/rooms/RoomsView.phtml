@@ -1,6 +1,6 @@
 <link rel="stylesheet" type="text/css" href="<?= $wwwUrl ?>/css/rooms.css">
 
-<section class="header-landing">
+<section class="header-landing header-rooms">
   <h1 class="title title-header-landing">Chambres d'hôtes et gîte</h1>
   <h2 class="title subtitle-header-landing">D'une capacité de 2 à 7 personnes</h2>
 </section>
@@ -10,89 +10,29 @@
 </section>
 <section class="container-landing rooms-list">
   <?php foreach ($rooms as $room) { ?>
-    <article class="room-wrap">
-      <img class="room-picture" src="<?= $wwwUrl ?>/images/rooms/<?= $room["PhotoMiniature"] ?>" alt="Photos de la chambre d'hôtes <?= $room["RoomName"] ?>">
-      <h3 class="title title-room"><?= $room["RoomName"] ?></h3>
-      <h4 class="title subtitle-room">Jusqu'à <?= $room["NumberOfPersonn"] ?> personnes</h4>
-      <a class="cta-room" href="<?= $requestUrl ?>/rooms/room?RoomId=<?= $room["RoomId"] ?>">Voir la chambre</a>
-    </article>
+    <?php if ($room["RoomType"] === "room") { ?>
+      <article class="room-wrap">
+        <img class="room-picture" src="<?= $wwwUrl ?>/images/rooms/<?= $room["PhotoMiniature"] ?>" alt="Photos de la chambre d'hôtes <?= $room["RoomName"] ?>">
+        <h3 class="title title-room"><?= $room["RoomName"] ?></h3>
+        <h4 class="title subtitle-room">Pour <?= $room["NumberOfPersonn"] ?> personnes</h4>
+        <a class="cta-room" href="<?= $requestUrl ?>/rooms/room?RoomId=<?= $room["RoomId"] ?>">Voir la chambre</a>
+      </article>
+    <?php } ?>
   <?php } ?>
 </section>
 <section class="container-landing container-landing-second">
   <h2 class="title title-container-landing">Notre gîte</h2>
   <h3 class="title subtitle-container-landing">Gite typique en pierre charentaise</h3>
 </section>
-
-<!-- <section class="section-main-design">
-  <h1 class="title title-rooms">Nos Chambres d'hôtes</h1>
-  <div class="slider">
-    <div class="slider-pictures"><img class="slider-picture" src="<?= $wwwUrl ?>/images/rooms/petite-champagne/1.jpg" alt="Photos de la chambre d'hôtes Petite Champagne"></div>
-    <div class="slider-pictures"><img class="slider-picture" src="<?= $wwwUrl ?>/images/rooms/grande-champagne/1.jpg" alt="Photos de la chambre d'hôtes Grande Champagne"></div>
-    <div class="slider-pictures"><img class="slider-picture" src="<?= $wwwUrl ?>/images/rooms/borderie/1.jpg" alt="Photos de la chambre d'hôtes borderie"></div>
-    <div class="slider-pictures"><img class="slider-picture" src="<?= $wwwUrl ?>/images/rooms/fin-bois/1.jpg" alt="Photos de la chambre d'hôtes fins bois"></div>
-  </div>
-</section>
-<section class="section-main-design rooms-main">
-  <h2 class="title title-sub-rooms">Découvrez nos chambres typiquement charentaise</h2>
-  <p>Elles disposent chacune d'une entrée privative, ainsi que leur propre salle de bain et WC.</p>
-  <div class="rooms-introduction">
-    <article class="rooms-presentation">
-      <h3 class="title">Les services de nos chambres d'hôtes</h3>
-      <ul class="rooms-presentation-list">
-        <li>Notre literie 100% française est de très bonne qualité</li>
-        <li>Les draps et les serviettes sont fournis</li>
-        <li>Wi-Fi gratuit</li>
-        <li>Plusieurs parkings à proximité, possibilité de rentrer quelques voitures dans la cours</li>
-        <li>Petit déjeuner compris</li>
-      </ul>
-    </article>
-    <aside class="reservation-offer">
-      <h3 class="title title-reservation-offer"><strong>-10 %</strong> sur le prix si vous réservez en direct !!!</h3>
-    </aside>
-  </div>
-</section>
-<?php foreach ($rooms as $room) { ?>
-  <section class="section-main-design room-presentation">
-    <h3 class="title title-room-presentation"><?= $room["RoomName"] ?> (<?= $room["NumberOfPersonn"] ?>)</h3>
-    <article class="room-introduction">
-      <p><?= $room["Description"] ?></p>
-      <?php if ($room["PlusBed"]) { ?>
-        <p>Possibilité de mettre un lit supplémentaire (supplément 15 euros)</p>
-      <?php } ?>
-      <img class="room-picture" src="<?= $wwwUrl ?>/images/rooms/<?= $room["PhotoMiniature"] ?>" alt="Photos de la chambre d'hôtes <?= $room["RoomName"] ?>">
-      <article class="room-services">
-        <ul class="room-presentation-list">
-          <li>Entrée privative</li>
-          <li>Chambre avec un lit <?= $room["Bed"] ?></li>
-          <?php if ($room["SeperateWC"]) { ?>
-            <li>Salle de douche et WC privatifs mais WC séparés</li>
-          <?php } else { ?>
-            <li>Salle de douche et WC privatifs</li>
-          <?php } ?>
-          <?php if ($room["RelaxSpace"]) { ?>
-            <li>Coin Détente</li>
-          <?php } ?>
-          <?php if ($room["WithBabyBed"]) { ?>
-            <li>Lit gigogne</li>
-          <?php } ?>
-          <?php if ($room["WithCouch"]) { ?>
-            <li>Canapé</li>
-          <?php } ?>
-          <?php if ($room["Office"]) { ?>
-            <li>Coin Bureau</li>
-          <?php } ?>
-        </ul>
+<section class="container-landing rooms-list">
+  <?php foreach ($rooms as $room) { ?>
+    <?php if ($room["RoomType"] === "lodging") { ?>
+      <article class="room-wrap">
+        <img class="room-picture" src="<?= $wwwUrl ?>/images/rooms/<?= $room["PhotoMiniature"] ?>" alt="Photos de la chambre d'hôtes <?= $room["RoomName"] ?>">
+        <h3 class="title title-room"><?= $room["RoomName"] ?></h3>
+        <h4 class="title subtitle-room">Pour <?= $room["NumberOfPersonn"] ?> personnes</h4>
+        <a class="cta-room" href="<?= $requestUrl ?>/rooms/room?RoomId=<?= $room["RoomId"] ?>">Voir la chambre</a>
       </article>
-    </article>
-    <aside class="room-prices">
-      <h3>A partir de <?= $room["LowSeasonPriceDay"] ?>€</h3>
-      <?php if ($room["PlusPersonn"]) { ?>
-        <p>Supplément 10 € pour 1 personne supplémentaire</p>
-      <?php } ?>
-      <p>Petit déjeuner INCLUS</p>
-      <div class="cta-rooms">
-        <a class="cta" href="<?= $requestUrl ?>/rooms/room?RoomId=<?= $room["RoomId"] ?>"><i class="fas fa-plus-circle"></i> Voir la chambre</a>
-      </div>
-    </aside>
-  </section>
-<?php } ?> -->
+    <?php } ?>
+  <?php } ?>
+</section>

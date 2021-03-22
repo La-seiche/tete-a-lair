@@ -9,22 +9,12 @@
 <section class="slider-rooms">
   <h2 class="title title-slider-rooms">Nos chambres d'hôtes et gîte</h2>
   <div class="slider">
-    <article class="rooms-bloc-slider room-grande-champagne">
-      <h3 class="title title-slider-room">La grande champagne</h3>
-      <a href="<?= $requestUrl ?>/rooms/room?RoomId=1">Voir la chambre</a>
-    </article>
-    <article class="rooms-bloc-slider room-petite-champagne">
-      <h3 class="title title-slider-room">La petite champagne</h3>
-      <a href="<?= $requestUrl ?>/rooms/room?RoomId=2">Voir la chambre</a>
-    </article>
-    <article class="rooms-bloc-slider room-borderie">
-      <h3 class="title title-slider-room">La borderie</h3>
-      <a href="<?= $requestUrl ?>/rooms/room?RoomId=3">Voir la chambre</a>
-    </article>
-    <article class="rooms-bloc-slider room-fin-bois">
-      <h3 class="title title-slider-room">Les fins bois</h3>
-      <a href="<?= $requestUrl ?>/rooms/room?RoomId=4">Voir la chambre</a>
-    </article>
+    <?php foreach ($rooms as $room) { ?>
+      <article class="rooms-bloc-slider room-grande-champagne" style="background-image: url('<?= $wwwUrl ?>/images/rooms/<?= $room['PhotoMiniature'] ?>')">
+        <h3 class="title title-slider-room"><?= $room["RoomName"] ?></h3>
+        <a href="<?= $requestUrl ?>/rooms/room?RoomId=<?= $room["RoomName"] ?>">Voir la chambre</a>
+      </article>
+    <?php } ?>
   </div>
 </section>
 <section class="services-home">

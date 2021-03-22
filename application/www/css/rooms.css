@@ -1,3 +1,10 @@
+
+/* CSS Chambre listing rooms */
+
+.header-rooms {
+  background-image: url(../images/rooms/borderie/1.jpg);
+}
+
 .rooms-list {
   display: flex;
   flex-wrap: wrap;
@@ -22,13 +29,107 @@
   font-size: 20px;
 }
 
-.cta-room {
+.cta-room, .cta {
   display: block;
   text-align: center;
   text-decoration: none;
   color: #fff;
   background-color: #a4a89c;
   padding: 10px;
+}
+
+/* CSS Chambre détails room */
+
+.container-landing-room {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.wrapper-landing-header {
+  width: 45%;
+  padding: 50px;
+}
+
+.wrapper-landing-title {
+  font-size: 34px;
+}
+
+span hr {
+  width: 35%;
+}
+
+.wrapper-landing-images {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slider-room {
+  width: 100%;
+}
+
+.slider-room-list{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+}
+
+.slider-room-item {
+  width: 12%;
+  list-style: none;
+}
+
+.room-details {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  margin-bottom: 60px;
+}
+
+.wrapper-details {
+  width: 28%;
+  background-color: #fff;
+  text-align: center;
+  padding: 40px 0;
+}
+
+.room-equipements-list {
+  margin: 0;
+  padding: 0;
+}
+
+.room-equipements-item {
+  list-style: none;
+}
+
+.room-price {
+  background-color: #a4a89c;
+  color: #fff;
+}
+
+#reservationCTA {
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--fond-color);
+  color: black;
+}
+
+.wrapper-reservation {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.form-reservation {
+  padding: 40px;
 }
 
 input[type = "date"] {

@@ -1,67 +1,115 @@
 <link rel="stylesheet" type="text/css" href="<?= $wwwUrl ?>/css/rooms.css">
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-<section class="section-main-design">
-  <h1 class="title title-main"><?= $room["RoomName"] ?></h1>
-  <h2 class="title title-main">Chambre pour <?= $room["NumberOfPersonn"] ?></h2>
-  <div class="slider">
-    <?php for ($i = 1; $i <= 10; $i++) {
-      if (strlen($room["Photo".$i]) != 0 ) { ?>
-        <img src="<?= $wwwUrl ?>/images/rooms/<?= $room['Photo'.$i] ?>" alt="Photo de la chambre <?= $room['RoomName'] ?><?= $i ?>">
-    <?php } } ?>
-  </div>
-  <h3 class="title">Description de la Chambre</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  <h3 class="title">Services offerts</h2>
-  <ul>
-    <?php if ($room["PlusBed"]) { ?>
-      <li>Possibilité de mettre un lit supplémentaire (supplément 15 euros)</li>
-    <?php } ?>
-    <li>Entrée privative</li>
-    <li>Chambre avec un lit <?= $room["Bed"] ?></li>
-    <?php if ($room["SeperateWC"]) { ?>
-      <li>Salle de douche et WC privatifs mais WC séparés</li>
-    <?php } else { ?>
-      <li>Salle de douche et WC privatifs</li>
-    <?php } ?>
-    <?php if ($room["RelaxSpace"]) { ?>
-      <li>Coin Détente</li>
-    <?php } ?>
-    <?php if ($room["WithBabyBed"]) { ?>
-      <li>Lit gigogne</li>
-    <?php } ?>
-    <?php if ($room["WithCouch"]) { ?>
-      <li>Canapé</li>
-    <?php } ?>
-    <?php if ($room["Office"]) { ?>
-      <li>Coin Bureau</li>
-    <?php } ?>
-  </ul>
-  <a id="reservationCTA" class="cta" href="<?= $requestUrl ?>/rooms/reservations?RoomId=<?= $_GET["RoomId"] ?>"><i class="fas fa-calendar-alt"></i></i> Réservez Maintenant</a>
+<section class="header-landing" style="background-image: url('<?= $wwwUrl ?>/images/rooms/<?= $room['Photo1'] ?>')">
+  <h1 class="title title-header-landing"><?= $room["RoomName"] ?></h1>
+  <h2 class="title subtitle-header-landing">Pour <?= $room["NumberOfPersonn"] ?> personnes</h2>
 </section>
-<!-- <section id="reservationBloc" class="section-main-design hide">
-  <form class="" action="<?= $requestUrl ?>/reservation" method="post">
-    <h2>Réservez une chambre</h2>
-    <label for="arrivalDate">Date d'arrivée</label>
-    <input type="text" id="datePickerArrival" name="datePickerArrival" autocomplete="off">
-    <label for="departureDate">Date de départ</label>
-    <input type="text" id="datePickerDeparture" name="datePickerDeparture" autocomplete="off">
-    <input type="hidden" name="roomId" value="<?= $_GET["RoomId"] ?>">
-    <input type="submit" id="bookingCta" value="Réservez" />
-  </form>
-</section> -->
-<section id="reservationBloc" class="section-main-design hide">
-  <form class="" action="<?= $requestUrl ?>/booking" method="post">
-    <h2>Réservez une chambre</h2>
+<section class="container-landing container-landing-first container-landing-room">
+  <article class="wrapper-landing-header">
+    <h3 class="title wrapper-landing-title"><?= $room["RoomName"] ?></h3>
+    <span><hr></span>
+    <article class="wrapper-landing-presentation">
+      <p><?= $room["Description"] ?></p>
+    </article>
+  </article>
+  <article class="wrapper-landing-images">
+    <figure id="slider-room" class="slider-room">
+      <img src="<?= $wwwUrl ?>/images/rooms/<?= $room['Photo1'] ?>" alt="<?= $room["RoomName"] ?>">
+    </figure>
+    <ul class="slider-room-list">
+      <li class="slider-room-item" data-path="<?= $room['Photo1'] ?>" data-alt="<?= $room["RoomName"] ?>">
+        <img src="<?= $wwwUrl ?>/images/rooms/<?= $room['Photo1'] ?>" alt="<?= $room["RoomName"] ?>">
+      </li>
+      <li class="slider-room-item" data-path="<?= $room['Photo2'] ?>" data-alt="<?= $room["RoomName"] ?>">
+        <img src="<?= $wwwUrl ?>/images/rooms/<?= $room['Photo2'] ?>" alt="<?= $room["RoomName"] ?>">
+      </li>
+      <li class="slider-room-item" data-path="<?= $room['Photo3'] ?>" data-alt="<?= $room["RoomName"] ?>">
+        <img src="<?= $wwwUrl ?>/images/rooms/<?= $room['Photo3'] ?>" alt="<?= $room["RoomName"] ?>">
+      </li>
+      <li class="slider-room-item" data-path="<?= $room['Photo4'] ?>" data-alt="<?= $room["RoomName"] ?>">
+        <img src="<?= $wwwUrl ?>/images/rooms/<?= $room['Photo4'] ?>" alt="<?= $room["RoomName"] ?>">
+      </li>
+      <li class="slider-room-item" data-path="<?= $room['Photo5'] ?>" data-alt="<?= $room["RoomName"] ?>">
+        <img src="<?= $wwwUrl ?>/images/rooms/<?= $room['Photo5'] ?>" alt="<?= $room["RoomName"] ?>">
+      </li>
+      <li class="slider-room-item" data-path="<?= $room['Photo6'] ?>" data-alt="<?= $room["RoomName"] ?>">
+        <img src="<?= $wwwUrl ?>/images/rooms/<?= $room['Photo6'] ?>" alt="<?= $room["RoomName"] ?>">
+      </li>
+      <li class="slider-room-item" data-path="<?= $room['Photo7'] ?>" data-alt="<?= $room["RoomName"] ?>">
+        <img src="<?= $wwwUrl ?>/images/rooms/<?= $room['Photo7'] ?>" alt="<?= $room["RoomName"] ?>">
+      </li>
+    </ul>
+  </article>
+</section>
+<section class="container-landing room-details">
+  <article class="wrapper-details room-equipements">
+    <h3 class="title">Equipements</h3>
+    <span><hr></span>
+    <ul class="room-equipements-list">
+      <li class="room-equipements-item"><?= $room["Bed"] ?></li>
+      <?php if ($room["RelaxSpace"] == 1) { ?>
+        <li class="room-equipements-item">Salon</li>
+      <?php } ?>
+      <?php if ($room["WithCouch"] == 1) { ?>
+        <li class="room-equipements-item">Canapé</li>
+      <?php } ?>
+      <?php if ($room["WithBabyBed"] == 1) { ?>
+        <li class="room-equipements-item">Lit pour bébé</li>
+      <?php } ?>
+      <?php if ($room["Office"] == 1) { ?>
+        <li class="room-equipements-item">Bureau</li>
+      <?php } ?>
+      <li class="room-equipements-item">Salle de bain privative</li>
+      <?php if ($room["SeperateWC"] == 1) { ?>
+        <li class="room-equipements-item">WC Séparé</li>
+      <?php } ?>
+      <?php if ($room["PlusBed"]) { ?>
+        <li class="room-equipements-item">Possibilité de rajouter un lit</li>
+      <?php } ?>
+      <?php if ($room["RoomType"] === "lodging") { ?>
+        <li class="room-equipements-item">Cuisine équipée</li>
+        <li class="room-equipements-item">Ustensibles de cuisine</li>
+        <li class="room-equipements-item">Couverts</li>
+        <li class="room-equipements-item">Télévision</li>
+        <li class="room-equipements-item">terrasse</li>
+      <?php } ?>
+    </ul>
+  </article>
+  <article class="wrapper-details room-informations">
+    <h3 class="title">Informations</h3>
+    <span><hr></span>
+    <article>
+      <p>Arrivé : 15h30 - 22h</p>
+      <p>Départ : avant 12h</p>
+    </article>
+    <article>
+      <p>Table d'hôtes ouverte tous  les soirs sur réservation.</p>
+    </article>
+    <article>
+      <p>Petit déjeuner buffet offert tous les matins</p>
+    </article>
+  </article>
+  <article class="wrapper-details room-price">
+    <h3 class="title">Tarifs</h3>
+    <span><hr></span>
+    <p>A partir de : <?= $room["LowSeasonPriceDay"] ?> €</p>
+    <a id="reservationCTA" class="cta" href="<?= $requestUrl ?>/rooms/reservations?RoomId=<?= $_GET["RoomId"] ?>">Réservez Maintenant</a>
+  </article>
+</section>
+
+
+<section id="reservationBloc" class="container-landing container-landing-second wrapper-reservation hide">
+  <h2 class="title">Réservez une chambre</h2>
+  <form class="form-reservation" action="<?= $requestUrl ?>/booking" method="post">
     <label for="arrivalDate">Date d'arrivée</label>
     <input type="date" id="dateArrival" name="dateArrival">
     <label for="departureDate">Date de départ</label>
     <input type="date" id="dateDeparture" name="dateDeparture">
     <input type="hidden" name="roomId" value="<?= $_GET["RoomId"] ?>">
-    <input type="submit" id="bookingCta" class="cta hide" value="Réservez" />
+    <input type="submit" id="bookingCta" class="hide" value="Réservez" />
   </form>
 </section>
 
 <!-- <script type="text/javascript" src="<?= $wwwUrl ?>/js/datepicker.js"></script> -->
 <script type="text/javascript" src="<?= $wwwUrl ?>/js/date.js"></script>
+<script type="text/javascript" src="<?= $wwwUrl ?>/js/slider-room.js"></script>

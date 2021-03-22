@@ -9,7 +9,6 @@ class RoomController
       $room = $roomModel->getOneRoomFullPresentation($_GET);
       // var_dump($room);
       return ["room"=>$room];
-
     }
 
     public function httpPostMethod(Http $http, array $formFields)
