@@ -31,7 +31,7 @@ class RoomModel {
   public function getOneRoomInformations($roomId)
   {
     $database = new Database();
-    $sql = "SELECT RoomId, RoomName, NumberOfPersonn, Description, PlusBed, PlusPersonn, Bed, SeperateWC, RelaxSpace, WithBabyBed, WithCouch, Office, PhotoMiniature FROM rooms WHERE RoomId = :room_id";
+    $sql = "SELECT RoomId, RoomType, RoomName, NumberOfPersonn, Description, PlusBed, PlusPersonn, Bed, SeperateWC, RelaxSpace, WithBabyBed, WithCouch, Office, PhotoMiniature FROM rooms WHERE RoomId = :room_id";
     $array = ["room_id" => $roomId];
     $room = $database->queryOne($sql, $array);
     return $room;

@@ -72,6 +72,7 @@ class ReservationModel {
     "duration" => $duration,
     "totalHT" => $totalHT,
     "roomName" => $roomInformations["RoomName"],
+    "roomType" => $roomInformations["RoomType"],
     "roomId" => $roomInformations["RoomId"],
     "numberOfPersonn" => $roomInformations["NumberOfPersonn"],
     "photoMiniature" => $roomInformations["PhotoMiniature"],

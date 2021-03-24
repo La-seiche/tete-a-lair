@@ -38,65 +38,74 @@ section:nth-of-type(2n) {
   margin-bottom: 40px;
 }
 
+.title-slider-room, .cta-slider-room, .service-wrap a {
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+}
+
 /* Header home */
 
 .header-home {
-  height: 85vh;
+  min-height: 85vh;
+  height: auto;
   background-image: url(../images/background/maison.jpg);
   background-size: cover;
   background-position: center;
+  position: relative;
+}
+
+.titles-header {
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  width: 100%;
+  top: 20%;
 }
 
 .title-header-home {
-  padding-top: 150px;
   font-size: 70px;
 }
 
 /* Slider home */
 
 .slick-initialized .slick-slide {
-  height: 350px;
+  min-height: 350px;
+  height: auto;
 }
 
-/* button.slick-prev.slick-arrow {
+button.slick-prev.slick-arrow {
   left: 0;
-  background-color: red;
+  background-color: grey;
   top: 50%;
   cursor: pointer;
   z-index: 1;
-} */
+}
+
+button.slick-next.slick-arrow {
+  right: 0;
+  background-color: grey;
+  top: 50%;
+  cursor: pointer;
+  z-index: 1;
+}
 
 .rooms-bloc-slider {
   padding-top: 225px;
-}
-
-.room-grande-champagne {
-  background-image: url(../images/rooms/grande-champagne/1.jpg);
   background-size: cover;
   background-position: center;
-}
-
-.room-petite-champagne {
-  background-image: url(../images/rooms/petite-champagne/1.jpg);
-  background-size: cover;
-  background-position: center;
-}
-
-.room-borderie {
-  background-image: url(../images/rooms/borderie/1.jpg);
-  background-size: cover;
-  background-position: center;
-}
-
-.room-fin-bois {
-  background-image: url(../images/rooms/fin-bois/1.jpg);
-  background-size: cover;
-  background-position: center;
+  position: relative;
 }
 
 .title-slider-room {
   background-color: rgba(0, 0, 0, 0.7);
   font-size: 25px;
+  bottom: 36%;
+  width: 100%;
+}
+
+.cta-slider-room {
+  bottom: 22%;
 }
 
 /* Service home */
@@ -106,10 +115,12 @@ section:nth-of-type(2n) {
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: stretch;
+  padding-bottom: 60px;
 }
 
 .service-wrap {
   width: 28%;
+  position: relative;
 }
 
 .service-wrap img {
@@ -119,8 +130,7 @@ section:nth-of-type(2n) {
 }
 
 .service-wrap a {
-  position: relative;
-  bottom: 100px;
+  bottom: 10%;
 }
 
 .cta-services-home {

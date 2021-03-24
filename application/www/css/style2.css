@@ -41,6 +41,10 @@ img {
   margin: 0 20px;
 }
 
+figure#slider-around, figure#slider-room {
+  margin: 1em 0;
+}
+
 /* *****************************************
 ************HEADER************
 ***************************************** */
@@ -118,6 +122,8 @@ img {
 .footer {
   background-color: var(--fond-color);
   color: black;
+  border-top: 1px solid #a4a89c;
+  padding-top: 15px;
 }
 
 .footer-informations {
@@ -187,8 +193,13 @@ img {
 ************LANDING PAGE************
 ***************************************** */
 
+.wrapper-landing {
+  position: relative;
+}
+
 .header-landing {
-  height: 460px;
+  min-height: 60vh;
+  height: auto;
   background-size: cover;
   background-position: center;
 }
@@ -197,8 +208,15 @@ img {
   color: #fff;
 }
 
+.titles-header-landing {
+  position: absolute;
+  top: 35%;
+  transform: translateX(-50%);
+  left: 50%;
+  width: 100%;
+}
+
 .title-header-landing {
-  padding-top: 150px;
   font-size: 65px;
 }
 
@@ -219,6 +237,10 @@ img {
 
 .container-landing-first, .container-landing-second {
   background-color: #fff;
+}
+
+.container-landing-second {
+  margin-bottom: 75px;
 }
 
 .container-landing {

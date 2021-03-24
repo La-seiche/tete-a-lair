@@ -1,8 +1,10 @@
 <link rel="stylesheet" type="text/css" href="<?= $wwwUrl ?>/css/rooms.css">
 
 <section class="header-landing" style="background-image: url('<?= $wwwUrl ?>/images/rooms/<?= $room['Photo1'] ?>')">
-  <h1 class="title title-header-landing"><?= $room["RoomName"] ?></h1>
-  <h2 class="title subtitle-header-landing">Pour <?= $room["NumberOfPersonn"] ?> personnes</h2>
+  <article class="titles-header-landing">
+    <h1 class="title title-header-landing"><?= $room["RoomName"] ?></h1>
+    <h2 class="title subtitle-header-landing">Pour <?= $room["NumberOfPersonn"] ?> personnes</h2>
+  </article>
 </section>
 <section class="container-landing container-landing-first container-landing-room">
   <article class="wrapper-landing-header">
@@ -93,7 +95,7 @@
     <h3 class="title">Tarifs</h3>
     <span><hr></span>
     <p>A partir de : <?= $room["LowSeasonPriceDay"] ?> €</p>
-    <a id="reservationCTA" class="cta" href="<?= $requestUrl ?>/rooms/reservations?RoomId=<?= $_GET["RoomId"] ?>">Réservez Maintenant</a>
+    <a id="reservationCTA" class="cta" href="#reservationBloc">Réservez Maintenant</a>
   </article>
 </section>
 

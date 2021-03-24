@@ -15,7 +15,8 @@ class BookingController
       $roomModel = new RoomModel();
 
       // var_dump($_POST);
-
+      $room = $roomModel->getOneRoomInformations($_POST["roomId"]);
+      // var_dump($room);
       $pictures = $roomModel->getOneRoomPictures($_POST["roomId"]);
       // var_dump($pictures);
 
@@ -66,11 +67,11 @@ class BookingController
 
         if ($available)
         {
-          return ["pictures" => $pictures, "dateArrival" => $dateArrival_Fr, "dateDeparture" => $dateDeparture_Fr, "bookingDetails" => $bookingDetails, "roomsAvailableBookingDetails" => $roomsAvailableBookingDetails, "available" => $available];
+          return ["room" => $room, "pictures" => $pictures, "dateArrival" => $dateArrival_Fr, "dateDeparture" => $dateDeparture_Fr, "bookingDetails" => $bookingDetails, "roomsAvailableBookingDetails" => $roomsAvailableBookingDetails, "available" => $available];
         }
         else
         {
-          return ["dateArrival" => $dateArrival_Fr, "dateDeparture" => $dateDeparture_Fr, "roomsAvailableBookingDetails" => $roomsAvailableBookingDetails, "available" => $available];
+          return ["room" => $room, "dateArrival" => $dateArrival_Fr, "dateDeparture" => $dateDeparture_Fr, "roomsAvailableBookingDetails" => $roomsAvailableBookingDetails, "available" => $available];
         }
       }
 

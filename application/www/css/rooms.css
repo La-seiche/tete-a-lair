@@ -40,7 +40,7 @@
 
 /* CSS Chambre détails room */
 
-.container-landing-room {
+.container-landing-room, .container-booking {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
@@ -66,6 +66,7 @@ span hr {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  padding: 0 15px 0 0;
 }
 
 .slider-room {
@@ -134,4 +135,26 @@ span hr {
 
 input[type = "date"] {
   color : black;
+}
+
+/* Page de booking */
+
+figure.booking-image {
+  margin: 0 0 0 15px;
+}
+
+.wrapper-booking-image {
+  width: 50%;
+}
+
+.wrapper-booking-details {
+  width: 45%;
+}
+
+.container-booking {
+  margin-bottom: 80px;
+}
+
+.table {
+  font-weight: bold;
 }

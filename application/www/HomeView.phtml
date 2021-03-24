@@ -3,16 +3,18 @@
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 <section class="header-home">
-  <h1 class="title title-header-home">Bienvenue à Tête à l'air</h1>
-  <h2 class="title subtitle-header-home">Chambres d'hôtes et gîte</h2>
+  <article class="titles-header">
+    <h1 class="title title-header-home">Bienvenue à Tête à l'air</h1>
+    <h2 class="title subtitle-header-home">Chambres d'hôtes et gîte</h2>
+  </article>
 </section>
 <section class="slider-rooms">
   <h2 class="title title-slider-rooms">Nos chambres d'hôtes et gîte</h2>
   <div class="slider">
     <?php foreach ($rooms as $room) { ?>
-      <article class="rooms-bloc-slider room-grande-champagne" style="background-image: url('<?= $wwwUrl ?>/images/rooms/<?= $room['PhotoMiniature'] ?>')">
+      <article class="rooms-bloc-slider" style="background-image: url('<?= $wwwUrl ?>/images/rooms/<?= $room['PhotoMiniature'] ?>')">
         <h3 class="title title-slider-room"><?= $room["RoomName"] ?></h3>
-        <a href="<?= $requestUrl ?>/rooms/room?RoomId=<?= $room["RoomName"] ?>">Voir la chambre</a>
+        <a class="cta-slider-room" href="<?= $requestUrl ?>/rooms/room?RoomId=<?= $room["RoomId"] ?>">Voir la chambre</a>
       </article>
     <?php } ?>
   </div>
