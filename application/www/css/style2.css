@@ -146,6 +146,25 @@ figure#slider-around, figure#slider-room {
   align-items: flex-start;
 }
 
+.phone-numbers {
+  margin: 0;
+  padding: 0;
+}
+
+.phone-numbers li {
+  list-style: none;
+}
+
+.phone-numbers a {
+  text-decoration: none;
+  color: black;
+}
+
+.contact-mail a {
+  text-decoration: none;
+  color: black;
+}
+
 .contact-title {
   width: 100%;
 }
@@ -193,13 +212,10 @@ figure#slider-around, figure#slider-room {
 ************LANDING PAGE************
 ***************************************** */
 
-.wrapper-landing {
-  position: relative;
-}
-
 .header-landing {
   min-height: 60vh;
   height: auto;
+  position: relative;
   background-size: cover;
   background-position: center;
 }
@@ -210,7 +226,7 @@ figure#slider-around, figure#slider-room {
 
 .titles-header-landing {
   position: absolute;
-  top: 35%;
+  bottom: 20%;
   transform: translateX(-50%);
   left: 50%;
   width: 100%;
@@ -218,10 +234,12 @@ figure#slider-around, figure#slider-room {
 
 .title-header-landing {
   font-size: 65px;
+  padding-top: 20%;
 }
 
 .subtitle-header-landing {
   font-size: 30px;
+  margin-bottom: 50px;
 }
 
 .container-landing {
