@@ -268,3 +268,23 @@ figure#slider-around, figure#slider-room {
 .title-container-landing {
   font-size: 40px;
 }
+
+/* *****************************************
+************Slider************
+***************************************** */
+
+button.slick-prev.slick-arrow {
+  left: 0;
+  background-color: grey;
+  top: 50%;
+  cursor: pointer;
+  z-index: 1;
+}
+
+button.slick-next.slick-arrow {
+  right: 0;
+  background-color: grey;
+  top: 50%;
+  cursor: pointer;
+  z-index: 1;
+}
