@@ -40,7 +40,7 @@
 
 /* Page table d'hôtes */
 
-.slider-table {
+.slider-prestation {
   margin-bottom: 80px;
 }
 
@@ -48,16 +48,29 @@
   background-image: url(../images/prestations/3.jpg);
 }
 
-.table-wrapper {
+.prestation-wrapper {
   width: 60%;
   margin-left: auto;
   margin-right: auto;
 }
 
-.table-item {
+.prestation-item {
   height: 350px;
+  object-fit: cover;
 }
 
 figcaption {
   text-align: center;
+}
+
+/* Page espaces intérieurs */
+
+.header-inside {
+  background-image: url(../images/prestations/inside/1.jpg);
+}
+
+/* Page espaces extérieurs */
+
+.header-outside {
+  background-image: url(../images/prestations/outside/8.jpg);
 }

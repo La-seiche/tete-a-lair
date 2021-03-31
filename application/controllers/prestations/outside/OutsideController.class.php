@@ -1,6 +1,6 @@
 <?php
 
-class ProgramController
+class OutsideController
 {
     public function httpGetMethod(Http $http, array $queryFields)
     {
