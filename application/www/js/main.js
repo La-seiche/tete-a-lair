@@ -26,7 +26,7 @@ function onClickShowReservationBloc(event)
 {
   event.preventDefault();
   let reservationBloc = document.getElementById("reservationBloc");
-  console.log(reservationBloc);
+  // console.log(reservationBloc);
   reservationBloc.classList.remove("hide");
 }
 

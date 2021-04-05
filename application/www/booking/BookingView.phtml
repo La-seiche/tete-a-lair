@@ -31,11 +31,23 @@
           <li>Espace extérieur</li>
         </ul>
         <span class="table">Pour les repas du soir vous pouvez réserver à notre table d'hôtes.</span>
-      </article>
+        <a id="booking-cta" class="booking-cta" href="#booking-wrapper">Réservez</a>
     </article>
   <?php } else { ?>
     <h2 class="title title-container-landing">Désolé, cette chambre n'est pas disponible</h2>
   <?php } ?>
+</article>
+</section>
+<section id="booking-wrapper" class="container-landing container-landing-first booking-form hide">
+  <form action="<?= $requestUrl ?>/booking/process" method="post">
+    <legend class="title title-booking-details">Vos informations</legend>
+    <!-- <input type="hidden" name="" value=""> -->
+    <input class="booking-details" type="text" name="name" placeholder="Nom">
+    <input class="booking-details" type="text" name="surname" placeholder="Prénom">
+    <input class="booking-details" type="text" name="email" placeholder="Email">
+    <input class="booking-details" type="text" name="phoneNUmber" placeholder="Téléphone">
+    <input class="booking-send" type="submit" value="Envoyez !">
+  </form>
 </section>
 <section class="container-landing container-landing-first">
   <h2 class="title title-container-landing">Nos autres chambres disponibles aux mêmes dates</h2>
@@ -70,46 +82,4 @@
   <?php } ?>
 <?php } ?>
 
-<!-- <?php if ($available) { ?>
-  <section class="section-main-design">
-    <h1 class="title title-main">Votre réservation pour la chambre <?= $bookingDetails["roomName"] ?></h1>
-    <div class="slider">
-      <?php for ($i = 1; $i <= 10; $i++) {
-        if (strlen($pictures["Photo".$i]) != 0 ) { ?>
-          <img src="<?= $wwwUrl ?>/images/rooms/<?= $pictures['Photo'.$i] ?>" alt="Photo de la chambre <?= $bookingDetails['roomName'] ?><?= $i ?>">
-        <?php } } ?>
-    </div>
-  </section>
-  <section class="section-main-design">
-    <h2 class="title title-room-presentation">Réservation du <?= $dateArrival ?> au <?= $dateDeparture ?></h2>
-    <article>
-      <p>Nombre de nuits : <?= $bookingDetails["duration"] ?></p>
-      <p>Prix total : <?= $bookingDetails["totalHT"] ?> €</p>
-      <h3 class="title">Services offerts dans la réservation :</h3>
-      <ul>
-        <li>Draps fournis</li>
-        <li>Serviettes fournies</li>
-        <li>Petit déjeuner </li>
-        <li>WIFI</li>
-      </ul>
-      <span>Pour les repas du soir vous pouvez réserver à notre table d'hôtes.</span>
-    </article>
-  </section>
-<?php } else { ?>
-  <section class="section-main-design">
-    <span>Désolé cette chambre n'est pas disponibe du <?= $dateArrival ?> au <?= $dateDeparture ?></span>
-  </section>
-<?php } ?>
-  <section class="section-main-design">
-    <h2 class="title title-main">Les autres chambres disponibles à ces dates</h2>
-  </section>
-  <?php foreach ($roomsAvailableBookingDetails as $roomAvailableBookingDetails) { ?>
-    <section class="section-main-design">
-      <h3 class="title"><?= $roomAvailableBookingDetails["roomName"] ?> pour <?= $roomAvailableBookingDetails["numberOfPersonn"] ?> personnes</h3>
-      <img class="room-picture" src="<?= $wwwUrl ?>/images/rooms/<?= $roomAvailableBookingDetails["photoMiniature"] ?>" alt="<?= $roomAvailableBookingDetails["roomName"] ?>">
-      <article>
-        <p>Prix total pour une réservation du <?= $dateArrival ?> au <?= $dateDeparture ?> : <?= $roomAvailableBookingDetails["totalHT"] ?> €</p>
-        <a class="cta" href="<?= $requestUrl ?>/rooms/room?RoomId=<?= $roomAvailableBookingDetails["roomId"] ?>"><i class="fas fa-plus-circle"></i> Voir la chambre</a>
-      </article>
-    </section>
-  <?php } ?> -->
+<script type="text/javascript" src="<?= $wwwUrl ?>/js/booking.js"></script>

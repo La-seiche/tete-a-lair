@@ -1,3 +1,62 @@
 .header-contacts {
-  background-image: url(../images/around/3.jpg);
+  background-image: url(../images/background/maison.jpg);
+}
+
+.contact-wrapper {
+  padding: 13px;
+}
+
+.contacts-informations {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.title-contact {
+  width: 100%;
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+.contact-us {
+  width: 45%;
+}
+
+.contact-us-informations {
+  width: 45%;
+}
+
+.contact-us-topic {
+  width: 100%;
+}
+
+.contact-us-message {
+  width: 100%;
+}
+
+input[type="text"] {
+  margin-bottom: 15px;
+}
+
+input[type="text"]:nth-of-type(2n+2) {
+  margin-left: auto;
+}
+
+input[type="text"], .contact-us-message {
+  border-color: #f8f8f8;
+  background-color: #f8f8f4;
+  color: #919191;
+  border: none;
+  border-radius: 2px;
+  padding: 13px;
+}
+
+.contacts-tete {
+  width: 35%;
+}
+
+.contact-map {
+  width: 100%;
 }
