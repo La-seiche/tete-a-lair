@@ -1,37 +1,3 @@
-.contacts-informations {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.contact-us {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  text-align: center;
-  width: 60%;
-}
-
-.contact-us-informations {
-  width: 85%;
-}
-
-.contact-us-send {
-  width: 15%;
-}
-
-.contacts-tete {
-  width: 38%;
-  margin-left: 10px;
-}
-
-.contacts-tete h3,
-.contacts-tete p {
-  margin: 5px 0;
-  width: 100%
-}
-
-.contact-map {
-  width: 100%;
-  margin-top: 20px;
+.header-contacts {
+  background-image: url(../images/around/3.jpg);
 }

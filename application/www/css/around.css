@@ -18,6 +18,19 @@
   width: 45%;
 }
 
+.cta-around {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #a4a89c;
+  padding: 10px;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
 .more {
   padding: 15px;
 }
@@ -42,4 +55,34 @@
 .partenaires-list li {
   list-style: none;
   width: 35%;
+}
+
+/* Page coups de coeur */
+
+.header-places {
+  background-image: url(../images/around/places/1.jpg);
+}
+
+#map  {
+  height: 400px;
+  width: 95%;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.site-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.description-image {
+  width: 45%;
+}
+
+.description-wrapper {
+  width: 45%;
 }

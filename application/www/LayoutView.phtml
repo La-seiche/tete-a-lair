@@ -7,28 +7,39 @@
   <title>Tête à l'air - Maison d'hôtes - Montils</title>
   <link rel="stylesheet" href="<?= $wwwUrl ?>/css/normalize-3.0.3.min.css">
   <link rel="stylesheet" href="<?= $wwwUrl ?>/css/all.min.css">
+
+  <!-- Intégration font-awesome -->
   <link rel="stylesheet" href="<?= $wwwUrl ?>/css/font-awesome-4.3.0.min.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  <!-- Intégration font google -->
   <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Cormorant+Garamond:wght@300&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com">
+
   <!-- Feuilles de styles de l'application -->
   <!-- <link rel="stylesheet" href="<?= $wwwUrl ?>/css/style.css"> -->
   <link rel="stylesheet" href="<?= $wwwUrl ?>/css/style2.css">
+
+  <!-- Feuille de style slickslider -->
   <link rel="stylesheet" type="text/css" href="<?= $wwwUrl ?>/slick/slick.css"/>
   <!-- Add the new slick-theme.css if you want the default styling -->
   <link rel="stylesheet" type="text/css" href="<?= $wwwUrl ?>/slick/slick-theme.css"/>
+
   <!-- Librairie jQuery -->
   <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+
   <!-- Plugin Facebook comments -->
   <div id="fb-root"></div>
   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v7.0" nonce="yuZhzZWM"></script>
 
   <!-- JavaScript de l'application -->
   <script src="<?= $wwwUrl ?>/js/utilities.js"></script>
+
+  <!-- Intégration CSS et JS Open street map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
+  
 </head>
 <body>
 
@@ -70,7 +81,7 @@
             <div class="navButton">
               <div class="sub-nav sub-nav-around hide">
                 <ul class="sub-nav-list">
-                  <!-- <li class="sub-nav-item"><a href="<?= $requestUrl ?>/around/program">Nos programmes pour découvrir la Charentes</a></li> -->
+                  <li class="sub-nav-item"><a href="<?= $requestUrl ?>/around/places">Nos adresses coup de coeur</a></li>
                 </ul>
               </div>
             </div>
