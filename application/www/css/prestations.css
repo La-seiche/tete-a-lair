@@ -22,20 +22,9 @@
   text-align: center;
 }
 
-.prestation-title {
-  font-size: 34px;
-}
-
 .cta-prestation {
-  display: block;
-  text-align: center;
-  text-decoration: none;
   color: #fff;
   background-color: #a4a89c;
-  padding: 10px;
-  width: 200px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 /* Page table d'hôtes */

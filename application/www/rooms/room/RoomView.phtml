@@ -95,12 +95,12 @@
     <h3 class="title">Tarifs</h3>
     <span><hr></span>
     <p>A partir de : <?= $room["LowSeasonPriceDay"] ?> €</p>
-    <a id="reservationCTA" class="cta" href="#reservationBloc">Réservez Maintenant</a>
+    <a id="reservationCTA" class="cta cta-booking-details" href="#reservationBloc">Réservez Maintenant</a>
   </article>
 </section>
 
 
-<section id="reservationBloc" class="container-landing container-landing-second wrapper-reservation hide">
+<section id="reservationBloc" class="container-landing container-landing-first wrapper-reservation hide">
   <h2 class="title">Réservez une chambre</h2>
   <form class="form-reservation" action="<?= $requestUrl ?>/booking" method="post">
     <label for="arrivalDate">Date d'arrivée</label>

@@ -13,21 +13,14 @@ section:nth-of-type(2n) {
   font-size: 45px;
 }
 
-.rooms-bloc-slider a, .cta-services-home, .cta-around-home, .cta-rooms, .cta-services {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.rooms-bloc-slider a, .cta-services-home, .cta-around-home {
   width: 150px;
-  text-align: center;
-  text-decoration: none;
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 5px;
-  margin-top: 10px;
 }
 
-.cta-rooms, .cta-services {
-  width: 200px;
+.rooms-bloc-slider a, .cta-services-home, .cta-around-home, .cta-rooms, .cta-services {
+  /* color: #fff; */
+  background-color: rgba(0, 0, 0, 0.7);
+  /* margin-top: 10px; */
 }
 
 .slider-rooms, .services-home, .around-home {

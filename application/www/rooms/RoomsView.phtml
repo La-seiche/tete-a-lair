@@ -15,14 +15,14 @@
     <?php if ($room["RoomType"] === "room") { ?>
       <article class="room-wrap">
         <img class="room-picture" src="<?= $wwwUrl ?>/images/rooms/<?= $room["PhotoMiniature"] ?>" alt="Photos de la chambre d'hôtes <?= $room["RoomName"] ?>">
-        <h3 class="title title-room"><?= $room["RoomName"] ?></h3>
+        <h3 class="title title-wrapper"><?= $room["RoomName"] ?></h3>
         <h4 class="title subtitle-room">Pour <?= $room["NumberOfPersonn"] ?> personnes</h4>
-        <a class="cta-room" href="<?= $requestUrl ?>/rooms/room?RoomId=<?= $room["RoomId"] ?>">Voir la chambre</a>
+        <a class="cta cta-room" href="<?= $requestUrl ?>/rooms/room?RoomId=<?= $room["RoomId"] ?>">Voir la chambre</a>
       </article>
     <?php } ?>
   <?php } ?>
 </section>
-<section class="container-landing container-landing-second">
+<section class="container-landing container-landing-first">
   <h2 class="title title-container-landing">Notre gîte</h2>
   <h3 class="title subtitle-container-landing">Gite typique en pierre charentaise</h3>
 </section>
@@ -31,9 +31,9 @@
     <?php if ($room["RoomType"] === "lodging") { ?>
       <article class="room-wrap">
         <img class="room-picture" src="<?= $wwwUrl ?>/images/rooms/<?= $room["PhotoMiniature"] ?>" alt="Photos de la chambre d'hôtes <?= $room["RoomName"] ?>">
-        <h3 class="title title-room"><?= $room["RoomName"] ?></h3>
+        <h3 class="title title-wrapper"><?= $room["RoomName"] ?></h3>
         <h4 class="title subtitle-room">Pour <?= $room["NumberOfPersonn"] ?> personnes</h4>
-        <a class="cta-room" href="<?= $requestUrl ?>/rooms/room?RoomId=<?= $room["RoomId"] ?>">Voir la chambre</a>
+        <a class="cta cta-room" href="<?= $requestUrl ?>/rooms/room?RoomId=<?= $room["RoomId"] ?>">Voir la chambre</a>
       </article>
     <?php } ?>
   <?php } ?>

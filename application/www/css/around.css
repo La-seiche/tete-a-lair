@@ -19,15 +19,8 @@
 }
 
 .cta-around {
-  display: block;
-  text-align: center;
-  text-decoration: none;
   color: #fff;
   background-color: #a4a89c;
-  padding: 10px;
-  width: 200px;
-  margin-left: auto;
-  margin-right: auto;
   margin-top: 50px;
 }
 

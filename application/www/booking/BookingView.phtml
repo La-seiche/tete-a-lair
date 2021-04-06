@@ -31,7 +31,7 @@
           <li>Espace extérieur</li>
         </ul>
         <span class="table">Pour les repas du soir vous pouvez réserver à notre table d'hôtes.</span>
-        <a id="booking-cta" class="booking-cta" href="#booking-wrapper">Réservez</a>
+        <a id="booking-cta" class="cta cta-booking" href="#booking-wrapper">Réservez</a>
     </article>
   <?php } else { ?>
     <h2 class="title title-container-landing">Désolé, cette chambre n'est pas disponible</h2>
@@ -58,25 +58,25 @@
   <?php if ($roomAvailableBookingDetails["roomType"] === "room") { ?>
     <article class="room-wrap">
       <img class="room-picture" src="<?= $wwwUrl ?>/images/rooms/<?= $roomAvailableBookingDetails["photoMiniature"] ?>" alt="Photos de la chambre d'hôtes <?= $roomAvailableBookingDetails["roomName"] ?>">
-      <h3 class="title title-room"><?= $roomAvailableBookingDetails["roomName"] ?></h3>
+      <h3 class="title title-wrapper"><?= $roomAvailableBookingDetails["roomName"] ?></h3>
       <h4 class="title subtitle-room">Pour <?= $roomAvailableBookingDetails["numberOfPersonn"] ?> personnes</h4>
-      <a class="cta-room" href="<?= $requestUrl ?>/rooms/room?RoomId=<?= $roomAvailableBookingDetails["roomId"] ?>">Voir la chambre</a>
+      <a class="cta cta-room" href="<?= $requestUrl ?>/rooms/room?RoomId=<?= $roomAvailableBookingDetails["roomId"] ?>">Voir la chambre</a>
     </article>
   <?php } ?>
 <?php } ?>
 </section>
 <?php foreach ($roomsAvailableBookingDetails as $roomAvailableBookingDetails) { ?>
   <?php if ($roomAvailableBookingDetails["roomType"] === "lodging") { ?>
-    <section class="container-landing container-landing-second">
+    <section class="container-landing container-landing-first">
       <h2 class="title title-container-landing">Notre gîte est disponible aux mêmes dates</h2>
       <h3 class="title subtitle-container-landing">Gite typique en pierre charentaise</h3>
     </section>
     <section class="container-landing rooms-list">
     <article class="room-wrap">
       <img class="room-picture" src="<?= $wwwUrl ?>/images/rooms/<?= $roomAvailableBookingDetails["photoMiniature"] ?>" alt="Photos de la chambre d'hôtes <?= $roomAvailableBookingDetails["roomName"] ?>">
-      <h3 class="title title-room"><?= $roomAvailableBookingDetails["roomName"] ?></h3>
+      <h3 class="title title-wrapper"><?= $roomAvailableBookingDetails["roomName"] ?></h3>
       <h4 class="title subtitle-room">Pour <?= $roomAvailableBookingDetails["numberOfPersonn"] ?> personnes</h4>
-      <a class="cta-room" href="<?= $requestUrl ?>/rooms/room?RoomId=<?= $roomAvailableBookingDetails["roomId"] ?>">Voir la chambre</a>
+      <a class="cta cta-room" href="<?= $requestUrl ?>/rooms/room?RoomId=<?= $roomAvailableBookingDetails["roomId"] ?>">Voir la chambre</a>
     </article>
   </section>
   <?php } ?>
