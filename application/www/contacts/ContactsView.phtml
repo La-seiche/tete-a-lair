@@ -12,15 +12,34 @@
     <p>N’hésitez pas à nous contacter pour toutes demandes d’informations et/ou demande de réservations pour nos champbres d'hôtes, notre gîte ou notre table d'hôtes, l’organisation d’un séminaire, d’un mariage ou d’un autre type d’événement. Toute notre équipe se tient à votre entière disposition.</p>
   </article>
   <div class="contacts-informations">
-    <form class="contact-us" action="<?= $requestUrl ?>/contacts/process" method="post">
+    <form id="contact-form" class="contact-us" action="<?= $requestUrl ?>/contacts/process" method="post">
       <legend class="title title-contact">Envoyez-nous un mail</legend>
-      <input class="contact-us-informations" type="text" name="name" placeholder="Nom">
-      <input class="contact-us-informations" type="text" name="surname" placeholder="Prénom">
-      <input class="contact-us-informations" type="text" name="email" placeholder="Email">
-      <input class="contact-us-informations" type="text" name="phoneNUmber" placeholder="Téléphone">
-      <input class="contact-us-topic" type="text" name="topic" placeholder="Sujet">
-      <textarea class="contact-us-message" name="message" rows="8" cols="50" placeholder="Message"></textarea>
+      <name>
+        <input class="contact-us-informations" type="text" name="name" placeholder="Nom*">
+        <span id="error-name" class="error-message hide"></span>
+      </name>
+      <surname>
+        <input class="contact-us-informations" type="text" name="surname" placeholder="Prénom*">
+        <span id="error-surname" class="error-message hide"></span>
+      </surname>
+      <email>
+        <input class="contact-us-informations" type="text" name="email" placeholder="Email*">
+        <span id="error-email" class="error-message hide"></span>
+      </email>
+      <phone>
+        <input class="contact-us-informations" type="text" name="phoneNumber" placeholder="Téléphone*">
+        <span id="error-phone" class="error-message hide"></span>
+      </phone>
+      <topic>
+        <input class="contact-us-topic" type="text" name="topic" placeholder="Sujet*">
+        <span id="error-topic" class="error-message hide"></span>
+      </topic>
+      <message>
+        <textarea class="contact-us-message" name="message" rows="8" cols="50" placeholder="Message*"></textarea>
+        <span id="error-message" class="error-message hide"></span>
+      </message>
       <input class="contact-us-send" type="submit" value="Envoyez !">
+      <p>* champs obligatoire</p>
     </form>
     <aside class="contacts-tete">
       <div class="contact-adress">
@@ -47,3 +66,5 @@
 <section class="container-landing">
   <iframe class="contact-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2789.096127910859!2d-0.5055866844363492!3d45.648891279103545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4800f908da0f4d45%3A0xe51fff220946c698!2s1%20Petit%20Chemin%20des%20%C3%89coles%2C%2017800%20Montils!5e0!3m2!1sfr!2sfr!4v1579861613411!5m2!1sfr!2sfr" width="800" height="600" " allowfullscreen=""></iframe>
 </section>
+
+<script type="text/javascript" src="<?= $wwwUrl ?>/js/contact-form-validation.js"></script>

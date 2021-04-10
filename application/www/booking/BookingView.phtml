@@ -38,7 +38,7 @@
   <?php } ?>
 </article>
 </section>
-<section id="booking-wrapper" class="container-landing container-landing-first booking-form hide">
+<section id="booking-wrapper" class="container-landing container-landing-second booking-form hide">
   <form action="<?= $requestUrl ?>/booking/process" method="post">
     <legend class="title title-booking-details">Vos informations</legend>
     <!-- <input type="hidden" name="" value=""> -->
@@ -49,7 +49,7 @@
     <input class="booking-send" type="submit" value="Envoyez !">
   </form>
 </section>
-<section class="container-landing container-landing-first">
+<section class="container-landing container-landing-second">
   <h2 class="title title-container-landing">Nos autres chambres disponibles aux mêmes dates</h2>
   <h3 class="title subtitle-container-landing">Nos chambres d'hôtes au coeur d'une maison charentaise</h3>
 </section>
@@ -67,7 +67,7 @@
 </section>
 <?php foreach ($roomsAvailableBookingDetails as $roomAvailableBookingDetails) { ?>
   <?php if ($roomAvailableBookingDetails["roomType"] === "lodging") { ?>
-    <section class="container-landing container-landing-first">
+    <section class="container-landing container-landing-second">
       <h2 class="title title-container-landing">Notre gîte est disponible aux mêmes dates</h2>
       <h3 class="title subtitle-container-landing">Gite typique en pierre charentaise</h3>
     </section>

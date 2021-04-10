@@ -22,13 +22,13 @@ function onMouseOutHideMenu2(event)
   }
 }
 
-function onClickShowReservationBloc(event)
-{
-  event.preventDefault();
-  let reservationBloc = document.getElementById("reservationBloc");
-  // console.log(reservationBloc);
-  reservationBloc.classList.remove("hide");
-}
+// function onClickShowReservationBloc(event)
+// {
+//   event.preventDefault();
+//   let reservationBloc = document.getElementById("reservationBloc");
+//   // console.log(reservationBloc);
+//   reservationBloc.classList.remove("hide");
+// }
 
 let navItemsList = document.querySelectorAll(".nav-item");
 // console.log(navItemsList.length);
@@ -38,8 +38,8 @@ for (let i = 0; i < navItemsList.length; i++)
   navItemsList[i].addEventListener("mouseout", onMouseOutHideMenu2);
 }
 
-let reservationCTA = document.getElementById("reservationCTA");
-reservationCTA.addEventListener("click", onClickShowReservationBloc);
+// let reservationCTA = document.getElementById("reservationCTA");
+// reservationCTA.addEventListener("click", onClickShowReservationBloc);
 
 console.log(window.location.href);
 console.log(window.location.href.split("/"));

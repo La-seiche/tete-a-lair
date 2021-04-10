@@ -10,7 +10,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: stretch;
-  margin-bottom: 115px;
+  margin-bottom: 40px;
 }
 
 .room-wrap {
@@ -145,10 +145,6 @@ figure.booking-image {
 
 .wrapper-booking-details {
   width: 45%;
-}
-
-.container-booking {
-  margin-bottom: 80px;
 }
 
 .table {

@@ -2,7 +2,8 @@
 
 class UserModel {
 
-  public function registerNewCustomer($_post) {
+  public function registerNewCustomer($_post)
+  {
     $database = new Database();
     $http = new HTTP();
 
@@ -13,7 +14,8 @@ class UserModel {
     if ($email != false) {
       $error = "Désolé! Il y a déjà un compte à cette adresse mail !";
     }
-    else {
+    else
+    {
       $database->executeSql("INSERT INTO customers (FirstName, LastName, Email, Password, Address, City, Zip, Country, PhoneNumber, Role) VALUES(?, ?, ?, ?, ?, ?, ?,?, ?, 'user')", [
         $_post["firstName"],
         $_post["lastName"],
@@ -38,7 +40,8 @@ class UserModel {
     return crypt($password, $salt);
   }
 
-  public function login($_post) {
+  public function login($_post)
+  {
     $database = new Database();
     $http = new HTTP();
 
@@ -75,7 +78,8 @@ private function verifyPassword($password, $hashedPassword)
     return crypt($password, $hashedPassword) == $hashedPassword;
   }
 
-public function updateCustomer($_post, $_session) {
+public function updateCustomer($_post, $_session)
+{
   $database = new Database();
   // $http = new HTTP();
 
@@ -98,6 +102,14 @@ public function updateCustomer($_post, $_session) {
   $_SESSION['user']['country'] = $_post["country"];
   $_SESSION['user']['email'] = $_post["email"];
   $_SESSION['user']['phoneNumber'] = $_post["phoneNumber"];
+}
+
+public function saveContactForm($name, $surname, $email, $phoneNumber, $topic, $message)
+{
+  $database = new Database();
+  $sql = "INSERT INTO contactforms (ContactFormTimeStamp, Name, Surname, Email, PhoneNumber, Topic, Message) VALUES (NOW(), :name, :surname, :email, :phone_number, :topic, :message)";
+  $array = ["name" => $name, "surname" => $surname, "email" => $email, "phone_number" => $phoneNumber, "topic" => $topic, "message" => $message];
+  $database->executeSql($sql, $array);
 }
 
 }

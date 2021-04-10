@@ -22,26 +22,23 @@
 
 .contact-us {
   width: 45%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.contact-us-informations {
-  width: 45%;
-}
-
-.contact-us-topic {
-  width: 100%;
-}
-
-.contact-us-message {
-  width: 100%;
-}
-
-input[type="text"] {
+name, surname, email, phone, topic, message {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 15px;
 }
 
-input[type="text"]:nth-of-type(2n+2) {
-  margin-left: auto;
+name, surname, email, phone {
+  width: 48%;
+}
+
+topic, message {
+    width: 100%;
 }
 
 input[type="text"], .contact-us-message {
@@ -53,10 +50,30 @@ input[type="text"], .contact-us-message {
   padding: 13px;
 }
 
+input[type="text"].error {
+  border: 1px solid red;
+}
+
+.error-message {
+  color: red;
+}
+
 .contacts-tete {
   width: 35%;
 }
 
 .contact-map {
   width: 100%;
+}
+
+/* Page de succès */
+
+.header-success {
+  background-image: url(../images/background/maison.jpg);
+}
+
+/* Page d'échec */
+
+.header-fail {
+  background-image: url(../images/background/maison.jpg);
 }
