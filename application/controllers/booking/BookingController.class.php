@@ -11,19 +11,24 @@ class BookingController
 
     public function httpPostMethod(Http $http, array $formFields)
     {
+
       $reservationModel = new ReservationModel();
       $roomModel = new RoomModel();
 
       // var_dump($_POST);
-      $room = $roomModel->getOneRoomInformations($_POST["roomId"]);
-      // var_dump($room);
-      $pictures = $roomModel->getOneRoomPictures($_POST["roomId"]);
-      // var_dump($pictures);
 
-      $dateArrival = $_POST["dateArrival"];
-      $dateDeparture = $_POST["dateDeparture"];
+      $roomId = strip_tags($_POST["roomId"]);
+      $dateArrival = strip_tags($_POST["dateArrival"]);
+      $dateDeparture = strip_tags($_POST["dateDeparture"]);
       // var_dump($dateArrival);
       // var_dump($dateDeparture);
+
+      $room = $roomModel->getOneRoomInformations($roomId);
+      // var_dump($room);
+
+      $pictures = $roomModel->getOneRoomPictures($roomId);
+      // var_dump($pictures);
+
       $dateArrival_Fr = date("d-m-y", strtotime($dateArrival));
       // var_dump($dateArrival_Fr);
       $dateDeparture_Fr = date("d-m-y", strtotime($dateDeparture));
@@ -40,7 +45,7 @@ class BookingController
         // var_dump($bookingDetails);
       }
       else {
-        // $error = "Désolé cette chambre n'est pas disponible à cette période !";
+        $error = "Désolé cette chambre n'est pas disponible à cette période !";
         // var_dump($error);
         $available = false;
       }
@@ -50,9 +55,11 @@ class BookingController
 
       $roomsAvailableBookingDetails = [];
 
-      foreach ($roomsAvailable as $roomAvailable) {
+      foreach ($roomsAvailable as $roomAvailable)
+      {
         $reservation = $reservationModel->checkRoomAvailability($dateArrival, $dateDeparture, $roomAvailable);
-        if (empty($reservation)) {
+        if (empty($reservation))
+        {
           // var_dump("chambre dispo : " . $roomAvailable);
           $roomAvailableCalendars = $reservationModel->getRoomCalendars($dateArrival, $dateDeparture, $roomAvailable);
           // var_dump($roomAvailableCalendars);
@@ -61,19 +68,20 @@ class BookingController
           $roomAvailableDetails = $roomModel->getOneRoomInformations($roomAvailable);
           array_push($roomsAvailableBookingDetails, $roomAvailableBookingDetails);
         }
-        }
+      }
 
         // var_dump($roomsAvailableBookingDetails);
 
         if ($available)
         {
-          return ["room" => $room, "pictures" => $pictures, "dateArrival" => $dateArrival_Fr, "dateDeparture" => $dateDeparture_Fr, "bookingDetails" => $bookingDetails, "roomsAvailableBookingDetails" => $roomsAvailableBookingDetails, "available" => $available];
+          return ["room" => $room, "pictures" => $pictures, "dateArrival" => $dateArrival, "dateDeparture" => $dateDeparture, "dateArrivalFr" => $dateArrival_Fr, "dateDepartureFr" => $dateDeparture_Fr, "bookingDetails" => $bookingDetails, "roomsAvailableBookingDetails" => $roomsAvailableBookingDetails, "available" => $available];
         }
         else
         {
-          return ["room" => $room, "dateArrival" => $dateArrival_Fr, "dateDeparture" => $dateDeparture_Fr, "roomsAvailableBookingDetails" => $roomsAvailableBookingDetails, "available" => $available];
+          return ["room" => $room,"dateArrivalFr" => $dateArrival_Fr, "dateDepartureFr" => $dateDeparture_Fr, "roomsAvailableBookingDetails" => $roomsAvailableBookingDetails, "available" => $available];
         }
-      }
 
+    }
 }
+
  ?>

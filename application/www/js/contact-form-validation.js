@@ -30,7 +30,8 @@ let formValid;
 
 // Vider toute les erreurs
 
-function initForm() {
+function initForm()
+{
   errorName.textContent = "";
   errorSurname.textContent = "";
   errorEmail.textContent = "";
@@ -41,7 +42,8 @@ function initForm() {
 
 // Validation formulaire
 
-function validForm(event) {
+function validForm(event)
+{
   initForm();
   formValid = true;
 

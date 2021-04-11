@@ -38,6 +38,20 @@ img {
 .title-wrapper {
   font-size: 34px;
 }
+/* Formulaire */
+
+input[type="text"], .contact-us-message, input[type="date"] {
+  border-color: #f8f8f8;
+  background-color: #f8f8f4;
+  color: #919191;
+  border: none;
+  border-radius: 2px;
+  padding: 13px;
+}
+
+.error-message {
+  color: red;
+}
 
 /* Slider */
 

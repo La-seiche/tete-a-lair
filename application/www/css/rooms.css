@@ -114,8 +114,6 @@ span hr {
 
 #reservationCTA {
   width: 200px;
-  margin-left: auto;
-  margin-right: auto;
   background-color: var(--fond-color);
   color: black;
 }
@@ -126,11 +124,23 @@ span hr {
 }
 
 .form-reservation {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
   padding: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-input[type = "date"] {
-  color : black;
+arrival, departure {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+}
+
+date-wrapper {
+  margin-bottom: 15px;
 }
 
 /* Page de booking */
@@ -158,6 +168,7 @@ figure.booking-image {
 }
 
 .title-booking-details {
+  width: 100%;
   font-size: 25px;
   margin-bottom: 15px;
 }
@@ -166,19 +177,20 @@ figure.booking-image {
   margin-bottom: 80px;
 }
 
-.booking-form form {
+#booking-form {
   width: 60%;
   margin-left: auto;
   margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-input[type="text"] {
-  border-color: #f8f8f8;
-  background-color: #f8f8f4;
-  color: #919191;
-  border: none;
-  border-radius: 2px;
-  padding: 13px;
+name, surname, email, phone {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
 }
 
 .booking-details {

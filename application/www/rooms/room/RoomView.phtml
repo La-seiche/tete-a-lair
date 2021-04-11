@@ -102,12 +102,22 @@
 
 <section id="reservationBloc" class="container-landing container-landing-second wrapper-reservation">
   <h2 class="title">Réservez une chambre</h2>
-  <form class="form-reservation" action="<?= $requestUrl ?>/booking" method="post">
-    <label for="arrivalDate">Date d'arrivée</label>
-    <input type="date" id="dateArrival" name="dateArrival">
-    <label for="departureDate">Date de départ</label>
-    <input type="date" id="dateDeparture" name="dateDeparture">
+  <form id="booking-date-form" class="form-reservation" action="<?= $requestUrl ?>/booking" method="post">
     <input type="hidden" name="roomId" value="<?= $_GET["RoomId"] ?>">
+    <arrival>
+      <date-wrapper>
+        <label for="arrivalDate">Date d'arrivée</label>
+        <input type="date" id="dateArrival" name="dateArrival">
+      </date-wrapper>
+      <span id="error-arrival" class="error-message hide"></span>
+    </arrival>
+    <departure>
+      <date-wrapper>
+        <label for="departureDate">Date de départ</label>
+        <input type="date" id="dateDeparture" name="dateDeparture">
+      </date-wrapper>
+      <span id="error-departure" class="error-message hide"></span>
+    </departure>
     <input type="submit" id="bookingCta" class="hide" value="Réservez" />
   </form>
 </section>

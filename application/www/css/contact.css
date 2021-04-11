@@ -41,39 +41,10 @@ topic, message {
     width: 100%;
 }
 
-input[type="text"], .contact-us-message {
-  border-color: #f8f8f8;
-  background-color: #f8f8f4;
-  color: #919191;
-  border: none;
-  border-radius: 2px;
-  padding: 13px;
-}
-
-input[type="text"].error {
-  border: 1px solid red;
-}
-
-.error-message {
-  color: red;
-}
-
 .contacts-tete {
   width: 35%;
 }
 
 .contact-map {
   width: 100%;
-}
-
-/* Page de succès */
-
-.header-success {
-  background-image: url(../images/background/maison.jpg);
-}
-
-/* Page d'échec */
-
-.header-fail {
-  background-image: url(../images/background/maison.jpg);
 }

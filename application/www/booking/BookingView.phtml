@@ -17,7 +17,7 @@
       <h3 class="title wrapper-landing-title"><?= $room["RoomName"] ?></h3>
       <span><hr></span>
       <article class="wrapper-landing-presentation">
-        <p>Réservation du <?= $dateArrival ?> au  <?= $dateDeparture ?></p>
+        <p>Réservation du <?= $dateArrivalFr ?> au  <?= $dateDepartureFr ?></p>
         <p>Nombre de nuits : <?= $bookingDetails["duration"] ?></p>
         <p>Prix total : <?= $bookingDetails["totalHT"] ?> €</p>
         <h3 class="title">Services inclus dans la réservation :</h3>
@@ -38,17 +38,37 @@
   <?php } ?>
 </article>
 </section>
+<?php if ($available) { ?>
 <section id="booking-wrapper" class="container-landing container-landing-second booking-form hide">
-  <form action="<?= $requestUrl ?>/booking/process" method="post">
+  <form id="booking-form" action="<?= $requestUrl ?>/booking/process" method="post">
     <legend class="title title-booking-details">Vos informations</legend>
-    <!-- <input type="hidden" name="" value=""> -->
-    <input class="booking-details" type="text" name="name" placeholder="Nom">
-    <input class="booking-details" type="text" name="surname" placeholder="Prénom">
-    <input class="booking-details" type="text" name="email" placeholder="Email">
-    <input class="booking-details" type="text" name="phoneNUmber" placeholder="Téléphone">
+    <input type="hidden" name="room-id" value="<?= $bookingDetails["roomId"] ?>">
+    <input type="hidden" name="room-name" value="<?= $room["RoomName"] ?>">
+    <input type="hidden" name="arrival" value="<?= $dateArrival ?>">
+    <input type="hidden" name="departure" value="<?= $dateDeparture ?>">
+    <input type="hidden" name="duration" value="<?= $bookingDetails["duration"] ?>">
+    <input type="hidden" name="price" value="<?= $bookingDetails["totalHT"] ?>">
+    <name>
+      <input class="contact-us-informations" type="text" name="name" placeholder="Nom*">
+      <span id="error-name" class="error-message hide"></span>
+    </name>
+    <surname>
+      <input class="contact-us-informations" type="text" name="surname" placeholder="Prénom*">
+      <span id="error-surname" class="error-message hide"></span>
+    </surname>
+    <email>
+      <input class="contact-us-informations" type="text" name="email" placeholder="Email*">
+      <span id="error-email" class="error-message hide"></span>
+    </email>
+    <phone>
+      <input class="contact-us-informations" type="text" name="phoneNumber" placeholder="Téléphone*">
+      <span id="error-phone" class="error-message hide"></span>
+    </phone>
     <input class="booking-send" type="submit" value="Envoyez !">
+    <p>* champs obligatoire</p>
   </form>
 </section>
+<?php } ?>
 <section class="container-landing container-landing-second">
   <h2 class="title title-container-landing">Nos autres chambres disponibles aux mêmes dates</h2>
   <h3 class="title subtitle-container-landing">Nos chambres d'hôtes au coeur d'une maison charentaise</h3>

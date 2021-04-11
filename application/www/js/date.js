@@ -1,46 +1,140 @@
 "use strict"
 
-// Afficher CTA de validation des checkDates
+// Définition variables
 
-function getValidationCTA(selectedArrivalDate, selectedDepartureDate) {
-  let bookingCTA = document.getElementById("bookingCta");
-  if (selectedArrivalDate < selectedDepartureDate) {
-    bookingCTA.classList.remove("hide");
-    // console.log("ok");
-  }
-  else {
-    bookingCTA.classList.add("hide");
-    // console.log("non");
+let bookingDateForm = document.getElementById("booking-date-form");
+
+let arrivalDateInput = bookingDateForm.elements["dateArrival"];
+let departureDateInput = bookingDateForm.elements["dateDeparture"];
+let submitCta = document.getElementById("bookingCta");
+
+let errorArrival = document.getElementById("error-arrival");
+let errorDeparture = document.getElementById("error-departure");
+
+let validDateRegex = /^[0-9]{4}\-[0-9]{2}\-[0-9]{2}$/;
+
+let valueMissing = "Ce champs doit être renseigné";
+let typeError = "Date au format yyyy-mm-dd";
+
+let formValid;
+
+// Définir date min arrivée et départ à la date du jour
+
+function setMinInputsToday(inputArrival, inputDeparture)
+{
+  let day = new Date;
+  let todayDate = day.getFullYear() + "-" + "0" + (day.getMonth() + 1) + "-" + day.getDate();
+  // console.log("aujourd'hui : " + todayDate);
+  inputArrival.setAttribute("min", todayDate);
+  let tomorrowDate = day.getFullYear() + "-" + "0" + (day.getMonth() + 1) + "-" + (day.getDate() + 1);
+  inputDeparture.setAttribute("min", tomorrowDate);
+}
+
+// Vider toute les erreurs
+
+function initForm()
+{
+  errorArrival.textContent = "";
+  errorDeparture.textContent = "";
+}
+
+// Vérifier si départ > arrivée et afficher cta de validation
+
+function checkDates(dateArrival, dateDeparture)
+{
+  let arrivalDate = new Date(dateArrival);
+  let departureDate = new Date(dateDeparture);
+
+  if (arrivalDate < departureDate)
+  {
+    submitCta.classList.remove("hide");
+    initForm();
+  } else {
+    submitCta.classList.add("hide");
   }
 }
 
-// Vérifier que date départ < date d'arrivée
+// Définir min date pour le départ
 
-function setMinDateDaparure(selectedArrivalDate, selectedDepartureDate) {
-  dateDeparture.setAttribute("min", selectedArrivalDate);
-  dateArrival.setAttribute("max", selectedDepartureDate);
+function getMinDepartureDate(inputDeparture, date)
+{
+  let minDeparture = new Date(date);
+  minDeparture.setDate(minDeparture.getDate() + 1);
+  minDeparture = minDeparture.getFullYear() + "-" + "0" + (minDeparture.getMonth() + 1) + "-" + minDeparture.getDate();
+  console.log("mindépart : " + minDeparture);
+  inputDeparture.setAttribute("min", minDeparture);
 }
 
-// Obtenir date des champs arrivée et départ
+// Définir max date pour l'arrivée
 
-function onChangeGetValue(event) {
+function getMaxArrivalDate(inputArrival, date)
+{
+  let maxArrival = new Date(date);
+  maxArrival.setDate(maxArrival.getDate() - 1);
+  maxArrival = maxArrival.getFullYear() + "-" + "0" + (maxArrival.getMonth() + 1) + "-" + maxArrival.getDate();
+  console.log("maxArrivée : " + maxArrival);
+  inputArrival.setAttribute("max", maxArrival);
+}
+
+// Obtenir valeurs des champs
+
+function onChangeGetValue(event)
+{
   event.preventDefault();
-  let selectedArrivalDate = dateArrival.value;
-  let selectedDepartureDate = dateDeparture.value;
-  // console.log("arrivée : " + selectedArrivalDate);
-  // console.log("départ : " + selectedDepartureDate);
-  setMinDateDaparure(selectedArrivalDate, selectedDepartureDate);
-  getValidationCTA(selectedArrivalDate, selectedDepartureDate);
+  console.log("arrivée : " + arrivalDateInput.value);
+  console.log("départ : " + departureDateInput.value);
+  getMinDepartureDate(departureDateInput, arrivalDateInput.value);
+  getMaxArrivalDate(arrivalDateInput, departureDateInput.value);
+  checkDates(arrivalDateInput.value, departureDateInput.value);
 }
 
+// Valider format datepicker
 
-const dateArrival = document.getElementById("dateArrival");
-const dateDeparture = document.getElementById("dateDeparture");
+function validateDateFormat(date) {
+  let testFormat = validDateRegex.test(date);
+  return testFormat;
+}
 
-let day = new Date;
-let todayDate = day.getFullYear() + "-" + "0" + (day.getMonth() + 1) + "-" + day.getDate();
-// console.log("aujourd'hui : " + todayDate);
-dateArrival.setAttribute("min", todayDate);
+// Validation formulaire
 
-dateArrival.addEventListener("change", onChangeGetValue);
-dateDeparture.addEventListener("change", onChangeGetValue);
+function validForm(event)
+{
+  initForm();
+  formValid = true;
+  let arrivalDateFormat = validateDateFormat(arrivalDateInput.value);
+  let departureDateFormat = validateDateFormat(departureDateInput.value);
+
+  if (arrivalDateInput.value == "")
+  {
+    errorArrival.textContent = valueMissing;
+    formValid = false;
+  } else if (!arrivalDateFormat) {
+    errorArrival.textContent = typeError;
+    formValid = false;
+  }
+
+  if (departureDateInput.value == "")
+  {
+    errorDeparture.textContent = valueMissing;
+    formValid = false;
+  } else if (!departureDateFormat) {
+    errorDeparture.textContent = typeError;
+    formValid = false;
+  }
+
+  if (!formValid)
+  {
+    errorArrival.classList.remove("hide");
+    errorDeparture.classList.remove("hide");
+    event.preventDefault();
+  }
+}
+
+// Code Principal
+
+setMinInputsToday(arrivalDateInput, departureDateInput);
+
+arrivalDateInput.addEventListener("change", onChangeGetValue);
+departureDateInput.addEventListener("change", onChangeGetValue);
+
+bookingDateForm.addEventListener("submit", validForm);

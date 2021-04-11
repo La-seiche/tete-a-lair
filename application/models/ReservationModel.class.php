@@ -98,13 +98,13 @@ class ReservationModel {
     return $roomsTab;
   }
 
-  // public function registerNewReservation($_post)
-  // {
-  //   $database = new Database();
-  //   $sql = "INSERT INTO reservations (ReservationTimestamp, RoomId, ArrivalDate, DepartureDate, NumberOfNights, PriceByNight, TaxAmount, TotalAmount) VALUES (NOW(), ?, ?, ?, ?, ?, ?, ?)";
-  //   $array = [$_post["roomId"], $_post["dateArrival"], $_post["dateDeparture"], $_post["numberOfNights"], $_post["priceADay"], $_post["taxAmount"], $_post["totalTTC"]];
-  //   $database->executeSql($sql, $array);
-  // }
+  public function registerNewBooking($roomId, $roomName, $arrival, $departure, $duration, $price, $name, $surname, $email, $phoneNumber)
+  {
+    $database = new Database();
+    $sql = "INSERT INTO bookings (RoomId, RoomName, ArrivalDate, DepartureDate, Duration, Price, Name, Surname, Email, PhoneNumber, BookingTimeStamp) VALUES (:room_id, :room_name, :arrival_date, :departure_date, :duration, :price, :name, :surname, :email, :phone_number, NOW())";
+    $array = ["room_id" => $roomId, "room_name" => $roomName, "arrival_date" => $arrival, "departure_date" => $departure, "duration" => $duration, "price" => $price, "name" => $name, "surname" => $surname, "email" => $email, "phone_number"=> $phoneNumber];
+    $database->executeSql($sql, $array);
+  }
 
 }
 
