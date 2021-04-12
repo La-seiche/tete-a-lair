@@ -15,6 +15,8 @@ let validDateRegex = /^[0-9]{4}\-[0-9]{2}\-[0-9]{2}$/;
 
 let valueMissing = "Ce champs doit être renseigné";
 let typeError = "Date au format yyyy-mm-dd";
+let pastError = "Cette date est dans le passée";
+let datesError = "La date d'arrivée' doit être avant la date de départ"
 
 let formValid;
 
@@ -103,6 +105,9 @@ function validForm(event)
   formValid = true;
   let arrivalDateFormat = validateDateFormat(arrivalDateInput.value);
   let departureDateFormat = validateDateFormat(departureDateInput.value);
+  let day = new Date;
+  let arrivalDate = new Date(dateArrival);
+  let departureDate = new Date(dateDeparture);
 
   if (arrivalDateInput.value == "")
   {
@@ -110,6 +115,12 @@ function validForm(event)
     formValid = false;
   } else if (!arrivalDateFormat) {
     errorArrival.textContent = typeError;
+    formValid = false;
+  } else if (departureDate <= arrivalDate) {
+    errorArrival.textContent = datesError;
+    formValid = false;
+  } else if (arrivalDate < day) {
+    errorArrival.textContent = pastError;
     formValid = false;
   }
 
@@ -119,6 +130,9 @@ function validForm(event)
     formValid = false;
   } else if (!departureDateFormat) {
     errorDeparture.textContent = typeError;
+    formValid = false;
+  } else if (departureDate <= day) {
+    errorDeparture.textContent = pastError;
     formValid = false;
   }
 
